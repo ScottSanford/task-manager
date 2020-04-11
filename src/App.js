@@ -1,13 +1,22 @@
 import React from 'react'
 import './App.css'
+import { Route, Switch } from 'react-router-dom'
 
 // Components
-import Header from './components/common/Header'
+import Workspace from './components/workspace/Workspace'
+import Dashboard from './components/dashboard/Dashboard'
+
+// Components
+import Header from './components/common/header/Header'
 
 function App() {
   return (
     <div className="App">
       <Header />
+      <Switch>
+        <Route exact path="/" component={Workspace} />
+        <Route exact path="/dashboard" component={Dashboard} />
+      </Switch>
     </div>
   )
 }
