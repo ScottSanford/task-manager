@@ -1,0 +1,13 @@
+.card-list {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.card-list__container {
+    background: #ccc;
+    width: 250px;
+    height: 50px;
+    margin-top: 10px;
+}
