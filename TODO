@@ -1,10 +1,10 @@
 
 Todo:
-  ☐ Make Header Component
-    - Should Include 2 nav links
-      - Dashboard
-      - Workspace
+  Make Header Component
+    Should Include 2 nav links
+      Dashboard
+      Workspace
   ☐ Make a Board Component (wrapper)
   ☐ Make a Dashboard Page Component
   ☐ Set up redux for application for managing state
-  ☐ add basic app routing
+  add basic app routing
