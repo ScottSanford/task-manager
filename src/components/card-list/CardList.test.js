@@ -22,7 +22,11 @@ describe('CardList Component', () => {
 
 	})
 
-	it('should add an action item to the list', () => {
+	// it('should add an action item to the list', () => {
+	// 	const mockCallBack = jest.fn()
 
-	})
+	// 	const wrapper = render()
+	// 	wrapper.find('.card-list__add-btn').simulate('click')
+	// 	expect(mockCallBack).toHaveBeenCalled()
+	// })
 })

@@ -1,13 +1,13 @@
-.action-item {
+.card-composer {
     background: #fff;
     border-radius: 4px;
-    height: 20px;
+    height: 40px;
     display: flex;
     margin: 5px 0;
     padding: 10px;
 }
 
-.action-item textarea {
+.card-composer textarea {
     height: 100%;
     width: 100%;
     border-style: none;
@@ -17,13 +17,13 @@
     font-size: 14px;
 }
 
-.action-item textarea:focus,
-.action-item textarea:active {
+.card-composer textarea:focus,
+.card-composer textarea:active {
     outline: 0px !important;
     -webkit-appearance: none;
     box-shadow: none !important;
 }
 
-.action-item textarea::placeholder {
+.card-composer textarea::placeholder {
     font-size: 14px;
 }

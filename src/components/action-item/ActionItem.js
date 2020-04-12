@@ -1,11 +1,10 @@
 import React from 'react'
 import './ActionItem.css'
 
-const ActionItem = () => {
-
+const ActionItem = ({ item }) => {
 	return (
 		<div className="action-item">
-			<div>Stay home and don't get Corona!</div>
+			{item.title}
 		</div>
 	)
 }

@@ -1,13 +1,20 @@
 import React, { useState } from 'react'
 import './CardList.css'
 import ActionItem from '../action-item/ActionItem'
+import CardComposer from '../card-composer/CardComposer'
 
 const CardList = ({ title }) => {
 
-	const [cardList, setCardList] = useState([])
+	const [isComposing, setIsComposing] = useState(false)
+	const [cardList, setCardList] = useState([{ title: 'Chicago Bears' }])
 
 	function handleAddActionClick() {
-		setCardList([...cardList, ActionItem])
+		setIsComposing(true)
+	}
+
+	function handleOnCardEnter(card) {
+		setIsComposing(false)
+		setCardList([...cardList, { title: card.title }])
 	}
 
 	return (
@@ -15,8 +22,9 @@ const CardList = ({ title }) => {
 			<div className="card-list__title">{title}</div>
 			<div className="card-list__container">
 				{cardList.map((item, index) => {
-					return <ActionItem key={index} {...item} />
+					return <ActionItem key={index.toString()} item={item} />
 				})}
+				{isComposing ? <CardComposer onCardEnter={handleOnCardEnter} /> : ''}
 			</div>
 			<div className="card-list__add-btn" onClick={handleAddActionClick}>+ Add a card</div>
 		</div>
