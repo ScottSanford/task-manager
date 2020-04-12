@@ -1,6 +1,19 @@
 .header {
-    height: 50px;
-    display: flex;
+    align-items: center;
     background: #1b84ee;
+    color: #fff;
+    display: flex;
+    height: 50px;
+    padding: 0 20px;
+}
+
+.header__logo {
+    margin-right: 50px;
+}
+
+.header__nav {
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 14px;
     color: #fff;
 }

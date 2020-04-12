@@ -1,15 +1,15 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './Header.css'
 
 const Header = () => {
-	const activeStyle = { color: '#F15B2A' }
+
 
 	return (
 		<nav className="header">
-			<div>Logo</div>
-			<NavLink exact to="/" activeStyle={activeStyle}>Workspace</NavLink>{" | "}
-			<NavLink to="/dashboard" activeStyle={activeStyle}>Dashboard</NavLink>
+			<div className="header__logo">Logo</div>
+			<Link to="/" className="header__nav">Workspace</Link>
+			<Link to="/dashboard" className="header__nav">Dashboard</Link>
 		</nav>
 	)
 }
