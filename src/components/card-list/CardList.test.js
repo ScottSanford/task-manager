@@ -17,4 +17,12 @@ describe('CardList Component', () => {
 		const wrapper = render({ title: 'Chicago Bears' })
 		expect(wrapper.find('.card-list__title').text()).toEqual('Chicago Bears')
 	})
+
+	it('should contain a list of action items', () => {
+
+	})
+
+	it('should add an action item to the list', () => {
+
+	})
 })
