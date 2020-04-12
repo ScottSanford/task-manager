@@ -3,10 +3,9 @@ import './CardList.css'
 import ActionItem from '../action-item/ActionItem'
 import CardComposer from '../card-composer/CardComposer'
 
-const CardList = ({ title }) => {
+const CardList = ({ title, cardList, updateCardList }) => {
 
 	const [isComposing, setIsComposing] = useState(false)
-	const [cardList, setCardList] = useState([{ title: 'Chicago Bears' }])
 
 	function handleAddActionClick() {
 		setIsComposing(true)
@@ -14,7 +13,7 @@ const CardList = ({ title }) => {
 
 	function handleOnCardEnter(card) {
 		setIsComposing(false)
-		setCardList([...cardList, { title: card.title }])
+		updateCardList([...cardList, { title: card.title }])
 	}
 
 	return (
