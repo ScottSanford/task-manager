@@ -1,18 +1,17 @@
 import React from 'react'
 import './CardComposer.css'
 
-const CardComposer = (props) => {
+const CardComposer = ({ onCardEnter }) => {
 
 	function handleEnter(event) {
 		if (event.key === 'Enter') {
-			console.log(event.target.value)
-			props.onCardEnter({ title: event.target.value })
+			onCardEnter({ title: event.target.value })
 		}
 	}
 
 	return (
 		<div className="card-composer">
-			<textarea placeholder="Enter a title for this card..." onKeyPress={handleEnter}></textarea>
+			<textarea placeholder="Enter a title for this card..." onKeyPress={handleEnter} autoFocus></textarea>
 		</div>
 	)
 }

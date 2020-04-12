@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import './Workspace.css'
 import CardList from '../card-list/CardList'
+import Backend from 'react-dnd-html5-backend'
+import { DndProvider } from 'react-dnd'
+
 
 const Workspace = () => {
 
@@ -9,11 +12,13 @@ const Workspace = () => {
 	const [cardList3, setCardList3] = useState([{ title: 'Detroit Lions' }])
 
 	return (
-		<div className="workspace">
-			<CardList title="Todo" cardList={cardList1} updateCardList={setCardList1} />
-			<CardList title="In Progress" cardList={cardList2} updateCardList={setCardList2} />
-			<CardList title="Done" cardList={cardList3} updateCardList={setCardList3} />
-		</div>
+		<DndProvider backend={Backend}>
+			<div className="workspace">
+				<CardList title="Todo" cardList={cardList1} updateCardList={setCardList1} />
+				<CardList title="In Progress" cardList={cardList2} updateCardList={setCardList2} />
+				<CardList title="Done" cardList={cardList3} updateCardList={setCardList3} />
+			</div>
+		</DndProvider>
 	)
 }
 
