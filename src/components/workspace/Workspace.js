@@ -3,10 +3,10 @@ import './Workspace.css'
 import CardList from '../card-list/CardList'
 import Backend from 'react-dnd-html5-backend'
 import { DndProvider } from 'react-dnd'
+import { connect } from 'react-redux'
 
-
-const Workspace = () => {
-
+const Workspace = (props) => {
+	console.log(props)
 	const [cardList1, setCardList1] = useState([{ title: 'Chicago Bears' }])
 	const [cardList2, setCardList2] = useState([{ title: 'Green Bay Packers' }])
 	const [cardList3, setCardList3] = useState([{ title: 'Detroit Lions' }])
@@ -22,4 +22,18 @@ const Workspace = () => {
 	)
 }
 
-export default Workspace
+
+
+function mapStateToProps(state) {
+	return {
+		lists: state.lists
+	}
+}
+
+function mapDispatchToProps() {
+	return {
+
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Workspace)
