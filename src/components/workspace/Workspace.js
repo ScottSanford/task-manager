@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Workspace.css'
 import CardList from '../card-list/CardList'
 import Backend from 'react-dnd-html5-backend'
@@ -10,12 +10,6 @@ import ListComposer from '../list-composer/ListComposer'
 
 const Workspace = ({ lists, actions }) => {
 
-	const [isComposingList, setComposingList] = useState(false)
-
-	function handleAddListClick() {
-		setComposingList(true)
-	}
-
 	const cardLists = lists.map(list => {
 		return (
 			<CardList
@@ -26,15 +20,11 @@ const Workspace = ({ lists, actions }) => {
 		)
 	})
 
-	const composingList = isComposingList
-		? <ListComposer addList={actions.addList} setComposing={setComposingList} />
-		: <div onClick={handleAddListClick}>+ Add another list</div>
-
 	return (
 		<DndProvider backend={Backend}>
 			<div className="workspace">
 				{cardLists}
-				{composingList}
+				<ListComposer addList={actions.addList} />
 			</div>
 		</DndProvider>
 	)
