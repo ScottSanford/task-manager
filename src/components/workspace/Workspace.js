@@ -27,7 +27,7 @@ const Workspace = ({ lists, actions }) => {
 	})
 
 	const composingList = isComposingList
-		? <ListComposer addList={actions.addList} />
+		? <ListComposer addList={actions.addList} setComposing={setComposingList} />
 		: <div onClick={handleAddListClick}>+ Add another list</div>
 
 	return (
