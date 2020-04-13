@@ -1,22 +1,38 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Workspace.css'
 import CardList from '../card-list/CardList'
 import Backend from 'react-dnd-html5-backend'
 import { DndProvider } from 'react-dnd'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { addCardListAction } from '../../redux/actions/listActions'
 
-const Workspace = (props) => {
-	console.log(props)
-	const [cardList1, setCardList1] = useState([{ title: 'Chicago Bears' }])
-	const [cardList2, setCardList2] = useState([{ title: 'Green Bay Packers' }])
-	const [cardList3, setCardList3] = useState([{ title: 'Detroit Lions' }])
+const Workspace = ({ lists, actions }) => {
+
+	const cardLists = lists.map(list => {
+		return (
+			<CardList
+				key={list.id}
+				title={list.title}
+				cardList={list.cards}
+				updateCardList={actions.updateCardList} />
+		)
+	})
+
+	function handleAddListClick(event) {
+		event.preventDefault()
+		actions.addList({
+			title: 'In Progress',
+			id: '123',
+			cards: []
+		})
+	}
 
 	return (
 		<DndProvider backend={Backend}>
 			<div className="workspace">
-				<CardList title="Todo" cardList={cardList1} updateCardList={setCardList1} />
-				<CardList title="In Progress" cardList={cardList2} updateCardList={setCardList2} />
-				<CardList title="Done" cardList={cardList3} updateCardList={setCardList3} />
+				{cardLists}
+				<div onClick={handleAddListClick}>+ Add another list</div>
 			</div>
 		</DndProvider>
 	)
@@ -30,9 +46,11 @@ function mapStateToProps(state) {
 	}
 }
 
-function mapDispatchToProps() {
+function mapDispatchToProps(dispatch) {
 	return {
-
+		actions: {
+			addList: bindActionCreators(addCardListAction, dispatch)
+		}
 	}
 }
 

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import lists from './courseReducer'
+import lists from './listsReducer'
 
 const rootReducer = combineReducers({
 	lists
