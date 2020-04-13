@@ -12,6 +12,10 @@ const Workspace = ({ lists, actions }) => {
 
 	const [isComposingList, setComposingList] = useState(false)
 
+	function handleAddListClick() {
+		setComposingList(true)
+	}
+
 	const cardLists = lists.map(list => {
 		return (
 			<CardList
@@ -25,16 +29,6 @@ const Workspace = ({ lists, actions }) => {
 	const composingList = isComposingList
 		? <ListComposer addList={actions.addList} />
 		: <div onClick={handleAddListClick}>+ Add another list</div>
-
-	function handleAddListClick(event) {
-		event.preventDefault()
-		setComposingList(true)
-		// actions.addList({
-		// 	title: 'In Progress',
-		// 	id: '123',
-		// 	cards: []
-		// })
-	}
 
 	return (
 		<DndProvider backend={Backend}>
