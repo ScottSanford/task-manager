@@ -30,8 +30,6 @@ const Workspace = ({ lists, actions }) => {
 	)
 }
 
-
-
 function mapStateToProps(state) {
 	return {
 		lists: state.lists

@@ -1,0 +1,13 @@
+.card-composer {
+    width: 272px;
+    background: #b4cadf;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    height: 30px;
+    transition: 0.3s;
+}
+
+.card-composer:hover {
+    background: #c0d7ec;
+}

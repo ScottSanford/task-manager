@@ -6,9 +6,16 @@ const ListComposer = ({ addList }) => {
 	const [isComposing, setComposing] = useState(false)
 	const [listName, setListName] = useState('')
 
+	function guidGenerator() {
+		const S4 = function () {
+			return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1)
+		};
+		return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4())
+	}
+
 	function handleSubmit(event) {
 		event.preventDefault()
-		addList({ title: listName, id: '123', cards: [] })
+		addList({ title: listName, id: guidGenerator(), cards: [] })
 		setListName('')
 		setComposing(false)
 	}
@@ -18,7 +25,7 @@ const ListComposer = ({ addList }) => {
 	}
 
 	const composer = !isComposing
-		? <div className="add-list" onClick={() => setComposing(true)}>+ Add another list</div>
+		? <div onClick={() => setComposing(true)}>+ Add another list</div>
 		: (
 			<>
 				<input placeholder="Enter list title..." value={listName} onChange={handleInputChange} autoFocus />
