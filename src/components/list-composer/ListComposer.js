@@ -6,6 +6,7 @@ const ListComposer = ({ addList }) => {
 	const [isComposing, setComposing] = useState(false)
 	const [listName, setListName] = useState('')
 
+	// Should come from another file but good here right now
 	function guidGenerator() {
 		const S4 = function () {
 			return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1)
@@ -15,6 +16,10 @@ const ListComposer = ({ addList }) => {
 
 	function handleSubmit(event) {
 		event.preventDefault()
+		if (!listName) {
+			return
+		}
+
 		addList({ title: listName, id: guidGenerator(), cards: [] })
 		setListName('')
 		setComposing(false)
@@ -29,8 +34,10 @@ const ListComposer = ({ addList }) => {
 		: (
 			<>
 				<input placeholder="Enter list title..." value={listName} onChange={handleInputChange} autoFocus />
-				<button type="submit" onClick={handleSubmit}>Add List</button>
-				<div onClick={() => setComposing(false)}>X</div>
+				<div className="card-composer__controls">
+					<button type="submit" onClick={handleSubmit}>Add List</button>
+					<div className="card-composer__close fa fa-times" onClick={() => setComposing(false)}></div>
+				</div>
 			</>
 		)
 
