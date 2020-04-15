@@ -5,7 +5,7 @@ import CardComposer from '../card-composer/CardComposer'
 import { useDrop } from 'react-dnd'
 
 
-const CardList = ({ title, cardList, updateCardList }) => {
+const CardList = ({ title, cardList, updateCardList, deleteCardList, listId }) => {
 
 	const [isComposing, setIsComposing] = useState(false)
 	const [collectedProps, drop] = useDrop({
@@ -30,9 +30,16 @@ const CardList = ({ title, cardList, updateCardList }) => {
 		updateCardList(list)
 	}
 
+	function handleDeleteClick() {
+		deleteCardList(listId)
+	}
+
 	return (
 		<div ref={drop} className="card-list">
-			<div className="card-list__title">{title}</div>
+			<div className="card-list__header">
+				<div className="card-list__title">{title}</div>
+				<div className="fa fa-trash" onClick={handleDeleteClick}></div>
+			</div>
 			<div className="card-list__container">
 				{cardList.map((item, index) => {
 					return <ActionItem key={index.toString()} item={item} onDragRemove={(item) => handleDragRemove(item)} />

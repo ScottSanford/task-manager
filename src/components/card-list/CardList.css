@@ -9,6 +9,12 @@
     padding: 10px 8px;
 }
 
+.card-list__header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .card-list__title {
     text-transform: uppercase;
     margin-bottom: 10px;
