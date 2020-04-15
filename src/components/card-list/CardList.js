@@ -2,13 +2,14 @@ import React, { useState } from 'react'
 import './CardList.css'
 import ActionItem from '../action-item/ActionItem'
 import CardComposer from '../card-composer/CardComposer'
+import { DropTarget } from 'react-dnd'
 import { useDrop } from 'react-dnd'
 
 
 const CardList = ({ title, cardList, updateCardList, deleteCardList, listId }) => {
 
 	const [isComposing, setIsComposing] = useState(false)
-	const [collectedProps, drop] = useDrop({
+	const [, drop] = useDrop({
 		accept: 'DRAG_CARD',
 		drop(item) {
 			updateCardList([...cardList, { title: item.title }])
@@ -51,4 +52,8 @@ const CardList = ({ title, cardList, updateCardList, deleteCardList, listId }) =
 	)
 }
 
-export default CardList
+
+
+export default DropTarget('DROP_TARGET', {}, (connect) => ({
+	connectDropTarget: connect.dropTarget()
+}))(CardList)
