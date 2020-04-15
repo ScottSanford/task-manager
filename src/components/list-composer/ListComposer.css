@@ -1,23 +1,25 @@
-.card-composer {
+.list-composer {
     width: 272px;
     background: #b4cadf;
     display: flex;
     align-items: center;
     margin-top: 10px;
     transition: 0.3s;
-    height: auto;
+    height: 20px;
+    padding: 10px;
+    border-radius: 4px;
 }
 
-.card-composer:hover {
+.list-composer:hover {
     background: #c0d7ec;
 }
 
-.card-composer form {
+.list-composer form {
     display: flex;
     flex-wrap: wrap;
 }
 
-.card-composer form input {
+.list-composer form input {
     flex: 0 0 250px;
     background: #fff;
     border: none;
@@ -30,13 +32,13 @@
     font-size: 14px;
 }
 
-.card-composer__controls {
+.list-composer__controls {
     margin-top: 5px;
     display: flex;
     align-items: center;
 }
 
-.card-composer button {
+.list-composer button {
     background: #1b84ee;
     color: #fff;
     border: none;
@@ -45,7 +47,7 @@
     padding: 10px 15px;
 }
 
-.card-composer__close {
+.list-composer__close {
     margin-left: 10px;
     font-size: 30px;
 }

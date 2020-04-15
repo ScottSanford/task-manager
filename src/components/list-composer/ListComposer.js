@@ -27,15 +27,15 @@ const ListComposer = ({ addList }) => {
 		: (
 			<>
 				<input placeholder="Enter list title..." value={listName} onChange={handleInputChange} autoFocus />
-				<div className="card-composer__controls">
+				<div className="list-composer__controls">
 					<button type="submit" onClick={handleSubmit}>Add List</button>
-					<div className="card-composer__close fa fa-times" onClick={() => setComposing(false)}></div>
+					<div className="list-composer__close fa fa-times" onClick={() => setComposing(false)}></div>
 				</div>
 			</>
 		)
 
 	return (
-		<div className="card-composer">
+		<div className="list-composer">
 			<form onSubmit={handleSubmit}>
 				{composer}
 			</form>
