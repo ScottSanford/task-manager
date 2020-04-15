@@ -21,7 +21,17 @@
 }
 
 .card-list__add-btn {
-    margin-top: 15px;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 4px;
+}
+
+.card-list__add-btn span {
+    margin: 0 5px 0 10px;
+}
+
+.card-list__add-btn:hover {
+    background: rgba(9, 30, 66, 0.08);
 }
 
 .card-list__container {

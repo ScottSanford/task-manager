@@ -52,7 +52,9 @@ const CardList = ({
 				})}
 				{isComposing ? <CardComposer onCardEnter={handleOnCardEnter} /> : ''}
 			</div>
-			<div className="card-list__add-btn" onClick={(card) => handleAddActionClick(card)}>+ Add a card</div>
+			<div className="card-list__add-btn" onClick={(card) => handleAddActionClick(card)}>
+				<span className="fa fa-plus"></span> Add a card
+			</div>
 		</div>
 	)
 }
