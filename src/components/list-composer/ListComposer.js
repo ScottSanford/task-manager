@@ -1,18 +1,11 @@
 import React, { useState } from 'react'
 import './ListComposer.css'
+import uniqueId from '../../services/unique-id'
 
 const ListComposer = ({ addList }) => {
 
 	const [isComposing, setComposing] = useState(false)
 	const [listName, setListName] = useState('')
-
-	// Should come from another file but good here right now
-	function guidGenerator() {
-		const S4 = function () {
-			return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1)
-		};
-		return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4())
-	}
 
 	function handleSubmit(event) {
 		event.preventDefault()
@@ -20,7 +13,7 @@ const ListComposer = ({ addList }) => {
 			return
 		}
 
-		addList({ title: listName, id: guidGenerator(), cards: [] })
+		addList({ title: listName, id: uniqueId(), cards: [] })
 		setListName('')
 		setComposing(false)
 	}

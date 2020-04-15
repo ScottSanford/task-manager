@@ -6,13 +6,19 @@ import { DropTarget } from 'react-dnd'
 import { useDrop } from 'react-dnd'
 
 
-const CardList = ({ title, cardList, updateCardList, deleteCardList, listId }) => {
+const CardList = ({
+	addCardToList,
+	deleteCardList,
+	cards,
+	id,
+	title,
+}) => {
 
 	const [isComposing, setIsComposing] = useState(false)
 	const [, drop] = useDrop({
 		accept: 'DRAG_CARD',
 		drop(item) {
-			updateCardList([...cardList, { title: item.title }])
+			addCardToList([...cards, { title: item.title }])
 		}
 	})
 
@@ -22,17 +28,16 @@ const CardList = ({ title, cardList, updateCardList, deleteCardList, listId }) =
 
 	function handleOnCardEnter(card) {
 		setIsComposing(false)
-		updateCardList([...cardList, { title: card.title }])
+		addCardToList(card)
 	}
 
 	function handleDragRemove(removedItem) {
-		const list = cardList.filter(item => item.title !== removedItem.title)
-		console.log(list)
-		updateCardList(list)
+		const newList = cards.filter(item => item.title !== removedItem.title)
+		addCardToList(newList)
 	}
 
 	function handleDeleteClick() {
-		deleteCardList(listId)
+		deleteCardList(id)
 	}
 
 	return (
@@ -42,12 +47,12 @@ const CardList = ({ title, cardList, updateCardList, deleteCardList, listId }) =
 				<div className="fa fa-trash" onClick={handleDeleteClick}></div>
 			</div>
 			<div className="card-list__container">
-				{cardList.map((item, index) => {
+				{cards.map((item, index) => {
 					return <ActionItem key={index.toString()} item={item} onDragRemove={(item) => handleDragRemove(item)} />
 				})}
 				{isComposing ? <CardComposer onCardEnter={handleOnCardEnter} /> : ''}
 			</div>
-			<div className="card-list__add-btn" onClick={handleAddActionClick}>+ Add a card</div>
+			<div className="card-list__add-btn" onClick={(card) => handleAddActionClick(card)}>+ Add a card</div>
 		</div>
 	)
 }

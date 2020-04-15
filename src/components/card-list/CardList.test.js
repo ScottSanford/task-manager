@@ -27,7 +27,13 @@ describe('CardList Component', () => {
 	})
 
 	it('should contain a list of action items', () => {
-		const wrapper = render({ cardList: [{}, {}, {}] })
+		const wrapper = render({
+			cardList: [
+				{ title: 'Matt Nagy' },
+				{ title: 'Allen Robinson' },
+				{ title: 'Tarik Cohen' }
+			]
+		})
 		expect(wrapper.find('.card-list__container').children()).toHaveLength(3)
 	})
 

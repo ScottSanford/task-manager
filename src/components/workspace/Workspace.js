@@ -5,7 +5,7 @@ import Backend from 'react-dnd-html5-backend'
 import { DndProvider } from 'react-dnd'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { addCardListAction, deleteCardListAction } from '../../redux/actions/listActions'
+import { addCardListAction, addCardToListAction, deleteCardListAction } from '../../redux/actions/listActions'
 import ListComposer from '../list-composer/ListComposer'
 
 const Workspace = ({ lists, actions }) => {
@@ -14,10 +14,8 @@ const Workspace = ({ lists, actions }) => {
 		return (
 			<CardList
 				key={list.id}
-				title={list.title}
-				cardList={list.cards}
-				listId={list.id}
-				updateCardList={actions.updateCardList}
+				{...list}
+				addCardToList={(card) => actions.addCardToList(card, list.id)}
 				deleteCardList={(action) => actions.deleteList(action)} />
 		)
 	})
@@ -41,6 +39,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
 	return {
 		actions: {
+			addCardToList: bindActionCreators(addCardToListAction, dispatch),
 			addList: bindActionCreators(addCardListAction, dispatch),
 			deleteList: bindActionCreators(deleteCardListAction, dispatch)
 		}
