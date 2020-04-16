@@ -1,6 +1,6 @@
 import React from 'react'
 import './CardComposer.css'
-import uniqueId from '../../services/unique-id'
+import uniqueId from '../../../services/unique-id'
 
 const CardComposer = ({ onCardEnter }) => {
 

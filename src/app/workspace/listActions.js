@@ -1,4 +1,4 @@
-import { ADD_LIST, ADD_CARD_TO_LIST, DELETE_LIST } from '../../app/actionTypes'
+import { ADD_LIST, ADD_CARD_TO_LIST, DELETE_LIST } from '../actionTypes'
 
 export function addCardListAction(payload) {
 	return { type: ADD_LIST, payload }
