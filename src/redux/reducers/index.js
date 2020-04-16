@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import lists from './listsReducer'
+import listReducer from './listsReducer'
 
 const rootReducer = combineReducers({
-	lists
+	lists: listReducer
 })
 
 export default rootReducer
