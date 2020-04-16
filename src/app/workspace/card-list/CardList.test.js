@@ -7,7 +7,7 @@ import Backend from 'react-dnd-html5-backend'
 function render(args) {
 	const defaultProps = {
 		title: '',
-		cardList: [],
+		cards: [],
 		deleteCardList: () => { }
 	}
 
@@ -28,7 +28,7 @@ describe('CardList Component', () => {
 
 	it('should contain a list of action items', () => {
 		const wrapper = render({
-			cardList: [
+			cards: [
 				{ title: 'Matt Nagy' },
 				{ title: 'Allen Robinson' },
 				{ title: 'Tarik Cohen' }
