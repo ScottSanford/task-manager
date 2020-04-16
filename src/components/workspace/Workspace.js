@@ -19,7 +19,7 @@ const Workspace = ({
 			<CardList
 				key={list.id}
 				{...list}
-				addCardToList={(card) => addCardToList(card, list.id)}
+				addCardToList={(card) => addCardToList(card, { id: list.id })}
 				deleteCardList={(action) => deleteList(action)} />
 		)
 	})

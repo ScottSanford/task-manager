@@ -18,15 +18,15 @@ export default {
 				}
 			]
 		},
-		// {
-		// 	title: 'In Progress',
-		// 	id: '0ff3ggffe',
-		// 	cards: []
-		// },
-		// {
-		// 	title: 'Done',
-		// 	id: '09fj409j3',
-		// 	cards: []
-		// },
+		{
+			title: 'In Progress',
+			id: '0ff3ggffe',
+			cards: []
+		},
+		{
+			title: 'Done',
+			id: '09fj409j3',
+			cards: []
+		},
 	],
 }
