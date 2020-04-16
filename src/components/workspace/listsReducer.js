@@ -1,5 +1,5 @@
-import { ADD_LIST, ADD_CARD_TO_LIST, DELETE_LIST } from '../actions/actionTypes'
-import initialState from './initialState'
+import { ADD_LIST, ADD_CARD_TO_LIST, DELETE_LIST } from '../../app/actionTypes'
+import initialState from '../../app/initialState'
 
 export default function listReducer(state = initialState.lists, action) {
 	switch (action.type) {
