@@ -20,7 +20,7 @@ const Workspace = ({
 				key={list.id}
 				{...list}
 				addCardToList={(card) => addCardToList(card, { id: list.id })}
-				deleteCardList={(action) => deleteList(action)} />
+				deleteCardList={(id) => deleteList(id)} />
 		)
 	})
 

@@ -40,4 +40,19 @@ describe('Lists Action Creators', () => {
 		// assert
 		expect(expectedAction).toEqual(action)
 	})
+
+	it('should create an deleteCardListAction action', () => {
+		// arrange
+		const payload = 'abc'
+		const expectedAction = {
+			type: lists.DELETE_LIST,
+			payload,
+		}
+
+		// act
+		const action = lists.deleteCardListAction(payload)
+
+		// assert
+		expect(expectedAction).toEqual(action)
+	})
 })
