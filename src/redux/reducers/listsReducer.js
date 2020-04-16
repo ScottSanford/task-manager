@@ -6,8 +6,11 @@ export default function listReducer(state = initialState.lists, action) {
 		case ADD_LIST:
 			return [...state, { ...action.list }]
 		case ADD_CARD_TO_LIST:
-			const list = state.find(list => list.id === action.id)
-			return [...list.cards, { ...action.card }]
+			return state.map(list => {
+				return list.id === action.id
+					? { ...list, cards: [...list.cards, { ...action.card }] }
+					: list
+			})
 		case DELETE_LIST:
 			return state.filter(list => list.id !== action.id)
 		default:
