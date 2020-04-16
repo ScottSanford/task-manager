@@ -1,3 +1,3 @@
-export const ADD_LIST = 'ADD_LIST'
-export const DELETE_LIST = 'DELETE_LIST'
-export const ADD_CARD_TO_LIST = 'ADD_CARD_TO_LIST'
+export const ADD_LIST = 'workspace/add-list'
+export const DELETE_LIST = 'workspace/delete-list'
+export const ADD_CARD_TO_LIST = 'list/add-card'
