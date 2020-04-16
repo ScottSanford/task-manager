@@ -18,7 +18,8 @@ const CardList = ({
 	const [, drop] = useDrop({
 		accept: 'DRAG_CARD',
 		drop(item) {
-			addCardToList([...cards, { title: item.title }])
+			addCardToList({ title: item.title })
+			console.log(item)
 		}
 	})
 

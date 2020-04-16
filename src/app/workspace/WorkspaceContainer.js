@@ -1,11 +1,11 @@
 import React from 'react'
 import './WorkspaceContainer.css'
-import CardList from '../../components/card-list/CardList'
+import CardList from './card-list/CardList'
 import Backend from 'react-dnd-html5-backend'
 import { DndProvider } from 'react-dnd'
 import { connect } from 'react-redux'
 import { addListAction, addCardToListAction, deleteCardListAction } from './lists'
-import ListComposer from '../../components/list-composer/ListComposer'
+import ListComposer from './list-composer/ListComposer'
 
 const Workspace = ({
 	addList,

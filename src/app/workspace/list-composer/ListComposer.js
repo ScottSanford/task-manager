@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './ListComposer.css'
-import uniqueId from '../../services/unique-id'
+import uniqueId from '../../../services/unique-id'
 
 const ListComposer = ({ addList }) => {
 

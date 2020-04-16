@@ -6,9 +6,9 @@
 import initialState from '../initialState'
 
 // ACTIONS
-export const ADD_LIST = 'workspace/add-list'
-export const DELETE_LIST = 'workspace/delete-list'
-export const ADD_CARD_TO_LIST = 'list/add-card'
+export const ADD_LIST = '[workspace] Add List'
+export const DELETE_LIST = '[workspace] Delete List'
+export const ADD_CARD_TO_LIST = '[list] Add Card'
 
 // ACTION CREATORS
 export function addListAction(payload) {
