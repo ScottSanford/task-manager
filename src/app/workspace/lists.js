@@ -29,14 +29,18 @@ export default function reducer(state = initialState.lists, action) {
 		case ADD_LIST:
 			return [...state, { ...action.payload }]
 		case ADD_CARD_TO_LIST:
-			return state.map(list => {
-				return list.id === action.meta.id
-					? { ...list, cards: [...list.cards, { ...action.payload }] }
-					: list
-			})
+			return addCardToList(state, action)
 		case DELETE_LIST:
 			return state.filter(list => list.id !== action.payload)
 		default:
 			return state
 	}
+}
+
+function addCardToList(state, action) {
+	return state.map(list => {
+		return list.id === action.meta.id
+			? { ...list, cards: [...list.cards, { ...action.payload }] }
+			: list
+	})
 }
