@@ -24,7 +24,7 @@ export function deleteCardListAction(payload) {
 }
 
 // REDUCER
-export default function reducer(state = initialState.lists, action) {
+export function reducer(state = initialState.lists, action) {
 	switch (action.type) {
 		case ADD_LIST:
 			return [...state, { ...action.payload }]

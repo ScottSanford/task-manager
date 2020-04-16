@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import reducer from './workspace/lists'
+import { reducer } from './workspace/lists'
 
 const rootReducer = combineReducers({
 	lists: reducer

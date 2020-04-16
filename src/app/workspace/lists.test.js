@@ -18,7 +18,7 @@ describe('Lists Action Creators', () => {
 		const action = lists.addListAction(payload)
 
 		// assert
-		expect(expectedAction).toEqual(action)
+		expect(action).toEqual(expectedAction)
 	})
 
 	it('should create an addCardToListAction action', () => {
@@ -38,7 +38,7 @@ describe('Lists Action Creators', () => {
 		const action = lists.addCardToListAction(payload, meta)
 
 		// assert
-		expect(expectedAction).toEqual(action)
+		expect(action).toEqual(expectedAction)
 	})
 
 	it('should create an deleteCardListAction action', () => {
@@ -53,6 +53,27 @@ describe('Lists Action Creators', () => {
 		const action = lists.deleteCardListAction(payload)
 
 		// assert
-		expect(expectedAction).toEqual(action)
+		expect(action).toEqual(expectedAction)
+	})
+})
+
+describe('Lists Reducer', () => {
+
+	it('should add a list when passed ADD_LIST', () => {
+		// arrange
+		const initialState = {
+			lists: [
+				{ title: 'one', id: '1', cards: [] },
+				{ title: 'two', id: '2', cards: [] },
+				{ title: 'three', id: '3', cards: [] },
+			]
+		}
+		const newList = { title: 'four', id: '4', cards: [] }
+		const action = lists.addListAction(newList)
+		// action
+		const newState = lists.reducer(initialState.lists, action)
+
+		// assert
+		expect(newState).toHaveLength(4)
 	})
 })
