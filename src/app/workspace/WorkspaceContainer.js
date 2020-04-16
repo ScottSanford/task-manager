@@ -4,7 +4,7 @@ import CardList from '../../components/card-list/CardList'
 import Backend from 'react-dnd-html5-backend'
 import { DndProvider } from 'react-dnd'
 import { connect } from 'react-redux'
-import { addCardListAction, addCardToListAction, deleteCardListAction } from './listActions'
+import { addCardListAction, addCardToListAction, deleteCardListAction } from './lists'
 import ListComposer from '../../components/list-composer/ListComposer'
 
 const Workspace = ({

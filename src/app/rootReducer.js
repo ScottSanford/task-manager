@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import listReducer from './workspace/listsReducer'
+import reducer from './workspace/lists'
 
 const rootReducer = combineReducers({
-	lists: listReducer
+	lists: reducer
 })
 
 export default rootReducer

@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 import '../../node_modules/@fortawesome/fontawesome-free/css/all.min.css'
 
 // Components
-import Header from './common/header/Header'
+import Header from '../components/header/Header'
 import Dashboard from './dashboard/Dashboard'
 import Workspace from './workspace/WorkspaceContainer'
 
