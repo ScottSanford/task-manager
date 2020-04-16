@@ -1,6 +1,7 @@
 /**
  * I'm playing around with different architecture styles.
  * This file structure uses the "ducks" pattern recommended by the Redux team.
+ * https://redux.js.org/style-guide/style-guide#structure-files-as-feature-folders-or-ducks
  */
 import initialState from '../initialState'
 
