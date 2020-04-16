@@ -11,7 +11,7 @@ export const DELETE_LIST = 'workspace/delete-list'
 export const ADD_CARD_TO_LIST = 'list/add-card'
 
 // ACTION CREATORS
-export function addCardListAction(payload) {
+export function addListAction(payload) {
 	return { type: ADD_LIST, payload }
 }
 
