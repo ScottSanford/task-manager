@@ -1,3 +1,31 @@
+.workspace-container {
+    display: flex;
+}
+
+.sidenav {
+    height: 100vh;
+    background: #f2f7fa;
+    min-width: 250px;
+}
+
+.sidenav__toggle {
+    background: #fff;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+    height: 30px;
+    border-radius: 60px;
+    position: relative;
+    width: 30px;
+    float: right;
+    left: 15px;
+}
+
+.sidenav__toggle span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
 .workspace {
     display: flex;
     align-items: flex-start;

@@ -28,9 +28,17 @@ const Workspace = ({
 
 	return (
 		<DndProvider backend={Backend}>
-			<div className="workspace">
-				{cardLists}
-				<ListComposer addList={addList} />
+			<div className="workspace-container">
+				<div className="sidenav">
+					<h2>Workspaces</h2>
+					<div className="sidenav__toggle">
+						<span className="fa fa-angle-left"></span>
+					</div>
+				</div>
+				<div className="workspace">
+					{cardLists}
+					<ListComposer addList={addList} />
+				</div>
 			</div>
 		</DndProvider>
 	)
