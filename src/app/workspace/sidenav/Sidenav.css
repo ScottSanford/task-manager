@@ -1,0 +1,26 @@
+.sidenav {
+    height: 100vh;
+    background: #f2f7fa;
+    transition: width 0.5s;
+    min-width: 250px;
+}
+
+.sidenav__toggle {
+    background: #fff;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+    height: 30px;
+    border-radius: 60px;
+    position: relative;
+    min-width: 30px;
+    max-width: 30px;
+    left: 15px;
+    top: -50px;
+    float: right;
+}
+
+.sidenav__toggle span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}

@@ -6,6 +6,7 @@ import { DndProvider } from 'react-dnd'
 import { connect } from 'react-redux'
 import { addListAction, addCardToListAction, deleteCardListAction, deleteCardFromListAction } from './lists'
 import ListComposer from './list-composer/ListComposer'
+import Sidenav from './sidenav/Sidenav'
 
 const Workspace = ({
 	addList,
@@ -29,12 +30,7 @@ const Workspace = ({
 	return (
 		<DndProvider backend={Backend}>
 			<div className="workspace-container">
-				<div className="sidenav">
-					<h2>Workspaces</h2>
-					<div className="sidenav__toggle">
-						<span className="fa fa-angle-left"></span>
-					</div>
-				</div>
+				<Sidenav />
 				<div className="workspace">
 					{cardLists}
 					<ListComposer addList={addList} />
