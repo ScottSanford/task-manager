@@ -11,6 +11,7 @@ const CardList = ({
 	deleteCardList,
 	cards,
 	id,
+	removeCardFromList,
 	title,
 }) => {
 
@@ -32,9 +33,9 @@ const CardList = ({
 		addCardToList(card)
 	}
 
-	function handleDragRemove(removedItem) {
-		const newList = cards.filter(item => item.title !== removedItem.title)
-		addCardToList(newList)
+	function handleDragRemove(card) {
+		addCardToList(card)
+		removeCardFromList(card)
 	}
 
 	function handleDeleteClick() {
