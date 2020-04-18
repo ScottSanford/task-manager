@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './CardList.css'
-import ActionItem from '../action-item/ActionItem'
+import Ticket from '../ticket/Ticket'
 import CardComposer from '../card-composer/CardComposer'
 import { DropTarget } from 'react-dnd'
 import { useDrop } from 'react-dnd'
@@ -50,7 +50,7 @@ const CardList = ({
 			</div>
 			<div className="card-list__container">
 				{cards.map((item, index) => {
-					return <ActionItem key={index.toString()} item={item} onDragRemove={(item) => handleDragRemove(item)} />
+					return <Ticket key={index.toString()} item={item} onDragRemove={(item) => handleDragRemove(item)} />
 				})}
 				{isComposing ? <CardComposer onCardEnter={handleOnCardEnter} /> : ''}
 			</div>
