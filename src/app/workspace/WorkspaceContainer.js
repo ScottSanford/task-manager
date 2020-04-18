@@ -5,7 +5,6 @@ import Backend from 'react-dnd-html5-backend'
 import { DndProvider } from 'react-dnd'
 import { connect } from 'react-redux'
 import { addListAction, addCardToListAction, deleteCardListAction, deleteCardFromListAction } from './redux/lists'
-// import ListComposer from './list-composer/ListComposer'
 import Sidenav from './sidenav/Sidenav'
 import UserAccessList from './user-access-list/UserAccessList'
 import AddButton from './add-button/AddButton'
@@ -43,7 +42,6 @@ const Workspace = ({
 					<div className="lists-container">
 						{cardLists}
 					</div>
-					{/* <ListComposer addList={addList} /> */}
 				</div>
 			</div>
 		</DndProvider>
