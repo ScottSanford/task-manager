@@ -1,4 +1,4 @@
-import initialState from '../initialState'
+import initialState from '../../initialState'
 
 // REDUCER
 export function usersReducer(state = initialState.users, action) {

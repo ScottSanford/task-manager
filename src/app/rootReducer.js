@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux'
-import { reducer } from './workspace/lists'
-import { usersReducer } from './workspace/users'
+import { listsReducer } from './workspace/redux/lists'
+import { usersReducer } from './workspace/redux/users'
+import { projectsReducer } from './workspace/redux/projects'
 
 const rootReducer = combineReducers({
-	lists: reducer,
+	projects: projectsReducer,
+	lists: listsReducer,
 	users: usersReducer,
 })
 

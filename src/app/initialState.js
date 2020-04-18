@@ -1,4 +1,9 @@
 export default {
+	projects: [
+		{ title: 'Personal', icon: 'user', id: 'bafpvij' },
+		{ title: 'Career', icon: 'briefcase', id: 'dogbvij' },
+		{ title: 'Fitness', icon: 'bicycle', id: 'catphij' },
+	],
 	users: [
 		{ firstName: 'Scott', lastName: 'Sanford', id: '123asdf' },
 		{ firstName: 'Paige', lastName: 'Sanford', id: '124asdf' },

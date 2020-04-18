@@ -4,7 +4,7 @@ import CardList from './card-list/CardList'
 import Backend from 'react-dnd-html5-backend'
 import { DndProvider } from 'react-dnd'
 import { connect } from 'react-redux'
-import { addListAction, addCardToListAction, deleteCardListAction, deleteCardFromListAction } from './lists'
+import { addListAction, addCardToListAction, deleteCardListAction, deleteCardFromListAction } from './redux/lists'
 // import ListComposer from './list-composer/ListComposer'
 import Sidenav from './sidenav/Sidenav'
 import UserAccessList from './user-access-list/UserAccessList'
@@ -15,6 +15,7 @@ const Workspace = ({
 	addCardToList,
 	deleteList,
 	lists,
+	projects,
 	removeCardFromList,
 	users
 }) => {
@@ -33,7 +34,7 @@ const Workspace = ({
 	return (
 		<DndProvider backend={Backend}>
 			<div className="workspace-container">
-				<Sidenav />
+				<Sidenav projects={projects} />
 				<div className="workspace">
 					<div className="workspace__header">
 						<UserAccessList users={users} />
@@ -51,6 +52,7 @@ const Workspace = ({
 
 function mapStateToProps(state) {
 	return {
+		projects: state.projects,
 		lists: state.lists,
 		users: state.users,
 	}

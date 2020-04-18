@@ -3,7 +3,7 @@
  * This file structure uses the "ducks" pattern recommended by the Redux team.
  * https://redux.js.org/style-guide/style-guide#structure-files-as-feature-folders-or-ducks
  */
-import initialState from '../initialState'
+import initialState from '../../initialState'
 
 // ACTIONS
 export const ADD_LIST = '[workspace] Add List'
@@ -29,7 +29,7 @@ export function deleteCardFromListAction(payload, meta) {
 }
 
 // REDUCER
-export function reducer(state = initialState.lists, action) {
+export function listsReducer(state = initialState.lists, action) {
 	switch (action.type) {
 		case ADD_LIST:
 			return [...state, { ...action.payload }]
