@@ -20,7 +20,7 @@ Clone down this repository. You will need `node` and `npm` installed globally on
 
 ## Opinions
 
-The goal of this side project is to work with React, Redux, and Jest. My time at Mediafly focused heavily using Angular+TypeScript. Being the learner I am, I wanted to venture out into the new world. I wanted to compare the 2 different frameworks and get a feel for the libraries. Here are a few of my opinions working with React
+The goal of this project is to work with React, Redux, and Jest. My time at Mediafly focused heavily using Angular+TypeScript. I wanted to compare the 2 different popular frameworks. Here are a few of my opinions working with React.
 
 Writing a web application in React is a great experience compared to Angular. Part of this is the ability to write components within function declarations as opposed to class-style components. Yes, you could write React components using class-style syntax but with React Hooks there is no need. Additionally, writing in JSX is enjoyable. I remember when it was considered taboo to not mix markup and logic into the same files, however the experience is great because it means one less file to toggle between. Also, React Hooks is fantastic and feels like a cheat code when managing state.
 
