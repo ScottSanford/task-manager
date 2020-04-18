@@ -1,0 +1,32 @@
+.users {
+    display: flex;
+}
+
+.user-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    background: #aad4f5;
+    border: 3px solid #3183c8;
+    border-radius: 50%;
+    box-sizing: content-box;
+    color: #1a4971;
+    text-transform: uppercase;
+}
+
+.user-circle:not(:last-child) {
+    margin-right: -15px;
+}
+
+.users__button {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    font-weight: 600;
+}
+
+.users__button span {
+    margin-right: 5px;
+}

@@ -1,4 +1,10 @@
 export default {
+	users: [
+		{ firstName: 'Scott', lastName: 'Sanford' },
+		{ firstName: 'Paige', lastName: 'Sanford' },
+		{ firstName: 'Oliver', lastName: 'Nugget' },
+		{ firstName: 'Teddy', lastName: 'Lion' }
+	],
 	lists: [
 		{
 			title: 'To do',

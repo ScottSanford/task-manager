@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import { addListAction, addCardToListAction, deleteCardListAction, deleteCardFromListAction } from './lists'
 // import ListComposer from './list-composer/ListComposer'
 import Sidenav from './sidenav/Sidenav'
+import UserAccessList from './user-access-list/UserAccessList'
 
 const Workspace = ({
 	addList,
@@ -14,8 +15,10 @@ const Workspace = ({
 	deleteList,
 	lists,
 	removeCardFromList,
+	users
 }) => {
 
+	console.log(users)
 	const cardLists = lists.map(list => {
 		return (
 			<CardList
@@ -33,7 +36,7 @@ const Workspace = ({
 				<Sidenav />
 				<div className="workspace">
 					<div className="workspace__header">
-						<h3>Lists</h3>
+						<UserAccessList />
 					</div>
 					<div className="lists-container">
 						{cardLists}
@@ -47,7 +50,8 @@ const Workspace = ({
 
 function mapStateToProps(state) {
 	return {
-		lists: state.lists
+		lists: state.lists,
+		users: state.users,
 	}
 }
 
