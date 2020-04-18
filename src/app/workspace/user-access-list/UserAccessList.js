@@ -4,7 +4,7 @@ import './UserAccessList.css'
 const UserAccessList = () => {
 
 	return (
-		<>
+		<div className="user-access-list">
 			<div className="users">
 				<div className="user-circle">SS</div>
 				<div className="user-circle">PS</div>
@@ -15,7 +15,7 @@ const UserAccessList = () => {
 				<span className="fa fa-plus"></span>
 				<div>New Member</div>
 			</div>
-		</>
+		</div>
 	)
 }
 

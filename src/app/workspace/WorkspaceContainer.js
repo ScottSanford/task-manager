@@ -37,6 +37,12 @@ const Workspace = ({
 				<div className="workspace">
 					<div className="workspace__header">
 						<UserAccessList />
+						<div className="add-button">
+							Add
+							<div className="add-button__arrow">
+								<span className="fa fa-angle-down"></span>
+							</div>
+						</div>
 					</div>
 					<div className="lists-container">
 						{cardLists}
