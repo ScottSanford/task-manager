@@ -3,6 +3,7 @@
 }
 
 .workspace {
+    padding: 30px;
     width: 100%;
 }
 
@@ -12,7 +13,7 @@
 
 .lists-container {
     display: grid;
-    grid-template-columns: repeat(3, minmax(272px, min-content));
+    grid-template-columns: repeat(3, minmax(272px, 1fr));
     gap: 30px;
     justify-content: center;
 }

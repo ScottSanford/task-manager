@@ -1,7 +1,7 @@
 export default {
 	lists: [
 		{
-			title: 'Todo',
+			title: 'To do',
 			id: '2ef0ijffe',
 			cards: [
 				{
