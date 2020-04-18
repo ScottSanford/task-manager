@@ -3,24 +3,47 @@
     background: #f2f7fa;
     transition: width 0.5s;
     min-width: 250px;
+    padding: 15px 10px;
 }
 
-.sidenav__toggle {
+.sidenav__title {
+    color: hsl(212, 56%, 16%);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    font-size: 22px;
+}
+
+.sidenav__title span:last-of-type {
+    margin-left: 10px;
+}
+
+.projects {
+    background: rgba(230, 238, 244, 1);
+    border-radius: 4px;
+    min-height: 50px;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+.projects__item {
     background: #fff;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
-    height: 30px;
-    border-radius: 60px;
-    position: relative;
-    min-width: 30px;
-    max-width: 30px;
-    left: 15px;
-    top: -50px;
-    float: right;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    display: flex;
+    height: fit-content;
+    margin-bottom: 10px;
+    padding: 15px 10px;
+    color: hsl(212, 18%, 35%);
+    font-size: 16px;
 }
 
-.sidenav__toggle span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+.projects__item-title {
+    font-weight: 600;
+    margin-left: 15px;
+}
+
+.project--selected {
+    background: #12283a;
+    color: #eff8ff;
 }

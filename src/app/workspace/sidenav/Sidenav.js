@@ -27,12 +27,25 @@ const Sidenav = () => {
 
 	return (
 		<>
-			{/* <SidenavIcon
-				isOpen={isSideNavOpen}
-				handleClick={toggleSidenav}
-			/> */}
 			<div className="sidenav" style={sidenavStyles}>
-				{/* {isSideNavOpen ? <h2>Workspaces</h2> : <h2>T</h2>} */}
+				<div className="sidenav__title">
+					<span className="fa fa-tasks"></span>
+					<span>Projects</span>
+				</div>
+				<div className="projects">
+					<div className="projects__item project--selected">
+						<span className="fa fa-user"></span>
+						<span className="projects__item-title">Personal</span>
+					</div>
+					<div className="projects__item">
+						<span className="fa fa-briefcase"></span>
+						<span className="projects__item-title">Career</span>
+					</div>
+					<div className="projects__item">
+						<span className="fa fa-bicycle"></span>
+						<span className="projects__item-title">Fitness</span>
+					</div>
+				</div>
 			</div>
 		</>
 	)

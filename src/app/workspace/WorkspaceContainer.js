@@ -8,6 +8,7 @@ import { addListAction, addCardToListAction, deleteCardListAction, deleteCardFro
 // import ListComposer from './list-composer/ListComposer'
 import Sidenav from './sidenav/Sidenav'
 import UserAccessList from './user-access-list/UserAccessList'
+import AddButton from './add-button/AddButton'
 
 const Workspace = ({
 	addList,
@@ -36,12 +37,7 @@ const Workspace = ({
 				<div className="workspace">
 					<div className="workspace__header">
 						<UserAccessList users={users} />
-						<div className="add-button">
-							Add
-							<div className="add-button__arrow">
-								<span className="fa fa-angle-down"></span>
-							</div>
-						</div>
+						<AddButton />
 					</div>
 					<div className="lists-container">
 						{cardLists}

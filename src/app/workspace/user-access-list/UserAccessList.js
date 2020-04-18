@@ -2,7 +2,6 @@ import React from 'react'
 import './UserAccessList.css'
 
 const UserAccessList = ({ users }) => {
-	console.log('da users', users)
 	return (
 		<div className="user-access-list">
 			<div className="users">
