@@ -1,6 +1,7 @@
 import React from 'react'
 import './Ticket.css'
 import { useDrag } from 'react-dnd'
+import Priority from './Priority'
 // import profileImg from '../../../assets/profile.png'
 
 const Ticket = ({ item, onDragRemove }) => {
@@ -13,7 +14,7 @@ const Ticket = ({ item, onDragRemove }) => {
 
 	return (
 		<div ref={dragRef} className="ticket">
-			<div className="ticket__tag"><span>Urgent</span></div>
+			<Priority level={item.priority} />
 			<div className="ticket__options"><span className="fa fa-angle-down"></span></div>
 			<div className="ticket__title">{item.title}</div>
 			<div className="ticket__created-date">12/17/1992</div>

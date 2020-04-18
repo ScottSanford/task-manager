@@ -13,19 +13,6 @@
     font-size: 12px;
 }
 
-.ticket__tag {
-    grid-column: 1 / 3;
-}
-
-.ticket__tag span {
-    background: #fce8e8;
-    border-radius: 50px;
-    color: #b72020;
-    font-size: 9px;
-    padding: 7px 15px;
-    font-weight: 600;
-}
-
 .ticket__options {
     grid-column: 3 / -1;
     justify-self: right;

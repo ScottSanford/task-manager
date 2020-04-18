@@ -7,14 +7,17 @@ export default {
 				{
 					title: 'Book flights',
 					id: 0,
+					priority: 'low',
 				},
 				{
 					title: 'Prepare for meetings',
 					id: 1,
+					priority: 'medium',
 				},
 				{
 					title: 'Get a job, bring home the bacon, party',
 					id: 2,
+					priority: 'high',
 				}
 			]
 		},
