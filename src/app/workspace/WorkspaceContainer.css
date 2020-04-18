@@ -3,9 +3,18 @@
 }
 
 .workspace {
-    display: flex;
-    align-items: flex-start;
-    margin-left: 25px;
+    width: 100%;
+}
+
+.workspace__header {
+    margin-bottom: 50px;
+}
+
+.lists-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(272px, min-content));
+    gap: 30px;
+    justify-content: center;
 }
 
 .add-list {
