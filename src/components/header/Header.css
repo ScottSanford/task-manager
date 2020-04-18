@@ -1,6 +1,6 @@
 .header {
     align-items: center;
-    background: #1b84ee;
+    background: #3183c8;
     color: #fff;
     display: flex;
     height: 50px;
@@ -9,6 +9,10 @@
 
 .header__logo {
     margin-right: 50px;
+}
+
+.header__logo img {
+    height: 60px;
 }
 
 .header__nav {

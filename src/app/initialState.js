@@ -10,9 +10,20 @@ export default {
 					priority: 'low',
 				},
 				{
-					title: 'Prepare for meetings',
-					id: 1,
+					title: 'Schedule Zoom Meeting',
+					id: 0,
 					priority: 'medium',
+				}
+			]
+		},
+		{
+			title: 'In Progress',
+			id: '0ff3ggffe',
+			cards: [
+				{
+					title: 'Practice React Redux',
+					id: 0,
+					priority: 'low',
 				},
 				{
 					title: 'Get a job, bring home the bacon, party',
@@ -22,14 +33,15 @@ export default {
 			]
 		},
 		{
-			title: 'In Progress',
-			id: '0ff3ggffe',
-			cards: []
-		},
-		{
 			title: 'Done',
 			id: '09fj409j3',
-			cards: []
+			cards: [
+				{
+					title: 'Prepare for meetings',
+					id: 1,
+					priority: 'medium',
+				}
+			]
 		},
 	],
 }

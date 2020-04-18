@@ -32,7 +32,7 @@ const Sidenav = () => {
 				handleClick={toggleSidenav}
 			/> */}
 			<div className="sidenav" style={sidenavStyles}>
-				{isSideNavOpen ? <h2>Workspaces</h2> : <h2>T</h2>}
+				{/* {isSideNavOpen ? <h2>Workspaces</h2> : <h2>T</h2>} */}
 			</div>
 		</>
 	)
