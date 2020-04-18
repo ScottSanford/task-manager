@@ -18,7 +18,6 @@ const Workspace = ({
 	users
 }) => {
 
-	console.log(users)
 	const cardLists = lists.map(list => {
 		return (
 			<CardList
@@ -36,7 +35,7 @@ const Workspace = ({
 				<Sidenav />
 				<div className="workspace">
 					<div className="workspace__header">
-						<UserAccessList />
+						<UserAccessList users={users} />
 						<div className="add-button">
 							Add
 							<div className="add-button__arrow">

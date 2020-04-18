@@ -1,9 +1,9 @@
 export default {
 	users: [
-		{ firstName: 'Scott', lastName: 'Sanford' },
-		{ firstName: 'Paige', lastName: 'Sanford' },
-		{ firstName: 'Oliver', lastName: 'Nugget' },
-		{ firstName: 'Teddy', lastName: 'Lion' }
+		{ firstName: 'Scott', lastName: 'Sanford', id: '123asdf' },
+		{ firstName: 'Paige', lastName: 'Sanford', id: '124asdf' },
+		{ firstName: 'Ryan', lastName: 'Gubricky', id: '126asdf' },
+		{ firstName: 'Lauren', lastName: 'Gubricky', id: '123ahdf' }
 	],
 	lists: [
 		{

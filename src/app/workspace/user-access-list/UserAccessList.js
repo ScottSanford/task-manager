@@ -1,15 +1,18 @@
 import React from 'react'
 import './UserAccessList.css'
 
-const UserAccessList = () => {
-
+const UserAccessList = ({ users }) => {
+	console.log('da users', users)
 	return (
 		<div className="user-access-list">
 			<div className="users">
-				<div className="user-circle">SS</div>
-				<div className="user-circle">PS</div>
-				<div className="user-circle">ON</div>
-				<div className="user-circle">LG</div>
+				{users.map(user => {
+					return (
+						<div key={user.id} className="user-circle">
+							{user.firstName[0]}{user.lastName[0]}
+						</div>
+					)
+				})}
 			</div>
 			<div className="users__button">
 				<span className="fa fa-plus"></span>

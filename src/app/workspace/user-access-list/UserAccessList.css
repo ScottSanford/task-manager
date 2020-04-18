@@ -1,5 +1,6 @@
 .user-access-list {
     display: flex;
+    align-items: center;
 }
 
 .users {
