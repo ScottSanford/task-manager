@@ -13,7 +13,7 @@ export default {
 					id: 1,
 				},
 				{
-					title: 'A new one',
+					title: 'Get a job, bring home the bacon, party',
 					id: 2,
 				}
 			]

@@ -1,6 +1,7 @@
 .ticket {
     background: #fff;
     border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     display: grid;
     gap: 30px 20px;
     grid-template-columns: repeat(3, 1fr);
@@ -8,34 +9,70 @@
     height: fit-content;
     margin-bottom: 10px;
     padding: 15px 10px;
+    color: hsl(212, 18%, 35%);
+    font-size: 12px;
 }
 
 .ticket__tag {
     grid-column: 1 / 3;
 }
 
+.ticket__tag span {
+    background: #fce8e8;
+    border-radius: 50px;
+    color: #b72020;
+    font-size: 9px;
+    padding: 7px 15px;
+    font-weight: 600;
+}
+
 .ticket__options {
     grid-column: 3 / -1;
+    justify-self: right;
 }
 
 .ticket__title {
     grid-column: 1 / 3;
     grid-row: 2;
+    font-weight: 600;
+    line-height: 1.2;
+    color: hsl(212, 56%, 16%);
+    font-size: 16px;
 }
 
 .ticket__created-date {
     grid-row: 3;
     grid-column: 1;
+    align-self: end;
+    color: currentColor;
 }
 
 .ticket__due-date {
     grid-row: 3;
     grid-column: 2;
+    display: flex;
+    align-items: baseline;
+    justify-self: flex-end;
+    color: currentColor;
+    font-weight: 600;
+}
+
+.ticket__due-date span {
+    margin-right: 5px;
 }
 
 .ticket__user-img {
     grid-row: 3;
     grid-column: 3;
+    justify-self: right;
+    align-self: end;
+}
+
+.ticket__user-img img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+    box-shadow: 1px 1px 5px #ccc;
 }
 
 .ticket textarea {
