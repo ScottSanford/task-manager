@@ -1,15 +1,13 @@
 import React from 'react'
 import './WorkspaceContainer.css'
-import CardList from './card-list/CardList'
 import Backend from 'react-dnd-html5-backend'
 import { DndProvider } from 'react-dnd'
 import { connect } from 'react-redux'
 import { addListAction, addCardToListAction, deleteCardListAction, deleteCardFromListAction } from './redux/lists'
 import Sidenav from './sidenav/Sidenav'
-import UserAccessList from './user-access-list/UserAccessList'
-import AddButton from './add-button/AddButton'
+import Workspace from './workspace/Workspace'
 
-const Workspace = ({
+const WorkspacePage = ({
 	addList,
 	addCardToList,
 	deleteList,
@@ -19,30 +17,17 @@ const Workspace = ({
 	users
 }) => {
 
-	const cardLists = lists.map(list => {
-		return (
-			<CardList
-				key={list.id}
-				{...list}
-				addCardToList={(card) => addCardToList(card, { id: list.id })}
-				removeCardFromList={(card) => removeCardFromList(card, { id: list.id })}
-				deleteCardList={(id) => deleteList(id)} />
-		)
-	})
-
 	return (
 		<DndProvider backend={Backend}>
 			<div className="workspace-container">
 				<Sidenav projects={projects} />
-				<div className="workspace">
-					<div className="workspace__header">
-						<UserAccessList users={users} />
-						<AddButton />
-					</div>
-					<div className="lists-container">
-						{cardLists}
-					</div>
-				</div>
+				<Workspace
+					users={users}
+					lists={lists}
+					addCardToList={addCardToList}
+					removeCardFromList={removeCardFromList}
+					deleteList={deleteList}
+				/>
 			</div>
 		</DndProvider>
 	)
@@ -63,4 +48,4 @@ const actionCreators = {
 	removeCardFromList: deleteCardFromListAction,
 }
 
-export default connect(mapStateToProps, actionCreators)(Workspace)
+export default connect(mapStateToProps, actionCreators)(WorkspacePage)
