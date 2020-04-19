@@ -18,6 +18,10 @@
     font-size: 16px;
 }
 
+.projects__item:hover:not(.project--selected) {
+    background: hsl(212, 32%, 93%);
+}
+
 .projects__item-title {
     font-weight: 600;
     margin-left: 15px;
