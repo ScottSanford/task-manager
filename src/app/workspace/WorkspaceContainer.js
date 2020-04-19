@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import { addListAction, addCardToListAction, deleteCardListAction, deleteCardFromListAction } from './redux/lists'
 import Sidenav from './sidenav/Sidenav'
 import Workspace from './workspace/Workspace'
+import { useParams } from 'react-router-dom'
 
 const WorkspacePage = ({
 	addList,
@@ -17,17 +18,21 @@ const WorkspacePage = ({
 	users
 }) => {
 
+	const { projectId } = useParams()
+	console.log(projectId)
 	return (
 		<DndProvider backend={Backend}>
 			<div className="workspace-container">
 				<Sidenav projects={projects} />
-				<Workspace
-					users={users}
-					lists={lists}
-					addCardToList={addCardToList}
-					removeCardFromList={removeCardFromList}
-					deleteList={deleteList}
-				/>
+				{projectId
+					? <Workspace
+						users={users}
+						lists={lists}
+						addCardToList={addCardToList}
+						removeCardFromList={removeCardFromList}
+						deleteList={deleteList}
+					/>
+					: <h2>Empty State</h2>}
 			</div>
 		</DndProvider>
 	)
