@@ -11,14 +11,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 40px;
-    width: 40px;
+    height: 35px;
+    width: 35px;
     background: #aad4f5;
     border: 3px solid #3183c8;
     border-radius: 50%;
     box-sizing: content-box;
     color: #1a4971;
     text-transform: uppercase;
+    font-size: 14px;
 }
 
 .user-circle:not(:last-child) {
