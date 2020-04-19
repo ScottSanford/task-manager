@@ -1,0 +1,33 @@
+.workspace {
+    padding: 30px;
+    width: 100%;
+}
+
+.workspace__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.lists-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(272px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.add-list {
+    padding: 5px;
+    border-radius: 4px;
+    background: hsla(0, 0%, 100%, 0.24);
+    min-height: 32px;
+    width: 272px;
+    margin: 10px;
+}
+
+.project__title {
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
