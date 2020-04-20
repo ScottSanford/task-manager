@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./img/trello.png" width="600"/>
+  <img src="./img/4_20_screenshot.png" width="600"/>
 </p>
 
 ## Task Manager (Trello Clone)
