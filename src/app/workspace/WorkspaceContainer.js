@@ -23,7 +23,7 @@ const WorkspacePage = ({
 	return (
 		<DndProvider backend={Backend}>
 			<div className="workspace-container">
-				<Sidenav projects={projects} />
+				{/* <Sidenav projects={projects} /> */}
 				{projectId
 					? <Workspace
 						users={users}

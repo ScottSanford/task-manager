@@ -1,7 +1,7 @@
 .add-button {
     align-items: baseline;
     align-self: baseline;
-    background: var(--color-primary-5);
+    background: var(--color-yellow-5);
     border-radius: 10px;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
     color: var(--color-white);
@@ -13,7 +13,7 @@
 
 .add-button__arrow {
     align-items: center;
-    background: var(--color-primary-2);
+    background: var(--color-neutral-6);
     border-radius: 5px;
     display: flex;
     height: 20px;
