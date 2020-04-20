@@ -1,17 +1,16 @@
 .sidenav {
+    box-shadow: 0 4px 2px rgba(0, 0, 0, 0.3);
     height: 100vh;
-    background: #f2f7fa;
-    transition: width 0.5s;
     min-width: 250px;
     padding: 15px 10px;
+    transition: width 0.5s;
 }
 
 .sidenav__title {
-    color: hsl(212, 56%, 16%);
-    text-transform: uppercase;
+    color: var(--color-neutral-1);
+    font-size: 22px;
     font-weight: 600;
     letter-spacing: 0.05em;
-    font-size: 22px;
 }
 
 .sidenav__title span:last-of-type {

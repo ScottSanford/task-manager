@@ -47,6 +47,14 @@
     --color-yellow-9: hsl(45, 90%, 88%);
     --color-yellow-10: hsl(45, 100%, 96%);
 
+    --color-green-1: hsl(155, 59%, 20%);
+    --color-green-2: hsl(146, 65%, 28%);
+    --color-green-3: hsl(146, 62%, 38%);
+    --color-green-4: hsl(145, 55%, 49%);
+    --color-green-5: hsl(146, 57%, 65%);
+    --color-green-6: hsl(141, 67%, 80%);
+    --color-green-7: hsl(142, 81%, 94%);
+
     --color-white: #fff;
     --color-black: #000;
 }
