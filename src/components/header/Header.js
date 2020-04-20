@@ -2,22 +2,29 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import './Header.css'
 import logo from '../../assets/logo.png'
+import profileImg from '../../assets/profile.png'
 
 const Header = () => {
 
 	return (
 		<nav className="header">
-			<div className="header__boards">
+			<NavLink className="header__boards" exact to="/" activeClassName="header--selected">
 				<span className="fa fa-clone"></span>
 				<span>Boards</span>
-			</div>
+			</NavLink>
 			<div className="header__search">
 				<span className="fa fa-search"></span>
 				<input type="text" placeholder="Search..." />
 			</div>
 			<div className="header__logo"><img alt="logo" src={logo} /></div>
-			<NavLink exact to="/" className="header__nav" activeClassName="header--selected">Workspace</NavLink>
-			<NavLink exact to="/dashboard" className="header__nav" activeClassName="header--selected">Dashboard</NavLink>
+			<div className="header__user">
+				<img className="header__user-img" alt="profile" src={profileImg} />
+				<span className="header__user-name">Hello, Scott!</span>
+				<span className="fa fa-bell"></span>
+			</div>
+			<NavLink exact to="/dashboard" className="header__menu" activeClassName="header--selected">
+				<span className="fa fa-bars"></span>
+			</NavLink>
 		</nav>
 	)
 }
