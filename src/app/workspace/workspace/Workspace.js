@@ -3,6 +3,7 @@ import './Workspace.css'
 import UserAccessList from '../user-access-list/UserAccessList'
 import AddButton from '../add-button/AddButton'
 import CardList from '../card-list/CardList'
+import Header from '../../../components/header/Header'
 
 const Workspace = ({
 	users,
@@ -23,16 +24,19 @@ const Workspace = ({
 	})
 
 	return (
-		<div className="workspace">
-			<div className="workspace__header">
-				<div>
-					<div className="project__title">Personal</div>
-					<UserAccessList users={users} />
+		<div className="workspace-page">
+			<Header />
+			<div className="workspace">
+				<div className="workspace__header">
+					<div>
+						<div className="project__title">Personal</div>
+						<UserAccessList users={users} />
+					</div>
+					<AddButton />
 				</div>
-				<AddButton />
-			</div>
-			<div className="lists-container">
-				{cardLists}
+				<div className="lists-container">
+					{cardLists}
+				</div>
 			</div>
 		</div>
 	)

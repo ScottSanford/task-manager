@@ -8,7 +8,7 @@ const Header = () => {
 
 	return (
 		<nav className="header">
-			<NavLink className="header__boards" exact to="/" activeClassName="header--selected">
+			<NavLink className="header__boards" exact to="/workspace/test" activeClassName="header--selected">
 				<span className="fa fa-clone"></span>
 				<span>Boards</span>
 			</NavLink>
