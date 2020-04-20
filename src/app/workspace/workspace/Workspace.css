@@ -1,24 +1,24 @@
 .workspace {
-    padding: 30px;
+    padding: 3rem;
     width: 100%;
 }
 
 .workspace__header {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: space-between;
-    margin-bottom: 50px;
+    margin-bottom: 5rem;
 }
 
 .lists-container {
     display: grid;
-    grid-template-columns: repeat(3, minmax(272px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(3, minmax(30rem, 1fr));
+    gap: 3rem;
     justify-content: center;
 }
 
 .project__title {
-    font-size: 25px;
+    font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 }

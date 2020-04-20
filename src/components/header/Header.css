@@ -1,23 +1,33 @@
 .header {
     align-items: center;
-    background: #3183c8;
-    color: #fff;
+    background: var(--color-primary-5);
+    color: var(--color-white);
     display: flex;
-    height: 50px;
-    padding: 0 20px;
+    height: 6rem;
+    padding: 0 2rem;
 }
 
 .header__logo {
-    margin-right: 50px;
+    margin-right: 5rem;
 }
 
 .header__logo img {
-    height: 60px;
+    height: 6rem;
 }
 
 .header__nav {
     text-decoration: none;
-    margin-right: 20px;
-    font-size: 14px;
-    color: #fff;
+    margin-right: 2rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-neutral-10);
+    transition: color 0.15s;
+}
+
+.header__nav:hover {
+    color: var(--color-neutral-8);
+}
+
+.header--selected {
+    color: var(--color-neutral-7);
 }

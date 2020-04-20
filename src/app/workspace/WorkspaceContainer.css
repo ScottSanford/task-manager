@@ -7,13 +7,6 @@
     width: 100%;
 }
 
-.workspace__header {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 50px;
-}
-
 .lists-container {
     display: grid;
     grid-template-columns: repeat(3, minmax(272px, 1fr));
