@@ -1,6 +1,6 @@
 .user-access-list {
-    display: flex;
     align-items: center;
+    display: flex;
 }
 
 .users {
@@ -8,39 +8,40 @@
 }
 
 .user-circle {
-    display: flex;
     align-items: center;
-    justify-content: center;
-    height: 35px;
-    width: 35px;
-    background: #aad4f5;
-    border: 3px solid #3183c8;
+    background: var(--color-primary-9);
+    border: 3px solid var(--color-primary-3);
     border-radius: 50%;
     box-sizing: content-box;
-    color: #1a4971;
+    color: var(--color-primary-5);
+    display: flex;
+    font-size: 1.4rem;
+    font-weight: 600;
+    height: 3.5rem;
+    justify-content: center;
     text-transform: uppercase;
-    font-size: 14px;
+    width: 3.5rem;
 }
 
 .user-circle:not(:last-child) {
-    margin-right: -15px;
+    margin-right: -1.5rem;
 }
 
 .users__button {
-    display: flex;
     align-items: center;
-    margin-left: 15px;
-    font-weight: 700;
+    border-radius: 1rem;
     cursor: pointer;
-    border-radius: 10px;
-    padding: 10px 15px;
+    display: flex;
+    font-size: 1.4rem;
+    font-weight: 700;
+    padding: 1rem 1.5rem;
     height: fit-content;
+    margin-left: 15px;
     transition: background 0.25s;
-    color: hsl(212, 56%, 16%);
 }
 
 .users__button:hover {
-    background: hsl(212, 32%, 93%);
+    background: var(--color-neutral-8);
 }
 
 .users__button span {
