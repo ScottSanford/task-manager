@@ -19,7 +19,7 @@ const WorkspacePage = ({
 }) => {
 
 	const { projectId } = useParams()
-	console.log(projectId)
+
 	return (
 		<DndProvider backend={Backend}>
 			<div className="workspace-container">
