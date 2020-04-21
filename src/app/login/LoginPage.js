@@ -10,15 +10,21 @@ const LoginPage = () => {
 			<div className="loginPage__left">
 				<img className="loginPage__logo" alt="logo" src={logo} />
 				<form className="loginPage__form">
-					<div>
-						<span className="fa fa-user"></span>
+					<div className="loginPage__form-input">
+						<div className="loginPage__form-icon">
+							<span className="fa fa-user"></span>
+						</div>
 						<input type="text" placeholder="Username" />
 					</div>
-					<div>
-						<span className="fa fa-lock"></span>
+					<div className="loginPage__form-input">
+						<div className="loginPage__form-icon">
+							<span className="fa fa-key"></span>
+						</div>
 						<input type="text" placeholder="Password" />
 					</div>
-					<div>Login</div>
+					<div className="loginPage__submit">
+						<button className="loginPage__button">Login</button>
+					</div>
 				</form>
 			</div>
 			<div className="loginPage__right">

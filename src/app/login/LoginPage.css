@@ -9,7 +9,7 @@
 }
 
 .loginPage__left {
-    margin: 10rem;
+    margin: 8rem;
 }
 
 .loginPage__logo {
@@ -17,7 +17,54 @@
 }
 
 .loginPage__form {
-    margin-top: 5rem;
+    margin-top: 10rem;
+}
+
+.loginPage__form-input {
+    border: 1px solid var(--color-neutral-9);
+    color: var(--color-neutral-9);
+    font-size: 2rem;
+    border-radius: 0px;
+    margin-bottom: 15px;
+    display: grid;
+    grid-template-columns: 50px 2fr;
+}
+
+.loginPage__form-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-right: 1px solid currentColor;
+}
+
+.loginPage__form-input input {
+    border: none;
+    margin-left: 1rem;
+    font-size: 1.4rem;
+}
+
+.loginPage__form-input input:focus {
+    outline: none;
+}
+
+.loginPage__submit {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.loginPage__button {
+    background: var(--color-primary-5);
+    border: none;
+    box-shadow: 0 4px 6px hsla(0, 0%, 0%, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    font-weight: 700;
+    color: var(--color-neutral-10);
 }
 
 .loginPage__right {
