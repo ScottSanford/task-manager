@@ -2,6 +2,7 @@ import React from 'react'
 import './LoginPage.css'
 import logo from '../../assets/logo.png'
 import video from '../../assets/mountains2.mp4'
+import { Link } from 'react-router-dom'
 
 const LoginPage = () => {
 
@@ -22,9 +23,9 @@ const LoginPage = () => {
 						</div>
 						<input type="text" placeholder="Password" />
 					</div>
-					<div className="loginPage__submit">
+					<Link to="/workspace/dabears" className="loginPage__submit">
 						<button className="loginPage__button">Login</button>
-					</div>
+					</Link>
 				</form>
 			</div>
 			<div className="loginPage__right">
@@ -32,9 +33,6 @@ const LoginPage = () => {
 					<source src={video} type="video/mp4" />
 				</video>
 				<div className="bkgVideo__content">
-					<div className="donutcircle__container">
-						<div className="donutcircle"></div>
-					</div>
 					<div className="loginPage__play-btn">
 						<span className="fa fa-play"></span>
 					</div>
