@@ -1,4 +1,7 @@
 <p align="center">
+  <img src="./img/screenshot.png" width="600"/>
+</p>
+<p align="center">
   <img src="./img/4_20_screenshot.png" width="600"/>
 </p>
 
