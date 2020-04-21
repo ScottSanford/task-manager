@@ -1,14 +1,81 @@
 .loginPage {
     background: var(--color-white);
     display: grid;
-    grid-template-columns: 2fr 3fr;
+    grid-template-columns: 1fr 2fr;
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     height: 100vh;
 }
 
+.loginPage__left {
+    margin: 10rem;
+}
+
 .loginPage__logo {
     height: 8rem;
-    margin: 10rem;
+}
+
+.loginPage__form {
+    margin-top: 5rem;
+}
+
+.loginPage__right {
+    align-items: center;
+    background: var(--color-green-3);
+    display: flex;
+    grid-row: 1 / -1;
+    grid-column: 2 / -1;
+    position: relative;
+    padding: 10rem;
+    overflow: hidden;
+}
+
+.bkgVideo {
+    height: 100%;
+    left: 0;
+    opacity: 0.65;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+}
+
+.bkgVideo__content {
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+}
+
+.loginPage__play-btn {
+    align-items: center;
+    background: var(--color-yellow-5);
+    border-radius: 50%;
+    color: var(--color-white);
+    display: flex;
+    height: 5rem;
+    justify-content: center;
+    margin-top: 20rem;
+    width: 5rem;
+    font-size: 1.4rem;
+}
+
+.loginPage__title {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--color-neutral-10);
+    margin-top: 4rem;
+    text-shadow: 0 0 5rem var(--color-white);
+}
+
+.donutcircle__container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.donutcircle {
+    border: 1rem solid var(--color-yellow-5);
+    border-radius: 50%;
+    height: 5rem;
+    width: 5rem;
+    margin-left: 35rem;
 }

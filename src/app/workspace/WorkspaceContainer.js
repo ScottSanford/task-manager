@@ -4,15 +4,12 @@ import Backend from 'react-dnd-html5-backend'
 import { DndProvider } from 'react-dnd'
 import { connect } from 'react-redux'
 import { addListAction, addCardToListAction, deleteCardListAction, deleteCardFromListAction } from './redux/lists'
-import Sidenav from './sidenav/Sidenav'
 import Workspace from './workspace/Workspace'
 
 const WorkspacePage = ({
-	addList,
 	addCardToList,
 	deleteList,
 	lists,
-	projects,
 	removeCardFromList,
 	users
 }) => {
@@ -20,7 +17,6 @@ const WorkspacePage = ({
 	return (
 		<DndProvider backend={Backend}>
 			<div className="workspace-container">
-				{/* <Sidenav projects={projects} /> */}
 				<Workspace
 					users={users}
 					lists={lists}
@@ -35,7 +31,6 @@ const WorkspacePage = ({
 
 function mapStateToProps(state) {
 	return {
-		projects: state.projects,
 		lists: state.lists,
 		users: state.users,
 	}
