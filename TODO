@@ -1,6 +1,13 @@
 
-Todo:
-  ☐ Make a Dashboard Page Component
-  ☐ Set up redux for application for managing state
-  ☐ Use :root CSS variables for colors (hsl values, borders, margins, etc), 
+Phase 1 (4/24 release):
+  Set up redux for application for managing state
+  Use :root CSS variables for colors (hsl values, borders, margins, etc), 
   ☐ Add media queries to support Mobile First Design
+  ☐ Get Basic functionality working
+  ☐ All tests should pass
+  ☐ Clean up Projects UI/UX
+  ☐ Clean up Login Page to use Reusable components
+  ☐ Deploy to Netlify
+  
+Phase II Release (5/1):
+  ☐ Make a Dashboard Page Component

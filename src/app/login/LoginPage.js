@@ -36,7 +36,7 @@ const LoginPage = () => {
 				</video>
 				<div className="bkgVideo__content">
 					<div className="loginPage__play-btn">
-						<span className="fa fa-play"></span>
+						<span className="fa fa-map"></span>
 					</div>
 					<div className="loginPage__title">Plan Your Adventure</div>
 					<span className="loginPage__subtext">Lorem Ipsum Dolor Sit Amet</span>
