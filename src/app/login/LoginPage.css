@@ -137,7 +137,7 @@
     font-weight: 500;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
     .loginPage__right {
         padding: 7rem;
     }
@@ -163,7 +163,8 @@
     .bkgVideo__content {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-end;
+        margin-bottom: 13rem;
     }
 
     .loginPage__title {
@@ -215,5 +216,9 @@
     .loginPage__play-btn {
         height: 4rem;
         width: 4rem;
+    }
+
+    .loginPage__button {
+        width: 100%;
     }
 }
