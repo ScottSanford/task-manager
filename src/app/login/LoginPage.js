@@ -10,6 +10,7 @@ const LoginPage = () => {
 		<div className="loginPage">
 			<div className="loginPage__left">
 				<img className="loginPage__logo" alt="logo" src={logo} />
+
 				<form className="loginPage__form">
 					<div className="loginPage__form-input">
 						<div className="loginPage__form-icon">
@@ -27,6 +28,7 @@ const LoginPage = () => {
 						<button className="loginPage__button">Login</button>
 					</Link>
 				</form>
+
 			</div>
 			<div className="loginPage__right">
 				<video className="bkgVideo" autoPlay muted loop>
