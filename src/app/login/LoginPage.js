@@ -1,7 +1,7 @@
 import React from 'react'
 import './LoginPage.css'
 import logo from '../../assets/logo.png'
-import video from '../../assets/mountains.mp4'
+import video from '../../assets/mountains2.mp4'
 
 const LoginPage = () => {
 
@@ -33,6 +33,7 @@ const LoginPage = () => {
 						<span className="fa fa-play"></span>
 					</div>
 					<div className="loginPage__title">Plan Your Adventure</div>
+					<span className="loginPage__subtext">Lorem Ipsum Dolor Sit Amet</span>
 				</div>
 			</div>
 		</div>

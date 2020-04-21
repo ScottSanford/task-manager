@@ -54,7 +54,7 @@
     display: flex;
     height: 5rem;
     justify-content: center;
-    margin-top: 20rem;
+    margin-top: 25rem;
     width: 5rem;
     font-size: 1.4rem;
 }
@@ -63,8 +63,18 @@
     font-size: 4rem;
     font-weight: 700;
     color: var(--color-neutral-10);
-    margin-top: 4rem;
-    text-shadow: 0 0 5rem var(--color-white);
+    margin-top: 2rem;
+    /* text-shadow: 0 0 5rem var(--color-white); */
+}
+
+.loginPage__subtext {
+    background: var(--color-green-8);
+    color: var(--color-neutral-1);
+    font-size: 1.6rem;
+    padding: 0.25rem 0.5rem;
+    position: relative;
+    top: 7px;
+    font-weight: 500;
 }
 
 .donutcircle__container {
