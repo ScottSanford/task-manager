@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './LoginForm.css'
 import { useHistory } from 'react-router-dom'
+import TextInput from './TextInput'
 
 const LoginForm = () => {
 
@@ -73,30 +74,19 @@ const LoginForm = () => {
 
 	return (
 		<form className="loginPage__form" onSubmit={handleSubmit}>
-			<div className="loginPage__form-input">
-				<div className="loginPage__form-icon">
-					<span className="fa fa-user" style={usernameIcon}></span>
-				</div>
-				<input
-					type="text"
-					value={username}
-					placeholder="Username"
-					onChange={handleUsernameChange}
-				/>
-			</div>
+			<TextInput
+				value={username}
+				iconStyle={usernameIcon}
+				onChange={handleUsernameChange}
+			/>
 			{errors.username && <FormValidation type="username" error={errors.username} />}
-			<div className="loginPage__form-input">
-				<div className="loginPage__form-icon">
-					<span className="fa fa-key" style={passwordIcon}></span>
-				</div>
-				<input
-					type="password"
-					value={password}
-					placeholder="Password"
-					onChange={handlePasswordChange} />
-			</div>
+			<TextInput
+				type="password"
+				value={password}
+				iconStyle={passwordIcon}
+				onChange={handlePasswordChange}
+			/>
 			{errors.password && <FormValidation type="password" error={errors.password} />}
-
 			<div className="loginPage__submit">
 				<button className="loginPage__button" type="submit">Login</button>
 			</div>
