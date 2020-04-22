@@ -2,11 +2,6 @@ import React, { useState } from 'react'
 import './LoginForm.css'
 import { useHistory } from 'react-router-dom'
 
-function validateEmail(email) {
-	const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-	return re.test(String(email).toLowerCase())
-}
-
 const LoginForm = () => {
 
 	const history = useHistory()
@@ -16,6 +11,7 @@ const LoginForm = () => {
 
 	const [errors, setErrors] = useState({})
 	const [usernameIcon, setUsernameIcon] = useState({ color: 'var(--color-neutral-9)' })
+	const [passwordIcon, setPasswordIcon] = useState({ color: 'var(--color-neutral-9)' })
 
 	const handleUsernameChange = event => setUsername(event.target.value)
 	const handlePasswordChange = event => setPassword(event.target.value)
@@ -24,6 +20,7 @@ const LoginForm = () => {
 
 		if (!formIsValid()) {
 			setUsernameIcon({ color: 'var(--color-red-6)' })
+			setPasswordIcon({ color: 'var(--color-red-6)' })
 			return
 		}
 
@@ -56,7 +53,7 @@ const LoginForm = () => {
 			{errors.username && <div className="error-validation"><span className="error-emoji" role="img" aria-label="">😩</span> {errors.username}</div>}
 			<div className="loginPage__form-input">
 				<div className="loginPage__form-icon">
-					<span className="fa fa-key"></span>
+					<span className="fa fa-key" style={passwordIcon}></span>
 				</div>
 				<input
 					type="password"
@@ -71,6 +68,11 @@ const LoginForm = () => {
 			</div>
 		</form>
 	)
+}
+
+function validateEmail(email) {
+	const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+	return re.test(String(email).toLowerCase())
 }
 
 export default LoginForm
