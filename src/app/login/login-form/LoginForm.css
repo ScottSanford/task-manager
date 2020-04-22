@@ -64,6 +64,23 @@
     box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.2);
 }
 
+.error-validation {
+    background: var(--color-red-9);
+    color: var(--color-red-3);
+    padding: 1rem 2rem;
+    width: 100%;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+}
+
+.error-emoji {
+    font-size: 1.8rem;
+    margin-right: 5px;
+}
+
 @media only screen and (max-width: 700px) {
     .loginPage__form {
         margin-top: 3rem;

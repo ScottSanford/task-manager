@@ -13,15 +13,31 @@ const LoginForm = () => {
 
 	const [username, setUsername] = useState('')
 	const [password, setPassword] = useState('')
+
+	const [errors, setErrors] = useState({})
 	const [usernameIcon, setUsernameIcon] = useState({ color: 'var(--color-neutral-9)' })
 
 	const handleUsernameChange = event => setUsername(event.target.value)
 	const handlePasswordChange = event => setPassword(event.target.value)
 	const handleSubmit = event => {
 		event.preventDefault()
-		if (username === 'test@test.com' && password === 'Chicago85') {
-			history.push('/workspace/chicago')
+
+		if (!formIsValid()) {
+			setUsernameIcon({ color: 'var(--color-red-6)' })
+			return
 		}
+
+		history.push('/workspace/chicago')
+	}
+
+	const formIsValid = () => {
+		const errors = {}
+
+		if (!validateEmail(username)) errors.username = 'Email is not valid.'
+		if (!password) errors.password = 'Password is required.'
+
+		setErrors(errors)
+		return Object.keys(errors).length === 0
 	}
 
 	return (
@@ -37,6 +53,7 @@ const LoginForm = () => {
 					onChange={handleUsernameChange}
 				/>
 			</div>
+			{errors.username && <div className="error-validation"><span className="error-emoji" role="img" aria-label="">😩</span> {errors.username}</div>}
 			<div className="loginPage__form-input">
 				<div className="loginPage__form-icon">
 					<span className="fa fa-key"></span>
@@ -47,9 +64,11 @@ const LoginForm = () => {
 					placeholder="Password"
 					onChange={handlePasswordChange} />
 			</div>
-			{/* <Link to="/workspace/dabears" className="loginPage__submit"> */}
-			<button className="loginPage__button" type="submit">Login</button>
-			{/* </Link> */}
+			{errors.password && <div className="error-validation"><span className="error-emoji" role="img" aria-label="">🤫</span> {errors.password}</div>}
+
+			<div className="loginPage__submit">
+				<button className="loginPage__button" type="submit">Login</button>
+			</div>
 		</form>
 	)
 }
