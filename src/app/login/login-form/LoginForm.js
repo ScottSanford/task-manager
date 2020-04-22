@@ -4,17 +4,49 @@ import { useHistory } from 'react-router-dom'
 
 const LoginForm = () => {
 
+	// React Router DOM
 	const history = useHistory()
 
+	// Form State
 	const [username, setUsername] = useState('')
 	const [password, setPassword] = useState('')
-
 	const [errors, setErrors] = useState({})
+
+	// Form Styles
 	const [usernameIcon, setUsernameIcon] = useState({ color: 'var(--color-neutral-9)' })
 	const [passwordIcon, setPasswordIcon] = useState({ color: 'var(--color-neutral-9)' })
 
-	const handleUsernameChange = event => setUsername(event.target.value)
-	const handlePasswordChange = event => setPassword(event.target.value)
+	// Event Handlers for Form
+	const handleUsernameChange = event => {
+		const { value } = event.target
+
+		setUsername(value)
+
+		/**
+		 * Simple email validation
+		 * In a real applcation, validation would happen on the backend.
+		 */
+		if (errors && validateEmail(value)) {
+			setErrors({ ...errors, username: '' })
+			setUsernameIcon({ color: 'var(--color-green-6)' })
+		}
+	}
+
+	const handlePasswordChange = event => {
+		const { value } = event.target
+
+		setPassword(value)
+
+		/**
+		 * Simple password validation
+		 * In a real applcation, validation would happen on the backend.
+		 */
+		if (errors && value.length >= 5) {
+			setErrors({ ...errors, password: '' })
+			setPasswordIcon({ color: 'var(--color-neutral-9)' })
+		}
+	}
+
 	const handleSubmit = event => {
 		event.preventDefault()
 
@@ -24,9 +56,11 @@ const LoginForm = () => {
 			return
 		}
 
+		// Navigate to Workspace Page
 		history.push('/workspace/chicago')
 	}
 
+	// Validate form
 	const formIsValid = () => {
 		const errors = {}
 
@@ -50,7 +84,7 @@ const LoginForm = () => {
 					onChange={handleUsernameChange}
 				/>
 			</div>
-			{errors.username && <div className="error-validation"><span className="error-emoji" role="img" aria-label="">😩</span> {errors.username}</div>}
+			{errors.username && <FormValidation type="username" error={errors.username} />}
 			<div className="loginPage__form-input">
 				<div className="loginPage__form-icon">
 					<span className="fa fa-key" style={passwordIcon}></span>
@@ -61,12 +95,23 @@ const LoginForm = () => {
 					placeholder="Password"
 					onChange={handlePasswordChange} />
 			</div>
-			{errors.password && <div className="error-validation"><span className="error-emoji" role="img" aria-label="">🤫</span> {errors.password}</div>}
+			{errors.password && <FormValidation type="password" error={errors.password} />}
 
 			<div className="loginPage__submit">
 				<button className="loginPage__button" type="submit">Login</button>
 			</div>
 		</form>
+	)
+}
+
+const FormValidation = ({ type, error }) => {
+
+	const validEmojiFace = type === 'username'
+		? <span className="error-emoji" role="img" aria-label="">😩</span>
+		: <span className="error-emoji" role="img" aria-label="">🤫</span>
+
+	return (
+		<div className="error-validation">{validEmojiFace} {error}</div>
 	)
 }
 
