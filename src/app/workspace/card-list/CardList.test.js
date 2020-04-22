@@ -40,7 +40,7 @@ describe('CardList Component', () => {
 	it('should add an action item to the list', () => {
 		const mockCallBack = jest.fn()
 		const wrapper = render({ deleteCardList: mockCallBack })
-		wrapper.find('.fa-trash').simulate('click')
+		wrapper.find('.fa-ellipsis-h').simulate('click')
 		expect(mockCallBack).toHaveBeenCalled()
 	})
 })

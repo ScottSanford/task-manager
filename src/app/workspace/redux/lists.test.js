@@ -71,7 +71,7 @@ describe('Lists Reducer', () => {
 		const newList = { title: 'four', id: '4', cards: [] }
 		const action = lists.addListAction(newList)
 		// action
-		const newState = lists.reducer(initialState.lists, action)
+		const newState = lists.listsReducer(initialState.lists, action)
 
 		// assert
 		expect(newState).toHaveLength(4)
