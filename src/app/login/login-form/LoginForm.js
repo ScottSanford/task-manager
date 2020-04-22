@@ -76,12 +76,14 @@ const LoginForm = () => {
 		<form className="loginPage__form" onSubmit={handleSubmit}>
 			<TextInput
 				value={username}
+				placeholder="Username"
 				iconStyle={usernameIcon}
 				onChange={handleUsernameChange}
 			/>
 			{errors.username && <FormValidation type="username" error={errors.username} />}
 			<TextInput
 				type="password"
+				placeholder="Password"
 				value={password}
 				iconStyle={passwordIcon}
 				onChange={handlePasswordChange}

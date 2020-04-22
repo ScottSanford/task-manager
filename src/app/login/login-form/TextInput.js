@@ -3,9 +3,10 @@ import './TextInput.css'
 
 const TextInput = ({
 	iconStyle,
-	value,
+	onChange,
+	placeholder,
 	type = 'text',
-	onChange
+	value,
 }) => {
 	return (
 		<div className="TextInput">
@@ -13,9 +14,10 @@ const TextInput = ({
 				<span className="fa fa-user" style={iconStyle}></span>
 			</div>
 			<input
+				className="TextInput__Input"
 				type={type}
 				value={value}
-				placeholder="Username"
+				placeholder={placeholder}
 				onChange={onChange}
 			/>
 		</div>
