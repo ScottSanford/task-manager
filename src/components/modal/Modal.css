@@ -88,21 +88,26 @@
 .modal__footer {
     display: flex;
     justify-content: flex-end;
-    margin-top: 3rem;
+    margin-top: 5rem;
 }
 
 .cancel-button {
     align-items: center;
-    background: var(--color-neutral-6);
+    border: 1px solid var(--color-neutral-6);
     border-radius: 5px;
-    border: none;
     display: flex;
     justify-content: center;
     padding: 1rem 1.5rem;
     text-transform: uppercase;
     font-weight: 700;
-    color: var(--color-neutral-10);
+    color: var(--color-neutral-5);
     margin-right: 1rem;
+    transition: all 0.25s;
+}
+
+.cancel-button:hover {
+    background: var(--color-neutral-6);
+    color: var(--color-neutral-10);
 }
 
 .save-button {

@@ -1,15 +1,20 @@
 import React, { useState } from 'react'
 import './Modal.css'
 
-const Modal = ({ show, onClose, data }) => {
-	const [ticketPriority, setItemPriority] = useState(data.priority)
+const Modal = ({
+	data,
+	onClose,
+	onSave,
+	show,
+}) => {
+	const [item, setItem] = useState({ ...data })
 
 	if (!show) {
 		return null
 	}
 
 	const handlePriority = (priority) => {
-		setItemPriority(priority)
+		setItem({ ...data, priority })
 	}
 
 	return (
@@ -23,15 +28,15 @@ const Modal = ({ show, onClose, data }) => {
 					<div className="item-meta">
 						<div className="item-meta-title">Select Priority</div>
 						<div className="item-priority">
-							<div className="priority-type priority-low" style={{ border: ticketPriority === 'low' ? '2px solid var(--color-green-1)' : '' }} onClick={() => handlePriority('low')}>Low</div>
-							<div className="priority-type priority-medium" style={{ border: ticketPriority === 'medium' ? '2px solid var(--color-yellow-5)' : '' }} onClick={() => handlePriority('medium')}>Medium</div>
-							<div className="priority-type priority-high" style={{ border: ticketPriority === 'high' ? '2px solid var(--color-red-1)' : '' }} onClick={() => handlePriority('high')}>High</div>
+							<div className="priority-type priority-low" style={{ border: item.priority === 'low' ? '2px solid var(--color-green-5)' : '' }} onClick={() => handlePriority('low')}>Low</div>
+							<div className="priority-type priority-medium" style={{ border: item.priority === 'medium' ? '2px solid var(--color-yellow-5)' : '' }} onClick={() => handlePriority('medium')}>Medium</div>
+							<div className="priority-type priority-high" style={{ border: item.priority === 'high' ? '2px solid var(--color-red-5)' : '' }} onClick={() => handlePriority('high')}>High</div>
 						</div>
 					</div>
 				</div>
 				<div className="modal__footer">
-					<button className="cancel-button" onClick={onClose}>Cancel</button>
-					<button className="save-button">Save</button>
+					<button className="cancel-button" onClick={() => onClose()}>Cancel</button>
+					<button className="save-button" onClick={() => onSave(item)}>Save</button>
 				</div>
 			</div>
 		</>

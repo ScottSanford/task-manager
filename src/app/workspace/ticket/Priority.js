@@ -1,6 +1,5 @@
 import React from 'react'
 import './Priority.css'
-import _ from 'lodash'
 
 const Priority = ({ level }) => {
 

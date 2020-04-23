@@ -29,12 +29,13 @@ const Workspace = ({
 	})
 
 	const handleTicketModal = (item) => {
-		// setModalTicketMarkup(<div>{item.title}</div>)
 		setModalData(item)
 		setShowModal(true)
 	}
 
-	const handleModalClose = () => {
+	const handleModalClose = () => setShowModal(false)
+	const handleModalSave = (aTicket) => {
+		console.log('Ticket:', aTicket)
 		setShowModal(false)
 	}
 
@@ -58,9 +59,11 @@ const Workspace = ({
 					</div>
 				</div>
 			</div>
-			<Modal show={showModal} onClose={event => handleModalClose(event)} data={modalData}>
-				{/* {modalTicketMarkup} */}
-			</Modal>
+			<Modal
+				show={showModal}
+				onClose={handleModalClose}
+				onSave={(ticket) => handleModalSave(ticket)}
+				data={modalData} />
 		</div>
 	)
 }
