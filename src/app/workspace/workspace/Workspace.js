@@ -1,6 +1,6 @@
 import React from 'react'
 import './Workspace.css'
-import CardList from '../card-list/CardList'
+import TicketList from '../ticket-list/TicketList'
 import Header from '../../../components/header/Header'
 
 const Workspace = ({
@@ -11,7 +11,7 @@ const Workspace = ({
 }) => {
 	const cardLists = lists.map(list => {
 		return (
-			<CardList
+			<TicketList
 				key={list.id}
 				{...list}
 				addCardToList={(card) => addCardToList(card, { id: list.id })}

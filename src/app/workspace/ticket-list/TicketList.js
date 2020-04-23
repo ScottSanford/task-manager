@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import './CardList.css'
+import './TicketList.css'
 import Ticket from '../ticket/Ticket'
 import CardComposer from '../card-composer/CardComposer'
 import { DropTarget } from 'react-dnd'
 import { useDrop } from 'react-dnd'
 
 
-const CardList = ({
+const TicketList = ({
 	addCardToList,
 	deleteCardList,
 	cards,
@@ -63,4 +63,4 @@ const CardList = ({
 
 export default DropTarget('DROP_TARGET', {}, (connect) => ({
 	connectDropTarget: connect.dropTarget()
-}))(CardList)
+}))(TicketList)
