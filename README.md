@@ -4,6 +4,9 @@
 <p align="center">
   <img src="./img/4_22_screenshot.png" width="600"/>
 </p>
+<p align="center">
+  <img src="./img/modal.png" width="600"/>
+</p>
 
 ## Task Manager (Trello Clone)
 
