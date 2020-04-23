@@ -19,8 +19,8 @@ const TicketList = ({
 	const [, drop] = useDrop({
 		accept: 'DRAG_CARD',
 		drop(item) {
+			console.log('drop', item)
 			addCardToList(item)
-			console.log(item)
 		}
 	})
 
@@ -55,7 +55,7 @@ const TicketList = ({
 					})}
 				</div>
 				{isComposing ? <CardComposer onCardEnter={handleOnCardEnter} /> : ''}
-				<div className="card-list__add-button">Add Card</div>
+				<div className="card-list__add-button" onClick={handleAddActionClick}>Add Card</div>
 			</div>
 		</div>
 	)

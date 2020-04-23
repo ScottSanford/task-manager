@@ -5,7 +5,7 @@ import Priority from './Priority'
 
 const Ticket = ({ item, onDragRemove }) => {
 	const [, dragRef] = useDrag({
-		item: { type: 'DRAG_CARD', title: item.title },
+		item: { type: 'DRAG_CARD', ...item },
 		end(item) {
 			onDragRemove(item)
 		}

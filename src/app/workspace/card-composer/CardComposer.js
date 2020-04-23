@@ -6,13 +6,18 @@ const CardComposer = ({ onCardEnter }) => {
 
 	function handleEnter(event) {
 		if (event.key === 'Enter') {
-			onCardEnter({ title: event.target.value, id: uniqueId() })
+			onCardEnter({
+				title: event.target.value,
+				id: uniqueId(),
+				priority: 'low', // should be dynamic
+				dueDate: 'in 6 days' // should be dynamic
+			})
 		}
 	}
 
 	return (
 		<div className="card-composer">
-			<textarea placeholder="Enter a title for this card..." onKeyPress={handleEnter} autoFocus></textarea>
+			<textarea placeholder="What needs to be done?" onKeyPress={handleEnter} autoFocus></textarea>
 		</div>
 	)
 }
