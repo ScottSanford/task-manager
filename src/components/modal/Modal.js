@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Modal.css'
 
 const Modal = ({ show, onClose, data }) => {
+	const [ticketPriority, setItemPriority] = useState(data.priority)
+
 	if (!show) {
 		return null
 	}
 
-
+	const handlePriority = (priority) => {
+		setItemPriority(priority)
+	}
 
 	return (
 		<>
@@ -19,9 +23,9 @@ const Modal = ({ show, onClose, data }) => {
 					<div className="item-meta">
 						<div className="item-meta-title">Select Priority</div>
 						<div className="item-priority">
-							<div className="priority-type priority-low">Low</div>
-							<div className="priority-type priority-medium">Medium</div>
-							<div className="priority-type priority-high">High</div>
+							<div className="priority-type priority-low" style={{ border: ticketPriority === 'low' ? '2px solid var(--color-green-1)' : '' }} onClick={() => handlePriority('low')}>Low</div>
+							<div className="priority-type priority-medium" style={{ border: ticketPriority === 'medium' ? '2px solid var(--color-yellow-5)' : '' }} onClick={() => handlePriority('medium')}>Medium</div>
+							<div className="priority-type priority-high" style={{ border: ticketPriority === 'high' ? '2px solid var(--color-red-1)' : '' }} onClick={() => handlePriority('high')}>High</div>
 						</div>
 					</div>
 				</div>
