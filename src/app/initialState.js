@@ -19,11 +19,13 @@ export default {
 					title: 'Book flights',
 					id: 0,
 					priority: 'low',
+					dueDate: 'in 12 days',
 				},
 				{
 					title: 'Schedule Zoom Meeting',
 					id: 0,
 					priority: 'medium',
+					dueDate: 'in 15 days',
 				}
 			]
 		},
@@ -35,11 +37,13 @@ export default {
 					title: 'Practice React Redux',
 					id: 0,
 					priority: 'low',
+					dueDate: 'in 6 days',
 				},
 				{
 					title: 'Get a job, bring home the bacon, party',
 					id: 2,
 					priority: 'high',
+					dueDate: 'in 2 days',
 				}
 			]
 		},
@@ -51,6 +55,7 @@ export default {
 					title: 'Prepare for meetings',
 					id: 1,
 					priority: 'medium',
+					dueDate: 'today',
 				}
 			]
 		},

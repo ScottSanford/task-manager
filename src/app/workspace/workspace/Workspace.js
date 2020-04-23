@@ -1,12 +1,9 @@
 import React from 'react'
 import './Workspace.css'
-import UserAccessList from '../user-access-list/UserAccessList'
-import AddButton from '../add-button/AddButton'
 import CardList from '../card-list/CardList'
 import Header from '../../../components/header/Header'
 
 const Workspace = ({
-	users,
 	lists,
 	addCardToList,
 	removeCardFromList,
@@ -28,14 +25,18 @@ const Workspace = ({
 			<Header />
 			<div className="workspace">
 				<div className="workspace__header">
-					<div>
-						<div className="project__title">Personal</div>
-						<UserAccessList users={users} />
+					<div className="ProjectInfo">
+						<div className="project-type"><span className="fa fa-star fa-2x"></span></div>
+						<div className="ProjectInfo__Meta">
+							<span className="project__title">Personal</span>
+							<span className="project__subtext">A project about getting things done quickly.</span>
+						</div>
 					</div>
-					<AddButton />
 				</div>
-				<div className="lists-container">
-					{cardLists}
+				<div className="lists-track">
+					<div className="lists-container">
+						{cardLists}
+					</div>
 				</div>
 			</div>
 		</div>

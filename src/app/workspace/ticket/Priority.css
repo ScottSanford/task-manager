@@ -1,12 +1,6 @@
 .ticket__tag {
     grid-column: 1 / 3;
-}
-
-.ticket__tag span {
-    background: #fce8e8;
-    border-radius: 50px;
-    color: #b72020;
-    font-size: 9px;
-    padding: 7px 15px;
-    font-weight: 600;
+    border-radius: var(--b-radius-sm);
+    width: 5rem;
+    height: 5px;
 }

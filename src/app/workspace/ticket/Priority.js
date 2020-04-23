@@ -7,29 +7,15 @@ const Priority = ({ level }) => {
 	const overrideStyles = () => {
 		switch (level) {
 			case 'low':
-				return {
-					background: '#E3FCEC',
-					color: '#197741',
-				}
+				return { background: 'var(--color-green-7)' }
 			case 'medium':
-				return {
-					background: '#FDF3D7',
-					color: '#8C6D1F',
-				}
-
+				return { background: 'var(--color-yellow-7)' }
 			default:
-				return {
-					background: '#fce8e8',
-					color: '#b72020',
-				}
+				return { background: 'var(--color-red-7)' }
 		}
 	}
 
-	return (
-		<div className="ticket__tag">
-			<span style={overrideStyles()}>{_.capitalize(level)}</span>
-		</div>
-	)
+	return <div className="ticket__tag" style={overrideStyles()}></div>
 }
 
 export default Priority

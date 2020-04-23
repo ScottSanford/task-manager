@@ -18,7 +18,7 @@ html {
 
 body {
     color: var(--color-neutral-1);
-    background: var(--color-primary-10);
+    background: var(--color-neutral-10);
     font-family: soleil, sans-serif;
     font-style: normal;
     font-weight: 300;

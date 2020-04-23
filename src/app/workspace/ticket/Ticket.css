@@ -5,7 +5,7 @@
     color: hsl(212, 18%, 35%);
     display: grid;
     font-size: 1.2rem;
-    gap: 3rem 2rem;
+    /* gap: 3rem 2rem; */
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, auto);
     height: fit-content;
@@ -28,6 +28,7 @@
     line-height: 1.2;
     color: var(--color-neutral-1);
     font-size: 16px;
+    margin-top: 1rem;
 }
 
 .ticket__created-date {
@@ -39,12 +40,12 @@
 
 .ticket__due-date {
     grid-row: 3;
-    grid-column: 2;
+    grid-column: 1;
     display: flex;
     align-items: baseline;
-    justify-self: flex-end;
     color: var(--color-neutral-4);
     font-weight: 600;
+    margin-top: 2rem;
 }
 
 .ticket__due-date span {
