@@ -9,6 +9,7 @@ import initialState from '../../initialState'
 export const ADD_LIST = '[workspace] Add List'
 export const DELETE_LIST = '[workspace] Delete List'
 export const ADD_CARD_TO_LIST = '[list] Add Card'
+export const UPDATE_TICKET = '[ticket] Update Card Info'
 export const DELETE_CARD_FROM_LIST = '[list] Delete Card'
 
 // ACTION CREATORS
@@ -24,6 +25,10 @@ export function deleteCardListAction(payload) {
 	return { type: DELETE_LIST, payload }
 }
 
+export function updateTicketAction(payload, meta) {
+	return { type: UPDATE_TICKET, payload, meta }
+}
+
 export function deleteCardFromListAction(payload, meta) {
 	return { type: DELETE_CARD_FROM_LIST, payload, meta }
 }
@@ -35,6 +40,8 @@ export function listsReducer(state = initialState.lists, action) {
 			return [...state, { ...action.payload }]
 		case ADD_CARD_TO_LIST:
 			return addCardToList(state, action)
+		case UPDATE_TICKET:
+			return updateTicketInList(state, action)
 		case DELETE_LIST:
 			return state.filter(list => list.id !== action.payload)
 		case DELETE_CARD_FROM_LIST:
@@ -59,6 +66,22 @@ function deleteCardFromList(state, action) {
 			? {
 				...list,
 				cards: list.cards.filter(card => card.title !== action.payload.title)
+			}
+			: list
+	})
+}
+
+function updateTicketInList(state, action) {
+	return state.map(list => {
+		return list.id === action.meta.id
+			? {
+				...list,
+				cards: list.cards.map(card => {
+					if (card.id === action.payload.id) {
+						return action.payload
+					}
+					return card
+				})
 			}
 			: list
 	})

@@ -8,11 +8,11 @@ const Workspace = ({
 	lists,
 	addCardToList,
 	removeCardFromList,
-	deleteList
+	deleteList,
+	updateTicket,
 }) => {
 
 	const [showModal, setShowModal] = useState(false)
-	// const [modalTicketMarkup, setModalTicketMarkup] = useState('')
 	const [modalData, setModalData] = useState({})
 
 	const ticketList = lists.map(list => {
@@ -35,8 +35,8 @@ const Workspace = ({
 
 	const handleModalClose = () => setShowModal(false)
 	const handleModalSave = (aTicket) => {
-		console.log('Ticket:', aTicket)
 		setShowModal(false)
+		updateTicket(aTicket, { id: '0ff3ggffe' })
 	}
 
 
