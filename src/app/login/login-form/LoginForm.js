@@ -66,7 +66,7 @@ const LoginForm = () => {
 		const errors = {}
 
 		if (!validateEmail(username)) errors.username = 'Email is not valid.'
-		if (!password) errors.password = 'Password is required.'
+		if (!password) errors.password = 'Password must be 5 characters.'
 
 		setErrors(errors)
 		return Object.keys(errors).length === 0
