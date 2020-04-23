@@ -32,7 +32,7 @@ describe('TextInput Component', () => {
 		expect(wrapper.find('.fa-user')).toHaveLength(1)
 	})
 
-	it.only('should have a "pencil" icon when no icon is provided', () => {
+	it('should have a "pencil" icon when no icon is provided', () => {
 		const wrapper = render()
 		expect(wrapper.find('.fa-pencil')).toHaveLength(1)
 	})
@@ -47,6 +47,4 @@ describe('TextInput Component', () => {
 		// expect(wrapper.find('.TextInput__Input').props().value).toEqual('NFL Draft 2020')
 		expect(handleInputChange).toHaveBeenCalled()
 	})
-
-
 })
