@@ -53,6 +53,7 @@ const CardList = ({
 					return <Ticket key={index.toString()} item={item} onDragRemove={(item) => handleDragRemove(item)} />
 				})}
 				{isComposing ? <CardComposer onCardEnter={handleOnCardEnter} /> : ''}
+				<div className="card-list__add-button">Add Card</div>
 			</div>
 		</div>
 	)
