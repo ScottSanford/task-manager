@@ -49,9 +49,11 @@ const TicketList = ({
 				<div className="fa fa-ellipsis-h" onClick={handleDeleteClick}></div>
 			</div>
 			<div className="card-list__container">
-				{cards.map((item, index) => {
-					return <Ticket key={index.toString()} item={item} onDragRemove={(item) => handleDragRemove(item)} />
-				})}
+				<div className="ticket-list__container">
+					{cards.map((item, index) => {
+						return <Ticket key={index.toString()} item={item} onDragRemove={(item) => handleDragRemove(item)} />
+					})}
+				</div>
 				{isComposing ? <CardComposer onCardEnter={handleOnCardEnter} /> : ''}
 				<div className="card-list__add-button">Add Card</div>
 			</div>

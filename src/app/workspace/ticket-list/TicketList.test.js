@@ -34,7 +34,7 @@ describe('CardList Component', () => {
 				{ title: 'Tarik Cohen' }
 			]
 		})
-		expect(wrapper.find('.card-list__container').children()).toHaveLength(3)
+		expect(wrapper.find('.ticket-list__container').children()).toHaveLength(3)
 	})
 
 	it('should add an action item to the list', () => {
