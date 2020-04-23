@@ -16,7 +16,7 @@ const Modal = ({
 	const handlePriority = (priority) => {
 		setItem({ ...data, priority })
 	}
-
+	console.log(data)
 	return (
 		<>
 			<div className="modal-backdrop"></div>

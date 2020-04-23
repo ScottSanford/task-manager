@@ -56,7 +56,7 @@ const TicketList = ({
 							key={index.toString()}
 							item={item}
 							onDragRemove={(item) => handleDragRemove(item)}
-							openModal={openModal} />
+							openModal={(item) => openModal(item, id)} />
 					})}
 				</div>
 				{isComposing ? <CardComposer onCardEnter={handleOnCardEnter} /> : ''}

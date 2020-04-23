@@ -23,20 +23,20 @@ const Workspace = ({
 				addCardToList={(card) => addCardToList(card, { id: list.id })}
 				removeCardFromList={(card) => removeCardFromList(card, { id: list.id })}
 				deleteCardList={(id) => deleteList(id)}
-				openModal={(item) => handleTicketModal(item)}
+				openModal={(item) => handleTicketModal(item, list.id)}
 			/>
 		)
 	})
 
-	const handleTicketModal = (item) => {
-		setModalData(item)
+	const handleTicketModal = (item, id) => {
+		setModalData({ ...item, listId: id })
 		setShowModal(true)
 	}
 
 	const handleModalClose = () => setShowModal(false)
 	const handleModalSave = (aTicket) => {
 		setShowModal(false)
-		updateTicket(aTicket, { id: '0ff3ggffe' })
+		updateTicket(aTicket, { id: aTicket.listId })
 	}
 
 
