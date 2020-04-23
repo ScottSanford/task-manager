@@ -77,6 +77,7 @@ const LoginForm = () => {
 			<TextInput
 				value={username}
 				placeholder="Username"
+				icon="user"
 				iconStyle={usernameIcon}
 				onChange={handleUsernameChange}
 			/>
@@ -85,6 +86,7 @@ const LoginForm = () => {
 				type="password"
 				placeholder="Password"
 				value={password}
+				icon="key"
 				iconStyle={passwordIcon}
 				onChange={handlePasswordChange}
 			/>
