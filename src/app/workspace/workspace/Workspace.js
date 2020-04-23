@@ -12,22 +12,25 @@ const Workspace = ({
 }) => {
 
 	const [showModal, setShowModal] = useState(false)
-	const cardLists = lists.map(list => {
+	const ticketList = lists.map(list => {
 		return (
 			<TicketList
 				key={list.id}
 				{...list}
 				addCardToList={(card) => addCardToList(card, { id: list.id })}
 				removeCardFromList={(card) => removeCardFromList(card, { id: list.id })}
-				deleteCardList={(id) => deleteList(id)} />
+				deleteCardList={(id) => deleteList(id)}
+				openModal={(item) => handleTicketModal(item)}
+			/>
 		)
 	})
 
-	const handleShowModal = () => {
+	const handleTicketModal = (item) => {
+		console.log(item)
 		setShowModal(true)
 	}
 
-	const handleModalClose = (event) => {
+	const handleModalClose = () => {
 		setShowModal(false)
 	}
 
@@ -46,12 +49,12 @@ const Workspace = ({
 				</div>
 				<div className="lists-track">
 					<div className="lists-container">
-						{cardLists}
+						{ticketList}
 					</div>
 				</div>
 			</div>
 			<Modal show={showModal} onClose={event => handleModalClose(event)}>Here is some content!</Modal>
-			<button onClick={handleShowModal}>Open Modal!</button>
+			{/* <button onClick={handleShowModal}>Open Modal!</button> */}
 		</div>
 	)
 }

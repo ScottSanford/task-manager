@@ -13,6 +13,7 @@ const TicketList = ({
 	id,
 	removeCardFromList,
 	title,
+	openModal,
 }) => {
 
 	const [isComposing, setIsComposing] = useState(false)
@@ -51,7 +52,11 @@ const TicketList = ({
 			<div className="card-list__container">
 				<div className="ticket-list__container">
 					{cards.map((item, index) => {
-						return <Ticket key={index.toString()} item={item} onDragRemove={(item) => handleDragRemove(item)} />
+						return <Ticket
+							key={index.toString()}
+							item={item}
+							onDragRemove={(item) => handleDragRemove(item)}
+							openModal={openModal} />
 					})}
 				</div>
 				{isComposing ? <CardComposer onCardEnter={handleOnCardEnter} /> : ''}
