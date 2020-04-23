@@ -1,19 +1,33 @@
 import React from 'react'
 import './Modal.css'
 
-const Modal = ({ children, show, onClose }) => {
+const Modal = ({ show, onClose, data }) => {
 	if (!show) {
 		return null
 	}
 
+
+
 	return (
 		<>
+			<div className="modal-backdrop"></div>
 			<div className="modal" id="modal">
-				<h2>Modal Window</h2>
-				<div className="content">{children}</div>
-				<div className="actions">
-					<button className="toggle-button">OK</button>
-					<button onClick={onClose}>Close</button>
+				<div className="modal__header">
+					<div className="modal__header-title">{data.title}</div>
+				</div>
+				<div className="modal__content">
+					<div className="item-meta">
+						<div className="item-meta-title">Select Priority</div>
+						<div className="item-priority">
+							<div className="priority-type priority-low">Low</div>
+							<div className="priority-type priority-medium">Medium</div>
+							<div className="priority-type priority-high">High</div>
+						</div>
+					</div>
+				</div>
+				<div className="modal__footer">
+					<button className="cancel-button" onClick={onClose}>Cancel</button>
+					<button className="save-button">Save</button>
 				</div>
 			</div>
 		</>

@@ -12,7 +12,9 @@ const Workspace = ({
 }) => {
 
 	const [showModal, setShowModal] = useState(false)
-	const [modalTicketMarkup, setModalTicketMarkup] = useState('')
+	// const [modalTicketMarkup, setModalTicketMarkup] = useState('')
+	const [modalData, setModalData] = useState({})
+
 	const ticketList = lists.map(list => {
 		return (
 			<TicketList
@@ -27,7 +29,8 @@ const Workspace = ({
 	})
 
 	const handleTicketModal = (item) => {
-		setModalTicketMarkup(<div>{item.title}</div>)
+		// setModalTicketMarkup(<div>{item.title}</div>)
+		setModalData(item)
 		setShowModal(true)
 	}
 
@@ -55,8 +58,8 @@ const Workspace = ({
 					</div>
 				</div>
 			</div>
-			<Modal show={showModal} onClose={event => handleModalClose(event)} markup={modalTicketMarkup}>
-				<div>{modalTicketMarkup}</div>
+			<Modal show={showModal} onClose={event => handleModalClose(event)} data={modalData}>
+				{/* {modalTicketMarkup} */}
 			</Modal>
 		</div>
 	)
