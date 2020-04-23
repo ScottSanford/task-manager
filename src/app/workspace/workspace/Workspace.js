@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Workspace.css'
 import TicketList from '../ticket-list/TicketList'
 import Header from '../../../components/header/Header'
+import Modal from '../../../components/modal/Modal'
 
 const Workspace = ({
 	lists,
@@ -9,6 +10,8 @@ const Workspace = ({
 	removeCardFromList,
 	deleteList
 }) => {
+
+	const [showModal, setShowModal] = useState(false)
 	const cardLists = lists.map(list => {
 		return (
 			<TicketList
@@ -19,6 +22,14 @@ const Workspace = ({
 				deleteCardList={(id) => deleteList(id)} />
 		)
 	})
+
+	const handleShowModal = () => {
+		setShowModal(true)
+	}
+
+	const handleModalClose = (event) => {
+		setShowModal(false)
+	}
 
 	return (
 		<div className="workspace-page">
@@ -39,6 +50,8 @@ const Workspace = ({
 					</div>
 				</div>
 			</div>
+			<Modal show={showModal} onClose={event => handleModalClose(event)}>Here is some content!</Modal>
+			<button onClick={handleShowModal}>Open Modal!</button>
 		</div>
 	)
 }
