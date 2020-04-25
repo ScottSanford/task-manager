@@ -1,5 +1,7 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1a7a230e-7976-4824-a969-cd0ae80b1e8e/deploy-status)](https://app.netlify.com/sites/distracted-albattani-392454/deploys)
 
+[Click here for a live demo](https://distracted-albattani-392454.netlify.app)
+
 <p align="center">
   <img src="./img/4_22_screenshot.png" width="600"/>
 </p>
