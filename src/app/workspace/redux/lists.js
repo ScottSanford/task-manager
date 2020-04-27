@@ -54,18 +54,21 @@ export function listsReducer(state = initialState.lists, action) {
 // Reducer Logic Extracted
 function addCardToList(state, action) {
 	return state.map(list => {
-		return list.id === action.meta.id
+		const ticketInList = list.cards.filter(card => card.id === action.payload.id)
+		return (list.id === action.meta.id && ticketInList.length === 0)
 			? { ...list, cards: [...list.cards, { ...action.payload }] }
 			: list
 	})
 }
 
 function deleteCardFromList(state, action) {
+
 	return state.map(list => {
-		return list.id === action.meta.id
+		const ticketInList = list.cards.filter(card => card.id === action.payload.id)
+		return (list.id === action.meta.id && ticketInList.length === 0)
 			? {
 				...list,
-				cards: list.cards.filter(card => card.title !== action.payload.title)
+				cards: list.cards.filter(card => card.id !== action.payload.id)
 			}
 			: list
 	})
