@@ -12,7 +12,7 @@
 
 .lists-container {
     display: grid;
-    grid-template-columns: repeat(3, minmax(30rem, 1fr));
+    grid-template-columns: repeat(3, minmax(20rem, 1fr));
     gap: 3rem;
     justify-content: center;
 }
