@@ -1,14 +1,37 @@
 import React from 'react'
-import './AddButton.css'
+import styled from 'styled-components'
+
+const AddButtonStyled = styled.div`
+	align-items: baseline;
+	align-self: baseline;
+	background: var(--color-yellow-5);
+	border-radius: 10px;
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+	color: var(--color-white);
+	display: flex;
+	font-size: 1.4rem;
+	font-weight: 600;
+	padding: 0.7rem 1.2rem;
+`
+
+const ButtonArrow = styled.div`
+	align-items: center;
+	border-radius: 5px;
+	display: flex;
+	height: 20px;
+	justify-content: center;
+	margin-left: 5px;
+	width: 20px;
+`
 
 const AddButton = () => {
 	return (
-		<div className="add-button">
+		<AddButtonStyled>
 			<span>Add</span>
-			<div className="add-button__arrow">
+			<ButtonArrow>
 				<span className="fa fa-angle-down"></span>
-			</div>
-		</div>
+			</ButtonArrow>
+		</AddButtonStyled>
 	)
 }
 
