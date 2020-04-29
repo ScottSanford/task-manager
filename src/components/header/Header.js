@@ -1,31 +1,182 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import './Header.css'
 import logo from '../../assets/logo.png'
 import profileImg from '../../assets/profile.png'
+import styled from 'styled-components'
+
+const NavWrapper = styled.nav`
+	background: var(--color-white);
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+	color: var(--color-neutral-6);
+	height: 6rem;
+	display: grid;
+	grid-template-columns: 1fr 3fr 4fr 3fr 7rem;
+	grid-template-rows: 1fr;
+	grid-column-gap: 5px;
+	grid-row-gap: 0px;
+
+	@media only screen and (max-width: 1100px) {
+		span:last-of-type {
+			display: none;
+		}
+	}
+
+	@media only screen and (max-width: 600px) {
+		display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-rows: 1fr;
+	}
+`
+
+const StyledNavBoardLink = styled(NavLink)`
+	align-self: center;
+	color: currentColor;
+	font-size: 1.6rem;
+	font-weight: 600;
+	justify-self: left;
+	margin-left: 1.5rem;
+	text-decoration: none;
+
+	&.active {
+		color: ${({ theme }) => theme.color};
+		text-decoration: none;
+	}
+	
+	& span:first-of-type {
+		margin-right: 5px;
+	}
+
+	@media only screen and (max-width: 600px) {
+		justify-self: center;
+	}
+`
+
+const HeaderSearch = styled.div`
+	align-items: center;
+	display: flex;
+	font-size: 1.6rem;
+	margin-left: 4rem;
+
+	& input {
+		margin: 10px;
+		height: 3rem;
+		justify-self: center;
+		width: 100%;
+		border-radius: 10px;
+		border: none;
+		font-size: 1.6rem;
+
+		&:focus {
+			outline: none;
+		}
+
+		&:active {
+			color: var(--color-neutral-8);
+		}
+
+		&::placeholder {
+			color: var(--color-neutral-7);
+			font-style: italic;
+			font-size: 1.4rem;
+		}
+
+		&:focus::-webkit-input-placeholder {
+			color: var(--color-neutral-5);
+		}
+	}
+
+	@media only screen and (max-width: 600px) {
+		display: none;
+	}
+`
+
+const Logo = styled.div`
+	display: flex;
+	justify-content: center;
+
+	& img {
+		height: 4rem;
+		align-self: center;
+	}
+
+	@media only screen and (max-width: 600px) {
+		grid-column: 2 / 2;
+	}
+`
+
+const User = styled.div`
+	align-items: center;
+	align-self: center;
+	font-size: 1.6rem;
+	justify-self: end;
+	display: flex;
+
+	& img {
+		height: 35px;
+		border-radius: 1rem;
+		margin-right: 1rem;
+	}
+
+	@media only screen and (max-width: 900px) {
+		& img {
+			margin-right: 3rem;
+		}
+	}
+
+	@media only screen and (max-width: 600px) {
+		& img, & .fa-bell {
+			display: none;
+		}
+	}
+`
+
+const UserName = styled.div`
+	margin-right: 25px;
+	font-weight: 600;
+
+	@media only screen and (max-width: 900px) {
+		display: none;
+	}
+`
+
+const StyledNavMenuLink = styled(NavLink)`
+	align-self: center;
+	color: currentColor;
+	justify-self: center;
+	font-size: 1.4rem;
+
+	&.active {
+		color: ${({ theme }) => theme.color};
+	}
+
+	@media only screen and (max-width: 600px) {
+		grid-column: 3 / -1;
+		grid-row: 1;
+	}
+`
 
 const Header = () => {
 
 	return (
-		<nav className="header">
-			<NavLink className="header__boards" exact to="/workspace/test" activeClassName="header--selected">
+		<NavWrapper>
+			<StyledNavBoardLink exact to="/workspace/test" theme={{ color: 'var(--color-neutral-8)' }}>
 				<span className="fa fa-clone"></span>
 				<span>Boards</span>
-			</NavLink>
-			<div className="header__search">
+			</StyledNavBoardLink>
+			<HeaderSearch>
 				<span className="fa fa-search"></span>
 				<input type="text" placeholder="Search..." />
-			</div>
-			<div className="header__logo"><img alt="logo" src={logo} /></div>
-			<div className="header__user">
-				<img className="header__user-img" alt="profile" src={profileImg} />
-				<span className="header__user-name">Hello, Scott!</span>
+			</HeaderSearch>
+			<Logo><img alt="logo" src={logo} /></Logo>
+			<User>
+				<img alt="profile" src={profileImg} />
+				<UserName>Hello, Scott!</UserName>
 				<span className="fa fa-bell"></span>
-			</div>
-			<NavLink exact to="/dashboard" className="header__menu" activeClassName="header--selected">
+			</User>
+			<StyledNavMenuLink exact to="/dashboard" theme={{ color: 'var(--color-neutral-8)' }}>
 				<span className="fa fa-bars"></span>
-			</NavLink>
-		</nav>
+			</StyledNavMenuLink>
+		</NavWrapper>
 	)
 }
 
