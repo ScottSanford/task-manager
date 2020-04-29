@@ -6,11 +6,10 @@ import { Droppable } from 'react-beautiful-dnd'
 
 const TicketList = ({
 	column,
-	addCardToList,
+	addTicketToList,
 	deleteCardList,
 	tickets,
 	id,
-	removeCardFromList,
 	openModal,
 }) => {
 
@@ -19,14 +18,9 @@ const TicketList = ({
 		setIsComposing(true)
 	}
 
-	function handleOnCardEnter(card) {
+	const handleOnTicketEnter = aTicket => {
 		setIsComposing(false)
-		addCardToList(card)
-	}
-
-	function handleDragRemove(card) {
-		addCardToList(card)
-		removeCardFromList(card)
+		addTicketToList(aTicket)
 	}
 
 	function handleDeleteClick() {
@@ -55,12 +49,11 @@ const TicketList = ({
 									key={item.id}
 									item={item}
 									index={index}
-									onDragRemove={(item) => handleDragRemove(item)}
 									openModal={(item) => openModal(item, id)} />
 							})}
 						</div>
 						{provided.placeholder}
-						{isComposing ? <CardComposer onCardEnter={handleOnCardEnter} /> : ''}
+						{isComposing ? <CardComposer onCardEnter={handleOnTicketEnter} /> : ''}
 						<div className="card-list__add-button" onClick={handleAddActionClick}>Add Card</div>
 					</div>
 				</div>

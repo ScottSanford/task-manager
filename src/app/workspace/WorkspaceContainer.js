@@ -1,15 +1,14 @@
 import React from 'react'
 import './WorkspaceContainer.css'
 import { connect } from 'react-redux'
-import { addListAction, deleteCardListAction, deleteCardFromListAction, reorderListAction } from './redux/lists'
+import { addTicketAction, reorderListAction } from './redux/lists'
 import Workspace from './workspace/Workspace'
 
 const WorkspacePage = ({
+	addTicketToList,
 	tickets,
-	deleteList,
 	lists,
 	listOrder,
-	removeCardFromList,
 	users,
 	reorderList,
 }) => {
@@ -21,9 +20,8 @@ const WorkspacePage = ({
 				lists={lists}
 				listOrder={listOrder}
 				tickets={tickets}
-				removeCardFromList={removeCardFromList}
-				deleteList={deleteList}
 				reorderList={reorderList}
+				addTicketToList={addTicketToList}
 			/>
 		</div>
 	)
@@ -39,9 +37,7 @@ function mapStateToProps(state) {
 }
 
 const actionCreators = {
-	addList: addListAction,
-	deleteList: deleteCardListAction,
-	removeCardFromList: deleteCardFromListAction,
+	addTicketToList: addTicketAction,
 	reorderList: reorderListAction,
 }
 

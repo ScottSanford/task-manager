@@ -6,22 +6,12 @@
 import initialState from '../../initialState'
 
 // ACTIONS
-export const ADD_LIST = '[workspace] Add List'
-export const DELETE_LIST = '[workspace] Delete List'
-export const DELETE_CARD_FROM_LIST = '[list] Delete Card'
+export const ADD_TICKET = '[list] Add ticket'
 export const REORDER_TICKET_IN_LIST = '[list] Reorder Ticket in List'
 
 // ACTION CREATORS
-export function addListAction(payload) {
-	return { type: ADD_LIST, payload }
-}
-
-export function deleteCardListAction(payload) {
-	return { type: DELETE_LIST, payload }
-}
-
-export function deleteCardFromListAction(payload, meta) {
-	return { type: DELETE_CARD_FROM_LIST, payload, meta }
+export function addTicketAction(payload, listId) {
+	return { type: ADD_TICKET, payload, listId }
 }
 
 export function reorderListAction(payload) {
@@ -31,12 +21,8 @@ export function reorderListAction(payload) {
 // REDUCER
 export function listsReducer(state = initialState.lists, action) {
 	switch (action.type) {
-		case ADD_LIST:
-			return [...state, { ...action.payload }]
-		case DELETE_LIST:
-			return state.filter(list => list.id !== action.payload)
-		case DELETE_CARD_FROM_LIST:
-			return deleteCardFromList(state, action)
+		case ADD_TICKET:
+			return addTicketToList(state, action)
 		case REORDER_TICKET_IN_LIST:
 			return reorderList(state, action)
 		default:
@@ -44,8 +30,13 @@ export function listsReducer(state = initialState.lists, action) {
 	}
 }
 
-function deleteCardFromList(state, action) {
-	// 
+function addTicketToList(state, action) {
+
+	const list = state[action.listId]
+	const ticketIds = [...list.ticketIds, action.payload.id]
+	const newListState = { ...list, ticketIds }
+
+	return { ...state, [action.listId]: newListState }
 }
 
 function reorderList(state, action) {

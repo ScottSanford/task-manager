@@ -6,6 +6,7 @@ import Modal from '../../../components/modal/Modal'
 import { DragDropContext } from 'react-beautiful-dnd'
 
 const Workspace = ({
+	addTicketToList,
 	tickets,
 	lists,
 	listOrder,
@@ -20,7 +21,7 @@ const Workspace = ({
 		const column = lists[listId]
 		const columnTickets = column.ticketIds.map(ticketId => tickets[ticketId])
 		return (
-			<TicketList key={column.id} column={column} tickets={columnTickets} />
+			<TicketList key={column.id} column={column} tickets={columnTickets} addTicketToList={(aTicket) => addTicketToList(aTicket, column.id)} />
 		)
 	})
 
@@ -44,9 +45,6 @@ const Workspace = ({
 		}
 
 		reorderList({ destination, source, draggableId })
-
-		// Moving from one list to another
-		// const startTicketIds = [...start.ticketIds]
 	}
 
 
