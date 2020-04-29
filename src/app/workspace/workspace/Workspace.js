@@ -38,7 +38,7 @@ const Workspace = ({
 	const handleModalClose = () => setShowModal(false)
 	const handleModalSave = (aTicket) => {
 		setShowModal(false)
-		updateTicket(aTicket, { id: aTicket.listId })
+		updateTicket(aTicket)
 	}
 
 	const handleOnDragEnd = ({ destination, source, draggableId }) => {

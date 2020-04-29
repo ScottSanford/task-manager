@@ -2,6 +2,7 @@ import React from 'react'
 import './WorkspaceContainer.css'
 import { connect } from 'react-redux'
 import { addTicketAction, reorderListAction } from './redux/lists'
+import { updateTicketAction } from './redux/tickets'
 import Workspace from './workspace/Workspace'
 
 const WorkspacePage = ({
@@ -11,6 +12,7 @@ const WorkspacePage = ({
 	listOrder,
 	users,
 	reorderList,
+	updateTicket
 }) => {
 
 	return (
@@ -22,6 +24,7 @@ const WorkspacePage = ({
 				tickets={tickets}
 				reorderList={reorderList}
 				addTicketToList={addTicketToList}
+				updateTicket={updateTicket}
 			/>
 		</div>
 	)
@@ -39,6 +42,7 @@ function mapStateToProps(state) {
 const actionCreators = {
 	addTicketToList: addTicketAction,
 	reorderList: reorderListAction,
+	updateTicket: updateTicketAction
 }
 
 export default connect(mapStateToProps, actionCreators)(WorkspacePage)
