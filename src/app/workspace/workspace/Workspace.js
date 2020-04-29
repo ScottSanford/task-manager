@@ -1,9 +1,22 @@
 import React, { useState } from 'react'
-import './Workspace.css'
 import TicketList from '../ticket-list/TicketList'
 import Header from '../../../components/header/Header'
 import Modal from '../../../components/modal/Modal'
 import { DragDropContext } from 'react-beautiful-dnd'
+import WorkspaceHeader from './WorkspaceHeader'
+import styled from 'styled-components'
+
+const StyledWorkspace = styled.div`
+	padding: 3rem;
+	width: 100%;
+`
+
+const ListContainer = styled.div`
+	display: grid;
+	grid-template-columns: repeat(3, minmax(20rem, 1fr));
+	gap: 3rem;
+	justify-content: center;
+`
 
 const Workspace = ({
 	addTicketToList,
@@ -56,24 +69,14 @@ const Workspace = ({
 	return (
 		<div className="workspace-page">
 			<Header />
-			<div className="workspace">
-				<div className="workspace__header">
-					<div className="ProjectInfo">
-						<div className="project-type"><span className="fa fa-star fa-2x"></span></div>
-						<div className="ProjectInfo__Meta">
-							<span className="project__title">Personal</span>
-							<span className="project__subtext">A project about getting things done quickly.</span>
-						</div>
-					</div>
-				</div>
+			<StyledWorkspace>
+				<WorkspaceHeader />
 				<DragDropContext onDragEnd={handleOnDragEnd}>
-					<div className="lists-track">
-						<div className="lists-container">
-							{ticketList}
-						</div>
+					<div>
+						<ListContainer>{ticketList}</ListContainer>
 					</div>
 				</DragDropContext>
-			</div>
+			</StyledWorkspace>
 			<Modal
 				show={showModal}
 				onClose={handleModalClose}
