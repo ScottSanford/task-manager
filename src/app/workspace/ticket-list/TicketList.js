@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import './TicketList.css'
 import Ticket from '../ticket/Ticket'
 import CardComposer from '../card-composer/CardComposer'
-import { DropTarget } from 'react-dnd'
-import { useDrop } from 'react-dnd'
 
 
 const TicketList = ({
@@ -17,14 +15,6 @@ const TicketList = ({
 }) => {
 
 	const [isComposing, setIsComposing] = useState(false)
-	const [, drop] = useDrop({
-		accept: 'DRAG_CARD',
-		drop(item) {
-			console.log('drop', item)
-			addCardToList(item)
-		}
-	})
-
 	function handleAddActionClick() {
 		setIsComposing(true)
 	}
@@ -44,7 +34,7 @@ const TicketList = ({
 	}
 
 	return (
-		<div ref={drop} className="card-list">
+		<div className="card-list">
 			<div className="card-list__header">
 				<div className="card-list__title">{title}</div>
 				<div className="fa fa-ellipsis-h" onClick={handleDeleteClick}></div>
@@ -68,6 +58,4 @@ const TicketList = ({
 
 
 
-export default DropTarget('DROP_TARGET', {}, (connect) => ({
-	connectDropTarget: connect.dropTarget()
-}))(TicketList)
+export default TicketList

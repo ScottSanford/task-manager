@@ -1,7 +1,5 @@
 import React from 'react'
 import './WorkspaceContainer.css'
-import Backend from 'react-dnd-html5-backend'
-import { DndProvider } from 'react-dnd'
 import { connect } from 'react-redux'
 import { addListAction, addCardToListAction, deleteCardListAction, deleteCardFromListAction, updateTicketAction } from './redux/lists'
 import Workspace from './workspace/Workspace'
@@ -16,18 +14,16 @@ const WorkspacePage = ({
 }) => {
 
 	return (
-		<DndProvider backend={Backend}>
-			<div className="workspace-container">
-				<Workspace
-					users={users}
-					lists={lists}
-					addCardToList={addCardToList}
-					removeCardFromList={removeCardFromList}
-					deleteList={deleteList}
-					updateTicket={updateTicket}
-				/>
-			</div>
-		</DndProvider>
+		<div className="workspace-container">
+			<Workspace
+				users={users}
+				lists={lists}
+				addCardToList={addCardToList}
+				removeCardFromList={removeCardFromList}
+				deleteList={deleteList}
+				updateTicket={updateTicket}
+			/>
+		</div>
 	)
 }
 
