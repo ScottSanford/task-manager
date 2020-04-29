@@ -21,7 +21,12 @@ const Workspace = ({
 		const column = lists[listId]
 		const columnTickets = column.ticketIds.map(ticketId => tickets[ticketId])
 		return (
-			<TicketList key={column.id} column={column} tickets={columnTickets} addTicketToList={(aTicket) => addTicketToList(aTicket, column.id)} />
+			<TicketList
+				key={column.id}
+				column={column}
+				tickets={columnTickets}
+				addTicketToList={(aTicket) => addTicketToList(aTicket, column.id)}
+				openModal={(item) => handleTicketModal(item, column.id)} />
 		)
 	})
 
