@@ -10,6 +10,7 @@ const Workspace = ({
 	lists,
 	listOrder,
 	updateTicket,
+	reorderList,
 }) => {
 
 	const [showModal, setShowModal] = useState(false)
@@ -34,9 +35,16 @@ const Workspace = ({
 		updateTicket(aTicket, { id: aTicket.listId })
 	}
 
-	const handleOnDragEnd = result => {
-		// TODO: Reorder columsn
-		console.log(result)
+	const handleOnDragEnd = ({ destination, source, draggableId }) => {
+		if (
+			!destination ||
+			(destination.droppableId === source.droppableId &&
+				destination.index === source.index)
+		) {
+			return
+		}
+
+		reorderList({ destination, source, draggableId })
 	}
 
 

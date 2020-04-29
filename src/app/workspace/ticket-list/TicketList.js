@@ -45,7 +45,7 @@ const TicketList = ({
 						<div className="ticket-list__container">
 							{tickets.map((item, index) => {
 								return <Ticket
-									key={index.toString()}
+									key={item.id}
 									item={item}
 									index={index}
 									onDragRemove={(item) => handleDragRemove(item)}
