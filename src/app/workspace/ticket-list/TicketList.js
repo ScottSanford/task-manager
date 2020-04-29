@@ -33,15 +33,22 @@ const TicketList = ({
 		deleteCardList(id)
 	}
 
+	const cardListStyles = snapshot => {
+		return {
+			backgroundColor: snapshot.isDraggingOver ? 'var(--color-neutral-7)' : '',
+			transition: 'backgroundColor 0.2 ease'
+		}
+	}
+
 	return (
 		<Droppable droppableId={column.id}>
-			{(provided) => (
+			{(provided, snapshot) => (
 				<div ref={provided.innerRef} {...provided.droppableProps} className="card-list">
 					<div className="card-list__header">
 						<div className="card-list__title">{column.title}</div>
 						<div className="fa fa-ellipsis-h" onClick={handleDeleteClick}></div>
 					</div>
-					<div className="card-list__container">
+					<div className="card-list__container" style={cardListStyles(snapshot)}>
 						<div className="ticket-list__container">
 							{tickets.map((item, index) => {
 								return <Ticket

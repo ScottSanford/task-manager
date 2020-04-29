@@ -44,6 +44,9 @@ const Workspace = ({
 		}
 
 		reorderList({ destination, source, draggableId })
+
+		// Moving from one list to another
+		// const startTicketIds = [...start.ticketIds]
 	}
 
 
