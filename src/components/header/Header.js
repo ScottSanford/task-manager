@@ -16,7 +16,7 @@ const NavWrapper = styled.nav`
 	grid-row-gap: 0px;
 
 	@media only screen and (max-width: 1100px) {
-		span:last-of-type {
+		.boards {
 			display: none;
 		}
 	}
@@ -161,7 +161,7 @@ const Header = () => {
 		<NavWrapper>
 			<StyledNavBoardLink exact to="/workspace/test" theme={{ color: 'var(--color-neutral-8)' }}>
 				<span className="fa fa-clone"></span>
-				<span>Boards</span>
+				<span className="boards">Boards</span>
 			</StyledNavBoardLink>
 			<HeaderSearch>
 				<span className="fa fa-search"></span>
