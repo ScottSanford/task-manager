@@ -36,8 +36,7 @@ const Workspace = ({
 	}
 
 	const handleOnDragEnd = ({ destination, source, draggableId }) => {
-		if (
-			!destination ||
+		if (!destination ||
 			(destination.droppableId === source.droppableId &&
 				destination.index === source.index)
 		) {

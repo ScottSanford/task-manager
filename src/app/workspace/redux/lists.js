@@ -79,10 +79,5 @@ function reorderList(state, action) {
 	ticketIdsArray.splice(destination.index, 0, draggableId)
 
 	const newList = { ...list, ticketIds: ticketIdsArray }
-	const newState = { ...state, [newList.id]: newList }
-
-	console.log(state)
-	console.log(newState)
-
-	return newState
+	return { ...state, [newList.id]: newList }
 }
