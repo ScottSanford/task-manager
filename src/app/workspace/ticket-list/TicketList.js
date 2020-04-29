@@ -41,13 +41,13 @@ const TicketList = ({
 			</div>
 			<div className="card-list__container">
 				<div className="ticket-list__container">
-					{cards.map((item, index) => {
+					{/* {cards.map((item, index) => {
 						return <Ticket
 							key={index.toString()}
 							item={item}
 							onDragRemove={(item) => handleDragRemove(item)}
 							openModal={(item) => openModal(item, id)} />
-					})}
+					})} */}
 				</div>
 				{isComposing ? <CardComposer onCardEnter={handleOnCardEnter} /> : ''}
 				<div className="card-list__add-button" onClick={handleAddActionClick}>Add Card</div>

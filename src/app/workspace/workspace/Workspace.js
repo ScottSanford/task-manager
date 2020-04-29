@@ -5,26 +5,20 @@ import Header from '../../../components/header/Header'
 import Modal from '../../../components/modal/Modal'
 
 const Workspace = ({
+	tickets,
 	lists,
-	addCardToList,
-	removeCardFromList,
-	deleteList,
+	listOrder,
 	updateTicket,
 }) => {
 
 	const [showModal, setShowModal] = useState(false)
 	const [modalData, setModalData] = useState({})
 
-	const ticketList = lists.map(list => {
+	const ticketList = listOrder.map(listId => {
+		const column = lists[listId]
+		const columnTickets = column.ticketIds.map(ticketId => tickets[ticketId])
 		return (
-			<TicketList
-				key={list.id}
-				{...list}
-				addCardToList={(card) => addCardToList(card, { id: list.id })}
-				removeCardFromList={(card) => removeCardFromList(card, { id: list.id })}
-				deleteCardList={(id) => deleteList(id)}
-				openModal={(item) => handleTicketModal(item, list.id)}
-			/>
+			<TicketList key={column.id} column={column} tickets={columnTickets} />
 		)
 	})
 

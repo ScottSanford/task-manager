@@ -5,9 +5,11 @@ import { addListAction, addCardToListAction, deleteCardListAction, deleteCardFro
 import Workspace from './workspace/Workspace'
 
 const WorkspacePage = ({
+	tickets,
 	addCardToList,
 	deleteList,
 	lists,
+	listOrder,
 	removeCardFromList,
 	users,
 	updateTicket,
@@ -18,6 +20,8 @@ const WorkspacePage = ({
 			<Workspace
 				users={users}
 				lists={lists}
+				listOrder={listOrder}
+				tickets={tickets}
 				addCardToList={addCardToList}
 				removeCardFromList={removeCardFromList}
 				deleteList={deleteList}
@@ -29,7 +33,9 @@ const WorkspacePage = ({
 
 function mapStateToProps(state) {
 	return {
+		tickets: state.tickets,
 		lists: state.lists,
+		listOrder: state.listOrder,
 		users: state.users,
 	}
 }
