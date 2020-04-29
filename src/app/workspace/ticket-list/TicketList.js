@@ -1,8 +1,39 @@
 import React, { useState } from 'react'
-import './TicketList.css'
 import Ticket from '../ticket/Ticket'
 import CardComposer from '../card-composer/CardComposer'
 import { Droppable } from 'react-beautiful-dnd'
+import styled from 'styled-components'
+import TicketListHeader from './TicketListHeader'
+
+const TicketListStyled = styled.div`
+	border-radius: var(--b-radius-sm);
+	height: fit-content;
+`
+
+const ListContainer = styled.div`
+	background: ${({ isDraggingOver }) => isDraggingOver ? 'var(--color-neutral-7)' : 'var(--color-white)'};
+	border-radius: var(--b-radius-sm);
+	min-height: 5rem;
+	padding: 1rem;
+`
+
+const AddButton = styled.div`
+	align-items: center;
+	border-radius: var(--b-radius-sm);
+	color: var(--color-neutral-6);
+	display: flex;
+	height: 4rem;
+	justify-content: center;
+	margin-top: 1rem;
+	font-size: 1.4rem;
+	font-weight: 600;
+	transition: background 0.25s, color 0.25s;
+
+	&:hover {
+		background: var(--color-neutral-10);
+		color: var(--color-neutral-2);
+	}
+`
 
 const TicketList = ({
 	column,
@@ -14,49 +45,32 @@ const TicketList = ({
 }) => {
 
 	const [isComposing, setIsComposing] = useState(false)
-	function handleAddActionClick() {
-		setIsComposing(true)
-	}
 
+	const handleAddActionClick = () => setIsComposing(true)
+	const handleDeleteClick = () => deleteCardList(id)
 	const handleOnTicketEnter = aTicket => {
 		setIsComposing(false)
 		addTicketToList(aTicket)
 	}
 
-	function handleDeleteClick() {
-		deleteCardList(id)
-	}
-
-	const cardListStyles = snapshot => {
-		return {
-			backgroundColor: snapshot.isDraggingOver ? 'var(--color-neutral-7)' : '',
-			transition: 'backgroundColor 0.2 ease'
-		}
-	}
-
 	return (
 		<Droppable droppableId={column.id}>
 			{(provided, snapshot) => (
-				<div ref={provided.innerRef} {...provided.droppableProps} className="card-list">
-					<div className="card-list__header">
-						<div className="card-list__title">{column.title}</div>
-						<div className="fa fa-ellipsis-h" onClick={handleDeleteClick}></div>
-					</div>
-					<div className="card-list__container" style={cardListStyles(snapshot)}>
-						<div className="ticket-list__container">
-							{tickets.map((item, index) => {
-								return <Ticket
-									key={item.id}
-									item={item}
-									index={index}
-									openModal={(item) => openModal(item, id)} />
-							})}
-						</div>
+				<TicketListStyled ref={provided.innerRef} {...provided.droppableProps}>
+					<TicketListHeader title={column.title} handleDeleteClick={handleDeleteClick} />
+					<ListContainer isDraggingOver={snapshot.isDraggingOver}>
+						{tickets.map((item, index) => {
+							return <Ticket
+								key={item.id}
+								item={item}
+								index={index}
+								openModal={(item) => openModal(item, id)} />
+						})}
 						{provided.placeholder}
 						{isComposing ? <CardComposer onCardEnter={handleOnTicketEnter} /> : ''}
-						<div className="card-list__add-button" onClick={handleAddActionClick}>Add Card</div>
-					</div>
-				</div>
+						<AddButton onClick={handleAddActionClick}>Add Card</AddButton>
+					</ListContainer>
+				</TicketListStyled>
 			)}
 		</Droppable>
 	)
