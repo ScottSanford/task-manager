@@ -3,6 +3,7 @@ import './Workspace.css'
 import TicketList from '../ticket-list/TicketList'
 import Header from '../../../components/header/Header'
 import Modal from '../../../components/modal/Modal'
+import { DragDropContext } from 'react-beautiful-dnd'
 
 const Workspace = ({
 	tickets,
@@ -33,6 +34,11 @@ const Workspace = ({
 		updateTicket(aTicket, { id: aTicket.listId })
 	}
 
+	const handleOnDragEnd = result => {
+		// TODO: Reorder columsn
+		console.log(result)
+	}
+
 
 	return (
 		<div className="workspace-page">
@@ -47,11 +53,13 @@ const Workspace = ({
 						</div>
 					</div>
 				</div>
-				<div className="lists-track">
-					<div className="lists-container">
-						{ticketList}
+				<DragDropContext onDragEnd={handleOnDragEnd}>
+					<div className="lists-track">
+						<div className="lists-container">
+							{ticketList}
+						</div>
 					</div>
-				</div>
+				</DragDropContext>
 			</div>
 			<Modal
 				show={showModal}
