@@ -47,6 +47,7 @@ const TicketList = ({
 								return <Ticket
 									key={index.toString()}
 									item={item}
+									index={index}
 									onDragRemove={(item) => handleDragRemove(item)}
 									openModal={(item) => openModal(item, id)} />
 							})}
