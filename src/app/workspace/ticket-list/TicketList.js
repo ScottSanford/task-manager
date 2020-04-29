@@ -5,12 +5,12 @@ import CardComposer from '../card-composer/CardComposer'
 
 
 const TicketList = ({
+	column,
 	addCardToList,
 	deleteCardList,
-	cards,
+	tickets,
 	id,
 	removeCardFromList,
-	title,
 	openModal,
 }) => {
 
@@ -36,18 +36,18 @@ const TicketList = ({
 	return (
 		<div className="card-list">
 			<div className="card-list__header">
-				<div className="card-list__title">{title}</div>
+				<div className="card-list__title">{column.title}</div>
 				<div className="fa fa-ellipsis-h" onClick={handleDeleteClick}></div>
 			</div>
 			<div className="card-list__container">
 				<div className="ticket-list__container">
-					{/* {cards.map((item, index) => {
+					{tickets.map((item, index) => {
 						return <Ticket
 							key={index.toString()}
 							item={item}
 							onDragRemove={(item) => handleDragRemove(item)}
 							openModal={(item) => openModal(item, id)} />
-					})} */}
+					})}
 				</div>
 				{isComposing ? <CardComposer onCardEnter={handleOnCardEnter} /> : ''}
 				<div className="card-list__add-button" onClick={handleAddActionClick}>Add Card</div>
