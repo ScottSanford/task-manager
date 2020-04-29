@@ -1,7 +1,48 @@
 import React, { useState } from 'react'
-import './LoginForm.css'
 import { useHistory } from 'react-router-dom'
 import TextInput from './TextInput'
+import styled from 'styled-components'
+
+const FormStyled = styled.form`
+	margin-top: 10rem;
+
+	@media only screen and (max-width: 700px) {
+		margin-top: 3rem;
+	}
+`
+
+const Submit = styled.div`
+	display: flex;
+	justify-content: flex-end;
+	text-decoration: none;
+`
+
+const SubmitButton = styled.button`
+	background: var(--color-primary-5);
+	border: none;
+	border-radius: var(--b-radius-sm);
+	box-shadow: 0 4px 6px hsla(0, 0%, 0%, 0.2);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	padding: 1rem 2.5rem;
+	font-weight: 700;
+	color: var(--color-neutral-10);
+
+	&:focus {
+		outline: none;
+	}
+
+	&:active {
+		box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.2);
+	}
+
+	@media only screen and (max-width: 700px) {
+		width: 100%;
+	}
+`
 
 const LoginForm = () => {
 
@@ -73,7 +114,7 @@ const LoginForm = () => {
 	}
 
 	return (
-		<form className="loginPage__form" onSubmit={handleSubmit}>
+		<FormStyled onSubmit={handleSubmit}>
 			<TextInput
 				value={username}
 				placeholder="Username"
@@ -91,21 +132,33 @@ const LoginForm = () => {
 				onChange={handlePasswordChange}
 			/>
 			{errors.password && <FormValidation type="password" error={errors.password} />}
-			<div className="loginPage__submit">
-				<button className="loginPage__button" type="submit">Login</button>
-			</div>
-		</form>
+			<Submit>
+				<SubmitButton type="submit">Login</SubmitButton>
+			</Submit>
+		</FormStyled>
 	)
 }
+
+const ErrorValidation = styled.div`
+	background: var(--color-red-9);
+	color: var(--color-red-3);
+	padding: 1rem 2rem;
+	width: 100%;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	font-size: 1.4rem;
+	display: flex;
+	align-items: center;
+`
 
 const FormValidation = ({ type, error }) => {
 
 	const validEmojiFace = type === 'username'
-		? <span className="error-emoji" role="img" aria-label="">😩</span>
-		: <span className="error-emoji" role="img" aria-label="">🤫</span>
+		? <span style={{ fontSize: '1.8rem', marginRight: '5px' }} role="img" aria-label="">😩</span>
+		: <span style={{ fontSize: '1.8rem', marginRight: '5px' }} role="img" aria-label="">🤫</span>
 
 	return (
-		<div className="error-validation">{validEmojiFace} {error}</div>
+		<ErrorValidation>{validEmojiFace} {error}</ErrorValidation>
 	)
 }
 

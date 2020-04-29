@@ -1,0 +1,104 @@
+import React from 'react'
+import styled from 'styled-components'
+import video from '../../assets/mountains2.mp4'
+
+const BackgroundVideo = styled.video`
+	height: 100%;
+	left: 0;
+	opacity: 0.65;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+
+	@media only screen and (max-width: 700px) {
+		object-fit: cover;
+		width: 100%;
+	}
+`
+
+const BackgroundVideoContent = styled.div`
+	z-index: 2;
+	height: 100%;
+	width: 100%;
+
+	@media only screen and (max-width: 800px) {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		margin-bottom: 13rem;
+	}
+
+	@media only screen and (max-width: 700px) {
+		width: auto;
+	}
+`
+
+const PlayButton = styled.div`
+	align-items: center;
+	background: var(--color-yellow-5);
+	border-radius: 50%;
+	color: var(--color-white);
+	display: flex;
+	height: 5rem;
+	justify-content: center;
+	margin-top: 30rem;
+	width: 5rem;
+	font-size: 1.4rem;
+
+	@media only screen and (max-width: 800px) {
+		margin-top: 0;
+	}
+
+	@media only screen and (max-width: 700px) {
+		height: 4rem;
+		width: 4rem;
+	}
+`
+
+const Title = styled.div`
+	font-size: 4rem;
+	font-weight: 700;
+	color: var(--color-neutral-10);
+	margin-top: 2rem;
+
+	@media only screen and (max-width: 1000px) {
+		font-size: 3rem;
+	}
+
+	@media only screen and (max-width: 800px) {
+		font-size: 2.5rem;
+		margin-top: 1rem;
+	}
+`
+
+const Subtext = styled.span`
+	background: var(--color-green-8);
+	border-radius: var(--b-radius-sm);
+	color: var(--color-neutral-1);
+	font-size: 1.6rem;
+	padding: 0.25rem 1rem 0.25rem 0.5rem;
+	position: relative;
+	top: 7px;
+	font-weight: 500;
+
+	@media only screen and (max-width: 800px) {
+		font-size: 1.2rem;
+	}
+`
+
+const LoginVideo = () => {
+	return (
+		<>
+			<BackgroundVideo autoPlay muted loop>
+				<source src={video} type="video/mp4" />
+			</BackgroundVideo>
+			<BackgroundVideoContent>
+				<PlayButton><span className="fa fa-map"></span></PlayButton>
+				<Title>Plan Your Adventure</Title>
+				<Subtext>Lorem Ipsum Dolor Sit Amet</Subtext>
+			</BackgroundVideoContent>
+		</>
+	)
+}
+
+export default LoginVideo
