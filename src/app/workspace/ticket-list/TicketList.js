@@ -6,21 +6,21 @@ import styled from 'styled-components'
 import TicketListHeader from './TicketListHeader'
 
 const TicketListStyled = styled.div`
-	border-radius: var(--b-radius-sm);
+	border-radius: ${({ theme }) => theme.bRadiusSm};
 	height: fit-content;
 `
 
 const ListContainer = styled.div`
-	background: ${({ isDraggingOver }) => isDraggingOver ? 'var(--color-neutral-7)' : 'var(--color-white)'};
-	border-radius: var(--b-radius-sm);
+	background: ${({ isDraggingOver, theme }) => isDraggingOver ? theme.colorNeutral7 : theme.colorWhite};
+	border-radius: ${({ theme }) => theme.bRadiusSm};
 	min-height: 5rem;
 	padding: 1rem;
 `
 
 const AddButton = styled.div`
 	align-items: center;
-	border-radius: var(--b-radius-sm);
-	color: var(--color-neutral-6);
+	border-radius: ${({ theme }) => theme.bRadiusSm};
+	color: ${({ theme }) => theme.colorNeutral6};
 	display: flex;
 	height: 4rem;
 	justify-content: center;
@@ -30,8 +30,8 @@ const AddButton = styled.div`
 	transition: background 0.25s, color 0.25s;
 
 	&:hover {
-		background: var(--color-neutral-10);
-		color: var(--color-neutral-2);
+		background: ${({ theme }) => theme.colorNeutral10};
+		color: ${({ theme }) => theme.colorNeutral2};
 	}
 `
 

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Header = styled.div`
-	color: var(--color-neutral-1);
+	color: ${({ theme }) => theme.colorNeutral1};
 	display: flex;
 	justify-content: space-between;
 	width: 100%;

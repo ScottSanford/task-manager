@@ -35,9 +35,9 @@ const BackgroundVideoContent = styled.div`
 
 const PlayButton = styled.div`
 	align-items: center;
-	background: var(--color-yellow-5);
+	background: ${({ theme }) => theme.colorYellow5};
 	border-radius: 50%;
-	color: var(--color-white);
+	color: ${({ theme }) => theme.colorWhite};
 	display: flex;
 	height: 5rem;
 	justify-content: center;
@@ -58,7 +58,7 @@ const PlayButton = styled.div`
 const Title = styled.div`
 	font-size: 4rem;
 	font-weight: 700;
-	color: var(--color-neutral-10);
+	color: ${({ theme }) => theme.colorNeutral10};
 	margin-top: 2rem;
 
 	@media only screen and (max-width: 1000px) {
@@ -72,9 +72,9 @@ const Title = styled.div`
 `
 
 const Subtext = styled.span`
-	background: var(--color-green-8);
-	border-radius: var(--b-radius-sm);
-	color: var(--color-neutral-1);
+	background: ${({ theme }) => theme.colorGreen8};
+	border-radius: ${({ theme }) => theme.bRadiusSm};
+	color: ${({ theme }) => theme.colorNeutral1};
 	font-size: 1.6rem;
 	padding: 0.25rem 1rem 0.25rem 0.5rem;
 	position: relative;

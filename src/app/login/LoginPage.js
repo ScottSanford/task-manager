@@ -6,7 +6,7 @@ import LoginForm from './login-form/LoginForm'
 import LoginVideo from './LoginVideo'
 
 const LoginPageStyled = styled.div`
-	background: var(--color-white);
+	background: ${({ theme }) => theme.colorWhite};
 	display: grid;
 	grid-template-columns: 1fr 2fr;
 	grid-template-rows: repeat(3, 1fr);
@@ -45,7 +45,7 @@ const Left = styled.div`
 
 const Right = styled.div`
 	align-items: center;
-	background: var(--color-green-3);
+	background: ${({ theme }) => theme.colorGreen3};
 	display: flex;
 	grid-row: 1 / -1;
 	grid-column: 2 / -1;

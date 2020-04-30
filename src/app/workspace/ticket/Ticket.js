@@ -4,7 +4,7 @@ import { Draggable } from 'react-beautiful-dnd'
 import styled from 'styled-components'
 
 const TicketWrapper = styled.div`
-	background: ${props => (props.isDragging ? 'var(--color-neutral-9)' : 'var(--color-white)')};
+	background: ${({ isDragging, theme }) => (isDragging ? theme.colorNeutral9 : theme.colorWhite)};
 	border-radius: 4px;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 	color: hsl(212, 18%, 35%);
@@ -25,7 +25,7 @@ const TicketTitle = styled.div`
 	grid-row: 2;
 	font-weight: 700;
 	line-height: 1.2;
-	color: var(--color-neutral-1);
+	color: ${({ theme }) => theme.colorNeutral1};
 	font-size: 16px;
 	margin-top: 1rem;
 `
@@ -35,7 +35,7 @@ const TicketDueDate = styled.div`
     grid-column: 1;
     display: flex;
     align-items: baseline;
-    color: var(--color-neutral-4);
+    color: ${({ theme }) => theme.colorNeutral1};
     font-weight: 600;
     margin-top: 2rem;
 	

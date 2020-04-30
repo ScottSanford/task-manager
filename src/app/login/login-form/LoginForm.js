@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import TextInput from './TextInput'
 import styled from 'styled-components'
+import { theme } from '../../Theme'
 
 const FormStyled = styled.form`
 	margin-top: 10rem;
@@ -18,9 +19,9 @@ const Submit = styled.div`
 `
 
 const SubmitButton = styled.button`
-	background: var(--color-primary-5);
+	background: ${({ theme }) => theme.colorPrimary5};
 	border: none;
-	border-radius: var(--b-radius-sm);
+	border-radius: ${({ theme }) => theme.bRadiusSm};
 	box-shadow: 0 4px 6px hsla(0, 0%, 0%, 0.2);
 	display: flex;
 	justify-content: center;
@@ -29,7 +30,7 @@ const SubmitButton = styled.button`
 	text-transform: uppercase;
 	padding: 1rem 2.5rem;
 	font-weight: 700;
-	color: var(--color-neutral-10);
+	color: ${({ theme }) => theme.colorNeutral10};
 
 	&:focus {
 		outline: none;
@@ -55,8 +56,8 @@ const LoginForm = () => {
 	const [errors, setErrors] = useState({})
 
 	// Form Styles
-	const [usernameIcon, setUsernameIcon] = useState({ color: 'var(--color-neutral-9)' })
-	const [passwordIcon, setPasswordIcon] = useState({ color: 'var(--color-neutral-9)' })
+	const [usernameIcon, setUsernameIcon] = useState({ color: theme.colorNeutral9 })
+	const [passwordIcon, setPasswordIcon] = useState({ color: theme.colorNeutral9 })
 
 	// Event Handlers for Form
 	const handleUsernameChange = event => {
@@ -70,7 +71,7 @@ const LoginForm = () => {
 		 */
 		if (errors && validateEmail(value)) {
 			setErrors({ ...errors, username: '' })
-			setUsernameIcon({ color: 'var(--color-green-6)' })
+			setUsernameIcon({ color: theme.colorGreen6 })
 		}
 	}
 
@@ -85,7 +86,7 @@ const LoginForm = () => {
 		 */
 		if (errors && value.length >= 5) {
 			setErrors({ ...errors, password: '' })
-			setPasswordIcon({ color: 'var(--color-neutral-9)' })
+			setPasswordIcon({ color: theme.colorNeutral9 })
 		}
 	}
 
@@ -93,8 +94,8 @@ const LoginForm = () => {
 		event.preventDefault()
 
 		if (!formIsValid()) {
-			setUsernameIcon({ color: 'var(--color-red-6)' })
-			setPasswordIcon({ color: 'var(--color-red-6)' })
+			setUsernameIcon({ color: theme.colorRed6 })
+			setPasswordIcon({ color: theme.colorRed6 })
 			return
 		}
 
@@ -140,8 +141,8 @@ const LoginForm = () => {
 }
 
 const ErrorValidation = styled.div`
-	background: var(--color-red-9);
-	color: var(--color-red-3);
+	background: ${({ theme }) => theme.colorRed9};
+	color: ${({ theme }) => theme.colorRed3};
 	padding: 1rem 2rem;
 	width: 100%;
 	border-radius: 3px;

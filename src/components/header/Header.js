@@ -3,11 +3,12 @@ import { NavLink } from 'react-router-dom'
 import logo from '../../assets/logo.png'
 import profileImg from '../../assets/profile.png'
 import styled from 'styled-components'
+import { theme } from '../../app/Theme'
 
 const NavWrapper = styled.nav`
-	background: var(--color-white);
+	background: ${({ theme }) => theme.colorWhite};
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-	color: var(--color-neutral-6);
+	color: ${({ theme }) => theme.colorNeutral6};
 	height: 6rem;
 	display: grid;
 	grid-template-columns: 1fr 3fr 4fr 3fr 7rem;
@@ -71,17 +72,17 @@ const HeaderSearch = styled.div`
 		}
 
 		&:active {
-			color: var(--color-neutral-8);
+			color: ${({ theme }) => theme.colorNeutral8};
 		}
 
 		&::placeholder {
-			color: var(--color-neutral-7);
+			color: ${({ theme }) => theme.colorNeutral7};
 			font-style: italic;
 			font-size: 1.4rem;
 		}
 
 		&:focus::-webkit-input-placeholder {
-			color: var(--color-neutral-5);
+			color: ${({ theme }) => theme.colorNeutral5};
 		}
 	}
 
@@ -159,7 +160,7 @@ const Header = () => {
 
 	return (
 		<NavWrapper>
-			<StyledNavBoardLink exact to="/workspace/test" theme={{ color: 'var(--color-neutral-8)' }}>
+			<StyledNavBoardLink exact to="/workspace/test" theme={{ color: theme.colorNeutral8 }}>
 				<span className="fa fa-clone"></span>
 				<span className="boards">Boards</span>
 			</StyledNavBoardLink>
@@ -173,7 +174,7 @@ const Header = () => {
 				<UserName>Hello, Scott!</UserName>
 				<span className="fa fa-bell"></span>
 			</User>
-			<StyledNavMenuLink exact to="/dashboard" theme={{ color: 'var(--color-neutral-8)' }}>
+			<StyledNavMenuLink exact to="/dashboard" theme={{ color: theme.colorNeutral8 }}>
 				<span className="fa fa-bars"></span>
 			</StyledNavMenuLink>
 		</NavWrapper>

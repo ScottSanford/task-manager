@@ -3,7 +3,7 @@ import uniqueId from '../../../services/unique-id'
 import styled from 'styled-components'
 
 const CardComposerStyled = styled.div`
-	background: #fff;
+	background: ${({ theme }) => theme.colorWhite};
 	border-radius: 4px;
 	height: 40px;
 	display: flex;

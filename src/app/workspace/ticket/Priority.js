@@ -1,22 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
+import { theme } from '../../Theme'
 
 
 const overrideStyles = (level) => {
 	switch (level) {
 		case 'low':
-			return 'var(--color-green-7)'
+			return theme.colorGreen7
 		case 'medium':
-			return 'var(--color-yellow-7)'
+			return theme.colorYellow7
 		default:
-			return 'var(--color-red-7)'
+			return theme.colorRed7
 	}
 }
 
 const PriorityWrapper = styled.div`
 	background: ${({ level }) => overrideStyles(level)};
 	grid-column: 1 / 3;
-	border-radius: var(--b-radius-sm);
+	border-radius: ${({ theme }) => theme.bRadiusSm};
 	width: 5rem;
 	height: 5px;
 `

@@ -16,10 +16,10 @@ const ProjectInfo = styled.div`
 
 const ProjectType = styled.div`
 	align-items: center;
-	background: var(--color-primary-5);
-	box-shadow: 0 3px 6px var(--color-primary-8);
-	border-radius: var(--b-radius-sm);
-	color: var(--color-neutral-10);
+	background: ${({ theme }) => theme.colorPrimary5};
+	box-shadow: 0 3px 6px ${({ theme }) => theme.colorPrimary8};
+	border-radius: ${({ theme }) => theme.bRadiusSm};
+	color: ${({ theme }) => theme.colorNeutral10};
 	display: flex;
 	height: 4rem;
 	justify-content: center;
@@ -38,7 +38,7 @@ const ProjectInfoMeta = styled.div`
 
 	& span:last-of-type {
 		font-size: 1.2rem;
-		color: var(--color-primary-1);
+		color: ${({ theme }) => theme.colorPrimary1};
 		font-style: italic;
 	}
 `
