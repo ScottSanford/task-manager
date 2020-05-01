@@ -1,8 +1,6 @@
 import React from 'react'
 import TicketList from './TicketList'
 import { mount } from 'enzyme'
-import { DndProvider } from 'react-dnd'
-import Backend from 'react-dnd-html5-backend'
 
 function render(args) {
 	const defaultProps = {
@@ -13,9 +11,7 @@ function render(args) {
 
 	const props = { ...defaultProps, ...args }
 	return mount(
-		<DndProvider backend={Backend}>
-			<TicketList {...props} />
-		</DndProvider>
+		<TicketList {...props} />
 	)
 }
 

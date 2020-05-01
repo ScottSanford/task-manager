@@ -1,20 +1,27 @@
 import React from 'react'
-import './Priority.css'
+import styled from 'styled-components'
+import { theme } from '../../Theme'
 
-const Priority = ({ level }) => {
 
-	const overrideStyles = () => {
-		switch (level) {
-			case 'low':
-				return { background: 'var(--color-green-7)' }
-			case 'medium':
-				return { background: 'var(--color-yellow-7)' }
-			default:
-				return { background: 'var(--color-red-7)' }
-		}
+const overrideStyles = (level) => {
+	switch (level) {
+		case 'low':
+			return theme.colorGreen7
+		case 'medium':
+			return theme.colorYellow7
+		default:
+			return theme.colorRed7
 	}
-
-	return <div className="ticket__tag" style={overrideStyles()}></div>
 }
+
+const PriorityWrapper = styled.div`
+	background: ${({ level }) => overrideStyles(level)};
+	grid-column: 1 / 3;
+	border-radius: ${({ theme }) => theme.bRadiusSm};
+	width: 5rem;
+	height: 5px;
+`
+
+const Priority = ({ level }) => <PriorityWrapper level={level}></PriorityWrapper>
 
 export default Priority

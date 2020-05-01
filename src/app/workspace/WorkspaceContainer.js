@@ -1,49 +1,48 @@
 import React from 'react'
-import './WorkspaceContainer.css'
-import Backend from 'react-dnd-html5-backend'
-import { DndProvider } from 'react-dnd'
 import { connect } from 'react-redux'
-import { addListAction, addCardToListAction, deleteCardListAction, deleteCardFromListAction, updateTicketAction } from './redux/lists'
+import { addTicketAction, reorderListAction } from './redux/lists'
+import { updateTicketAction } from './redux/tickets'
 import Workspace from './workspace/Workspace'
 
+
 const WorkspacePage = ({
-	addCardToList,
-	deleteList,
+	addTicketToList,
+	tickets,
 	lists,
-	removeCardFromList,
+	listOrder,
 	users,
-	updateTicket,
+	reorderList,
+	updateTicket
 }) => {
 
 	return (
-		<DndProvider backend={Backend}>
-			<div className="workspace-container">
-				<Workspace
-					users={users}
-					lists={lists}
-					addCardToList={addCardToList}
-					removeCardFromList={removeCardFromList}
-					deleteList={deleteList}
-					updateTicket={updateTicket}
-				/>
-			</div>
-		</DndProvider>
+		<div className="workspace-container">
+			<Workspace
+				users={users}
+				lists={lists}
+				listOrder={listOrder}
+				tickets={tickets}
+				reorderList={reorderList}
+				addTicketToList={addTicketToList}
+				updateTicket={updateTicket}
+			/>
+		</div>
 	)
 }
 
 function mapStateToProps(state) {
 	return {
+		tickets: state.tickets,
 		lists: state.lists,
+		listOrder: state.listOrder,
 		users: state.users,
 	}
 }
 
 const actionCreators = {
-	addCardToList: addCardToListAction,
-	addList: addListAction,
-	deleteList: deleteCardListAction,
-	removeCardFromList: deleteCardFromListAction,
-	updateTicket: updateTicketAction,
+	addTicketToList: addTicketAction,
+	reorderList: reorderListAction,
+	updateTicket: updateTicketAction
 }
 
 export default connect(mapStateToProps, actionCreators)(WorkspacePage)

@@ -1,7 +1,49 @@
 import React, { useState } from 'react'
-import './LoginForm.css'
 import { useHistory } from 'react-router-dom'
 import TextInput from './TextInput'
+import styled from 'styled-components'
+import { theme } from '../../Theme'
+
+const FormStyled = styled.form`
+	margin-top: 15rem;
+
+	@media only screen and (max-width: 800px) {
+		margin-top: 5rem;
+	}
+`
+
+const Submit = styled.div`
+	display: flex;
+	justify-content: flex-end;
+	text-decoration: none;
+`
+
+const SubmitButton = styled.button`
+	background: ${({ theme }) => theme.colorPrimary5};
+	border: none;
+	border-radius: ${({ theme }) => theme.bRadiusSm};
+	box-shadow: 0 4px 6px hsla(0, 0%, 0%, 0.2);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	padding: 1rem 2.5rem;
+	font-weight: 700;
+	color: ${({ theme }) => theme.colorNeutral10};
+
+	&:focus {
+		outline: none;
+	}
+
+	&:active {
+		box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.2);
+	}
+
+	@media only screen and (max-width: 700px) {
+		width: 100%;
+	}
+`
 
 const LoginForm = () => {
 
@@ -14,8 +56,8 @@ const LoginForm = () => {
 	const [errors, setErrors] = useState({})
 
 	// Form Styles
-	const [usernameIcon, setUsernameIcon] = useState({ color: 'var(--color-neutral-9)' })
-	const [passwordIcon, setPasswordIcon] = useState({ color: 'var(--color-neutral-9)' })
+	const [usernameIcon, setUsernameIcon] = useState({ color: theme.colorNeutral9 })
+	const [passwordIcon, setPasswordIcon] = useState({ color: theme.colorNeutral9 })
 
 	// Event Handlers for Form
 	const handleUsernameChange = event => {
@@ -29,7 +71,7 @@ const LoginForm = () => {
 		 */
 		if (errors && validateEmail(value)) {
 			setErrors({ ...errors, username: '' })
-			setUsernameIcon({ color: 'var(--color-green-6)' })
+			setUsernameIcon({ color: theme.colorGreen6 })
 		}
 	}
 
@@ -44,7 +86,7 @@ const LoginForm = () => {
 		 */
 		if (errors && value.length >= 5) {
 			setErrors({ ...errors, password: '' })
-			setPasswordIcon({ color: 'var(--color-neutral-9)' })
+			setPasswordIcon({ color: theme.colorNeutral9 })
 		}
 	}
 
@@ -52,8 +94,8 @@ const LoginForm = () => {
 		event.preventDefault()
 
 		if (!formIsValid()) {
-			setUsernameIcon({ color: 'var(--color-red-6)' })
-			setPasswordIcon({ color: 'var(--color-red-6)' })
+			setUsernameIcon({ color: theme.colorRed6 })
+			setPasswordIcon({ color: theme.colorRed6 })
 			return
 		}
 
@@ -73,7 +115,7 @@ const LoginForm = () => {
 	}
 
 	return (
-		<form className="loginPage__form" onSubmit={handleSubmit}>
+		<FormStyled onSubmit={handleSubmit}>
 			<TextInput
 				value={username}
 				placeholder="Username"
@@ -91,21 +133,33 @@ const LoginForm = () => {
 				onChange={handlePasswordChange}
 			/>
 			{errors.password && <FormValidation type="password" error={errors.password} />}
-			<div className="loginPage__submit">
-				<button className="loginPage__button" type="submit">Login</button>
-			</div>
-		</form>
+			<Submit>
+				<SubmitButton type="submit">Login</SubmitButton>
+			</Submit>
+		</FormStyled>
 	)
 }
+
+const ErrorValidation = styled.div`
+	background: ${({ theme }) => theme.colorRed9};
+	color: ${({ theme }) => theme.colorRed3};
+	padding: 1rem 2rem;
+	width: 100%;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	font-size: 1.4rem;
+	display: flex;
+	align-items: center;
+`
 
 const FormValidation = ({ type, error }) => {
 
 	const validEmojiFace = type === 'username'
-		? <span className="error-emoji" role="img" aria-label="">😩</span>
-		: <span className="error-emoji" role="img" aria-label="">🤫</span>
+		? <span style={{ fontSize: '1.8rem', marginRight: '5px' }} role="img" aria-label="">😩</span>
+		: <span style={{ fontSize: '1.8rem', marginRight: '5px' }} role="img" aria-label="">🤫</span>
 
 	return (
-		<div className="error-validation">{validEmojiFace} {error}</div>
+		<ErrorValidation>{validEmojiFace} {error}</ErrorValidation>
 	)
 }
 

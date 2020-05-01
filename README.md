@@ -10,17 +10,23 @@
 
 A fun little side project working with React, Redux, and Jest Unit Testing! :)
 
-## Installation and Setup Instructions
+## App Architecture
 
-Clone down this repository. You will need `node` and `npm` installed globally on your machine.
+1. Divide React components into Container and Presentational components.
 
-##### Installation:
+It’s common practice to separate the type of components into components that manage the state of your application and components focusing on how your app looks (presentation).
 
-`npm install`
+This is more of an “art” than a “science”. As you are building your application, you will realize too many props are merely being forwarded. This might be a good time to introduce some container components.
 
-##### To Start Server:
+2. Improve the development experience using styled components
 
-`npm start`
+As an Engineer, I’ve been told to separate concerns and place things within their own files since beginning to learn how to code (i.e. Markup in .html files, styles in .css/.scss files, logic in .js files). This makes sense however, within the last couple of years we have seen a surge of “component-based” architectures for modern day applications. The need to separate our markup/styles/logic has become less of an issue.
+
+With React Styled Components there are many benefits. First, you get the immediate benefit of scoped styles. This is one of the main challenges working with CSS. Unknowingly a change in a style class affects another component style unrelated somewhere else in the DOM. Styled Components ensure your properties are tied directly to your single component.
+
+Additionally, working with dynamic styles becomes easier. Since these are Styled Components we get the benefit of passing in attributes via props to our styles and can change the state of our application styles relatively easily.
+
+Lastly, you get to enjoy using nesting similar to SCSS and LESS. This makes writing styles more enjoyable as it removes the need to write additional classes and keeps things focused within the styled-group.
 
 ## Opinions
 

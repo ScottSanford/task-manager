@@ -1,30 +1,45 @@
 import React, { useState } from 'react'
-import './Workspace.css'
 import TicketList from '../ticket-list/TicketList'
 import Header from '../../../components/header/Header'
 import Modal from '../../../components/modal/Modal'
+import { DragDropContext } from 'react-beautiful-dnd'
+import WorkspaceHeader from './WorkspaceHeader'
+import styled from 'styled-components'
+
+const StyledWorkspace = styled.div`
+	padding: 3rem;
+	width: 100%;
+`
+
+const ListContainer = styled.div`
+	display: grid;
+	grid-template-columns: repeat(3, minmax(20rem, 1fr));
+	gap: 3rem;
+	justify-content: center;
+`
 
 const Workspace = ({
+	addTicketToList,
+	tickets,
 	lists,
-	addCardToList,
-	removeCardFromList,
-	deleteList,
+	listOrder,
 	updateTicket,
+	reorderList,
 }) => {
 
 	const [showModal, setShowModal] = useState(false)
 	const [modalData, setModalData] = useState({})
 
-	const ticketList = lists.map(list => {
+	const ticketList = listOrder.map(listId => {
+		const column = lists[listId]
+		const columnTickets = column.ticketIds.map(ticketId => tickets[ticketId])
 		return (
 			<TicketList
-				key={list.id}
-				{...list}
-				addCardToList={(card) => addCardToList(card, { id: list.id })}
-				removeCardFromList={(card) => removeCardFromList(card, { id: list.id })}
-				deleteCardList={(id) => deleteList(id)}
-				openModal={(item) => handleTicketModal(item, list.id)}
-			/>
+				key={column.id}
+				column={column}
+				tickets={columnTickets}
+				addTicketToList={(aTicket) => addTicketToList(aTicket, column.id)}
+				openModal={(item) => handleTicketModal(item, column.id)} />
 		)
 	})
 
@@ -36,29 +51,32 @@ const Workspace = ({
 	const handleModalClose = () => setShowModal(false)
 	const handleModalSave = (aTicket) => {
 		setShowModal(false)
-		updateTicket(aTicket, { id: aTicket.listId })
+		updateTicket(aTicket)
+	}
+
+	const handleOnDragEnd = ({ destination, source, draggableId }) => {
+		if (!destination ||
+			(destination.droppableId === source.droppableId &&
+				destination.index === source.index)
+		) {
+			return
+		}
+
+		reorderList({ destination, source, draggableId })
 	}
 
 
 	return (
 		<div className="workspace-page">
 			<Header />
-			<div className="workspace">
-				<div className="workspace__header">
-					<div className="ProjectInfo">
-						<div className="project-type"><span className="fa fa-star fa-2x"></span></div>
-						<div className="ProjectInfo__Meta">
-							<span className="project__title">Personal</span>
-							<span className="project__subtext">A project about getting things done quickly.</span>
-						</div>
+			<StyledWorkspace>
+				<WorkspaceHeader />
+				<DragDropContext onDragEnd={handleOnDragEnd}>
+					<div>
+						<ListContainer>{ticketList}</ListContainer>
 					</div>
-				</div>
-				<div className="lists-track">
-					<div className="lists-container">
-						{ticketList}
-					</div>
-				</div>
-			</div>
+				</DragDropContext>
+			</StyledWorkspace>
 			<Modal
 				show={showModal}
 				onClose={handleModalClose}

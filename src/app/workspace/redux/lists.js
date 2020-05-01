@@ -6,83 +6,70 @@
 import initialState from '../../initialState'
 
 // ACTIONS
-export const ADD_LIST = '[workspace] Add List'
-export const DELETE_LIST = '[workspace] Delete List'
-export const ADD_CARD_TO_LIST = '[list] Add Card'
-export const UPDATE_TICKET = '[ticket] Update Card Info'
-export const DELETE_CARD_FROM_LIST = '[list] Delete Card'
+export const ADD_TICKET = '[list] Add ticket'
+export const REORDER_TICKET_IN_LIST = '[list] Reorder Ticket in List'
 
 // ACTION CREATORS
-export function addListAction(payload) {
-	return { type: ADD_LIST, payload }
+export function addTicketAction(payload, listId) {
+	return { type: ADD_TICKET, payload, listId }
 }
 
-export function addCardToListAction(payload, meta) {
-	return { type: ADD_CARD_TO_LIST, payload, meta }
-}
-
-export function deleteCardListAction(payload) {
-	return { type: DELETE_LIST, payload }
-}
-
-export function updateTicketAction(payload, meta) {
-	return { type: UPDATE_TICKET, payload, meta }
-}
-
-export function deleteCardFromListAction(payload, meta) {
-	return { type: DELETE_CARD_FROM_LIST, payload, meta }
+export function reorderListAction(payload) {
+	return { type: REORDER_TICKET_IN_LIST, payload }
 }
 
 // REDUCER
 export function listsReducer(state = initialState.lists, action) {
 	switch (action.type) {
-		case ADD_LIST:
-			return [...state, { ...action.payload }]
-		case ADD_CARD_TO_LIST:
-			return addCardToList(state, action)
-		case UPDATE_TICKET:
-			return updateTicketInList(state, action)
-		case DELETE_LIST:
-			return state.filter(list => list.id !== action.payload)
-		case DELETE_CARD_FROM_LIST:
-			return deleteCardFromList(state, action)
+		case ADD_TICKET:
+			return addTicketToList(state, action)
+		case REORDER_TICKET_IN_LIST:
+			return reorderList(state, action)
 		default:
 			return state
 	}
 }
 
-// Reducer Logic Extracted
-function addCardToList(state, action) {
-	return state.map(list => {
-		return list.id === action.meta.id
-			? { ...list, cards: [...list.cards, { ...action.payload }] }
-			: list
-	})
+function addTicketToList(state, action) {
+
+	const list = state[action.listId]
+	const ticketIds = [...list.ticketIds, action.payload.id]
+	const newListState = { ...list, ticketIds }
+
+	return { ...state, [action.listId]: newListState }
 }
 
-function deleteCardFromList(state, action) {
-	return state.map(list => {
-		return list.id === action.meta.id
-			? {
-				...list,
-				cards: list.cards.filter(card => card.title !== action.payload.title)
-			}
-			: list
-	})
+function reorderList(state, action) {
+	const { source, destination, draggableId } = action.payload
+	const start = state[source.droppableId]
+	const finish = state[destination.droppableId]
+
+	if (start === finish) {
+		const ticketIdsArray = [...start.ticketIds]
+		ticketIdsArray.splice(source.index, 1)
+		ticketIdsArray.splice(destination.index, 0, draggableId)
+
+		const newList = { ...start, ticketIds: ticketIdsArray }
+		return { ...state, [newList.id]: newList }
+	}
+
+	return moveTicketToNewList(state, action, { start, finish })
 }
 
-function updateTicketInList(state, action) {
-	return state.map(list => {
-		return list.id === action.meta.id
-			? {
-				...list,
-				cards: list.cards.map(card => {
-					if (card.id === action.payload.id) {
-						return action.payload
-					}
-					return card
-				})
-			}
-			: list
-	})
+function moveTicketToNewList(state, action, { start, finish }) {
+
+	const { source, destination, draggableId } = action.payload
+	const startTicketIds = [...start.ticketIds]
+	startTicketIds.splice(source.index, 1)
+	const newStart = { ...start, ticketIds: startTicketIds }
+
+	const finishedTicketIds = [...finish.ticketIds]
+	finishedTicketIds.splice(destination.index, 0, draggableId)
+	const newFinish = { ...finish, ticketIds: finishedTicketIds }
+
+	return {
+		...state,
+		[newStart.id]: newStart,
+		[newFinish.id]: newFinish,
+	}
 }
