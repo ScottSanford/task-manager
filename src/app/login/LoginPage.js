@@ -19,6 +19,7 @@ const LoginPageStyled = styled.div`
 	}
 
 	@media only screen and (max-width: 800px) {
+		grid-gap: 3rem;
 		grid-template-columns: 100%;
 		grid-template-rows: repeat(2, 1fr);
 
@@ -74,6 +75,7 @@ const Right = styled.div`
 	}
 	
 	@media only screen and (max-width: 800px) {
+		height: 100%;
 		clip-path: polygon(0 0, 100% 15%, 100% 100%, 0% 100%);
 	}
 `
