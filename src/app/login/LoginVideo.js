@@ -10,26 +10,20 @@ const BackgroundVideo = styled.video`
 	position: absolute;
 	top: 0;
 
-	@media only screen and (max-width: 700px) {
+	@media only screen and (max-width: 800px) {
 		object-fit: cover;
 		width: 100%;
+		
 	}
 `
 
 const BackgroundVideoContent = styled.div`
 	z-index: 2;
-	height: 100%;
 	width: 100%;
+	padding-left: 10rem;
 
-	@media only screen and (max-width: 800px) {
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-end;
-		margin-bottom: 13rem;
-	}
-
-	@media only screen and (max-width: 700px) {
-		width: auto;
+	@media only screen and (max-width: 1000px) {
+		padding-left: 5rem;
 	}
 `
 
@@ -61,7 +55,7 @@ const Title = styled.div`
 	color: ${({ theme }) => theme.colorNeutral10};
 	margin-top: 2rem;
 
-	@media only screen and (max-width: 1000px) {
+	@media only screen and (max-width: 1100px) {
 		font-size: 3rem;
 	}
 

@@ -5,10 +5,10 @@ import styled from 'styled-components'
 import { theme } from '../../Theme'
 
 const FormStyled = styled.form`
-	margin-top: 10rem;
+	margin-top: 15rem;
 
-	@media only screen and (max-width: 700px) {
-		margin-top: 3rem;
+	@media only screen and (max-width: 800px) {
+		margin-top: 5rem;
 	}
 `
 

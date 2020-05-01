@@ -14,7 +14,11 @@ const LoginPageStyled = styled.div`
 	grid-row-gap: 0px;
 	height: 100vh;
 
-	@media only screen and (max-width: 700px) {
+	@media only screen and (max-width: 1000px) {
+		grid-template-columns: 2fr 3fr;
+	}
+
+	@media only screen and (max-width: 800px) {
 		grid-template-columns: 100%;
 		grid-template-rows: repeat(2, 1fr);
 
@@ -27,14 +31,14 @@ const LoginPageStyled = styled.div`
 `
 
 const Left = styled.div`
-	margin: 8rem;
+	margin: 8rem 2rem 8rem 5rem;
 
 	& img {
 		height: 8rem;
 	}
 
 	@media only screen and (max-width: 800px) {
-		margin: 5rem;
+		margin: 3rem 8rem;
 	}
 
 	@media only screen and (max-width: 800px) {
@@ -43,27 +47,34 @@ const Left = styled.div`
 	}
 `
 
+const RightWrap = styled.div`
+	grid-row: 1 / -1;
+	grid-column: 2 / -1;
+	filter: drop-shadow(-2px 0px 6px rgba(50, 50, 0, 0.5));
+
+	@media only screen and (max-width: 800px) {
+		grid-row: 2 / -1;
+		grid-column: 1 / -1;
+		filter: drop-shadow(0 -2px 6px rgba(50, 50, 0, 0.5));
+	}
+`
+
 const Right = styled.div`
 	align-items: center;
 	background: ${({ theme }) => theme.colorGreen3};
+	clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
 	display: flex;
-	grid-row: 1 / -1;
-	grid-column: 2 / -1;
 	position: relative;
 	padding: 10rem;
 	overflow: hidden;
+	height: 100vh;
 
 	@media only screen and (max-width: 1000px) {
 		padding: 7rem;
 	}
-
+	
 	@media only screen and (max-width: 800px) {
-		padding: 5rem;
-	}
-
-	@media only screen and (max-width: 700px) {
-		grid-row: 2 / -1;
-		grid-column: 1 / -1;
+		clip-path: polygon(0 0, 100% 15%, 100% 100%, 0% 100%);
 	}
 `
 
@@ -77,9 +88,11 @@ const LoginPage = () => {
 				<LoginForm />
 			</Left>
 
-			<Right>
-				<LoginVideo />
-			</Right>
+			<RightWrap>
+				<Right>
+					<LoginVideo />
+				</Right>
+			</RightWrap>
 		</LoginPageStyled>
 	)
 }
