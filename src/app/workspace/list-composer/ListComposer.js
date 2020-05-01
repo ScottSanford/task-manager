@@ -1,6 +1,19 @@
 import React, { useState } from 'react'
 import './ListComposer.css'
 import uniqueId from '../../../services/unique-id'
+import styled from 'styled-components'
+
+const ListComposerStyled = styled.div`
+	width: 272px;
+	background: #b4cadf;
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
+	transition: 0.3s;
+	height: 20px;
+	padding: 10px;
+	border-radius: 4px;
+`
 
 const ListComposer = ({ addList }) => {
 
@@ -35,11 +48,11 @@ const ListComposer = ({ addList }) => {
 		)
 
 	return (
-		<div className="list-composer">
+		<ListComposerStyled>
 			<form onSubmit={handleSubmit}>
 				{composer}
 			</form>
-		</div>
+		</ListComposerStyled>
 	)
 }
 
