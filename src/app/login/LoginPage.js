@@ -39,12 +39,13 @@ const Left = styled.div`
 	}
 
 	@media only screen and (max-width: 800px) {
+		grid-row: 1 / 1;
+		grid-column: 1 / -1;
 		margin: 3rem 8rem;
 	}
 
-	@media only screen and (max-width: 800px) {
-		grid-row: 1 / 1;
-		grid-column: 1 / -1;
+	@media only screen and (max-width: 600px) {
+		margin: 3rem 5rem;
 	}
 `
 
