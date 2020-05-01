@@ -50,7 +50,7 @@ const PlayButton = styled.div`
 `
 
 const Title = styled.div`
-	font-size: 4rem;
+	font-size: 5rem;
 	font-weight: 700;
 	color: ${({ theme }) => theme.colorNeutral10};
 	margin-top: 2rem;
