@@ -117,6 +117,7 @@ const LoginForm = () => {
 	return (
 		<FormStyled onSubmit={handleSubmit}>
 			<TextInput
+				data-test="textInput"
 				value={username}
 				placeholder="Username"
 				icon="user"
@@ -125,6 +126,7 @@ const LoginForm = () => {
 			/>
 			{errors.username && <FormValidation type="username" error={errors.username} />}
 			<TextInput
+				data-test="textInput"
 				type="password"
 				placeholder="Password"
 				value={password}
@@ -134,7 +136,7 @@ const LoginForm = () => {
 			/>
 			{errors.password && <FormValidation type="password" error={errors.password} />}
 			<Submit>
-				<SubmitButton type="submit">Login</SubmitButton>
+				<SubmitButton id="submit-button" type="submit" data-test="loginSubmitButton">Login</SubmitButton>
 			</Submit>
 		</FormStyled>
 	)

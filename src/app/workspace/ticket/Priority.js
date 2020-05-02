@@ -20,6 +20,15 @@ const PriorityWrapper = styled.div`
 	border-radius: ${({ theme }) => theme.bRadiusSm};
 	width: 5rem;
 	height: 5px;
+
+	@media only screen and (max-width: 500px) {
+		border-radius: 100%;
+		grid-column: 2 / -1;
+		height: 1.5rem;
+		justify-self: flex-end;
+		margin-right: 1rem;
+		width: 1.5rem;
+	}
 `
 
 const Priority = ({ level }) => <PriorityWrapper level={level}></PriorityWrapper>
