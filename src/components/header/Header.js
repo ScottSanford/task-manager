@@ -3,12 +3,12 @@ import { NavLink } from 'react-router-dom'
 import logo from '../../assets/logo.png'
 import profileImg from '../../assets/profile.png'
 import styled from 'styled-components'
-import { theme } from '../../app/theme/Theme'
+import cssVar from '../../app/theme/constants'
 
 const NavWrapper = styled.nav`
-	background: ${({ theme }) => theme.colorWhite};
+	background: ${cssVar.colorWhite};
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-	color: ${({ theme }) => theme.colorNeutral6};
+	color: ${cssVar.colorNeutral6};
 	height: 6rem;
 	display: grid;
 	grid-template-columns: 1fr 3fr 4fr 3fr 7rem;
@@ -39,7 +39,7 @@ const StyledNavBoardLink = styled(NavLink)`
 	text-decoration: none;
 
 	&.active {
-		color: ${({ theme }) => theme.color};
+		color: ${cssVar.color};
 		text-decoration: none;
 	}
 	
@@ -72,17 +72,17 @@ const HeaderSearch = styled.div`
 		}
 
 		&:active {
-			color: ${({ theme }) => theme.colorNeutral8};
+			color: ${cssVar.colorNeutral8};
 		}
 
 		&::placeholder {
-			color: ${({ theme }) => theme.colorNeutral7};
+			color: ${cssVar.colorNeutral7};
 			font-style: italic;
 			font-size: 1.4rem;
 		}
 
 		&:focus::-webkit-input-placeholder {
-			color: ${({ theme }) => theme.colorNeutral5};
+			color: ${cssVar.colorNeutral5};
 		}
 	}
 
@@ -147,7 +147,7 @@ const StyledNavMenuLink = styled(NavLink)`
 	font-size: 1.4rem;
 
 	&.active {
-		color: ${({ theme }) => theme.color};
+		color: ${cssVar.color};
 	}
 
 	@media only screen and (max-width: 600px) {
@@ -160,7 +160,7 @@ const Header = () => {
 
 	return (
 		<NavWrapper>
-			<StyledNavBoardLink exact to="/workspace/test" theme={{ color: theme.colorNeutral8 }}>
+			<StyledNavBoardLink exact to="/workspace/test" theme={{ color: cssVar.colorNeutral8 }}>
 				<span className="fa fa-clone"></span>
 				<span className="boards">Boards</span>
 			</StyledNavBoardLink>
@@ -174,7 +174,7 @@ const Header = () => {
 				<UserName>Hello, Scott!</UserName>
 				<span className="fa fa-bell"></span>
 			</User>
-			<StyledNavMenuLink exact to="/dashboard" theme={{ color: theme.colorNeutral8 }}>
+			<StyledNavMenuLink exact to="/dashboard" theme={{ color: cssVar.colorNeutral8 }}>
 				<span className="fa fa-bars"></span>
 			</StyledNavMenuLink>
 		</NavWrapper>

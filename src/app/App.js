@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css'
 import { Route, Switch } from 'react-router-dom'
 import '../../node_modules/@fortawesome/fontawesome-free/css/all.min.css'
-import { GlobalStyle, theme } from './theme/Theme'
+import { GlobalStyle, lightTheme, darkTheme } from './theme/Theme'
 import { ThemeProvider } from 'styled-components'
 
 // Components
@@ -12,7 +12,7 @@ import LoginPage from './login/LoginPage'
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={lightTheme}>
       <div className="App">
         <GlobalStyle />
         <Switch>

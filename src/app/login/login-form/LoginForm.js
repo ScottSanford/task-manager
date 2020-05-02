@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import TextInput from './TextInput'
 import styled from 'styled-components'
-import { theme } from '../../theme/Theme'
 import cssVar from '../../theme/constants'
 
 const FormStyled = styled.form`
@@ -57,8 +56,8 @@ const LoginForm = () => {
 	const [errors, setErrors] = useState({})
 
 	// Form Styles
-	const [usernameIcon, setUsernameIcon] = useState({ color: theme.colorNeutral9 })
-	const [passwordIcon, setPasswordIcon] = useState({ color: theme.colorNeutral9 })
+	const [usernameIcon, setUsernameIcon] = useState({ color: cssVar.colorNeutral9 })
+	const [passwordIcon, setPasswordIcon] = useState({ color: cssVar.colorNeutral9 })
 
 	// Event Handlers for Form
 	const handleUsernameChange = event => {
@@ -72,7 +71,7 @@ const LoginForm = () => {
 		 */
 		if (errors && validateEmail(value)) {
 			setErrors({ ...errors, username: '' })
-			setUsernameIcon({ color: theme.colorGreen6 })
+			setUsernameIcon({ color: cssVar.colorGreen6 })
 		}
 	}
 
@@ -87,7 +86,7 @@ const LoginForm = () => {
 		 */
 		if (errors && value.length >= 5) {
 			setErrors({ ...errors, password: '' })
-			setPasswordIcon({ color: theme.colorNeutral9 })
+			setPasswordIcon({ color: cssVar.colorNeutral9 })
 		}
 	}
 
@@ -95,8 +94,8 @@ const LoginForm = () => {
 		event.preventDefault()
 
 		if (!formIsValid()) {
-			setUsernameIcon({ color: theme.colorRed6 })
-			setPasswordIcon({ color: theme.colorRed6 })
+			setUsernameIcon({ color: cssVar.colorRed6 })
+			setPasswordIcon({ color: cssVar.colorRed6 })
 			return
 		}
 
