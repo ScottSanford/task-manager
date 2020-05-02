@@ -19,7 +19,7 @@ const TicketListHeader = ({ title, handleDeleteClick }) => {
 	return (
 		<Header>
 			<Title>{title}</Title>
-			<div className="fa fa-ellipsis-h" onClick={handleDeleteClick}></div>
+			{/* <div className="fa fa-ellipsis-h" onClick={handleDeleteClick}></div> */}
 		</Header>
 	)
 }

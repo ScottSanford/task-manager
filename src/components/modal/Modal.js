@@ -166,6 +166,7 @@ const Modal = ({
 						<div style={{ display: 'flex' }}>
 							{['low', 'medium', 'high'].map(type => (
 								<PriorityType
+									key={type}
 									type={type}
 									priority={item.priority}
 									onClick={() => handlePriority(type)}>

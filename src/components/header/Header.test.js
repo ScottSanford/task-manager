@@ -1,13 +1,17 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import Header from './Header'
-import { NavLink } from 'react-router-dom'
+import { BrowserRouter as Router, NavLink } from 'react-router-dom'
 
 
 describe('Header Component', () => {
 
-	it('should have 2 links', () => {
-		const wrapper = shallow(<Header />)
+	it('should have 2 nav links', () => {
+		const wrapper = mount(
+			<Router>
+				<Header />
+			</Router>
+		)
 		expect(wrapper.find(NavLink)).toHaveLength(2)
 	})
 })
