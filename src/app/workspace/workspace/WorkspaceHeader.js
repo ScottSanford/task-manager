@@ -39,7 +39,7 @@ const ProjectInfoMeta = styled.div`
 
 	& span:last-of-type {
 		font-size: 1.2rem;
-		color: ${cssVar.colorPrimary1};
+		color: ${({ theme }) => theme.textColor};
 		font-style: italic;
 	}
 `

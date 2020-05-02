@@ -19,8 +19,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    color: ${cssVar.colorNeutral1};
-    background: ${cssVar.colorNeutral10};
+    color: ${({ theme }) => theme.textColor};
+    background: ${({ theme }) => theme.bodyBackgroundColor};
     font-family: soleil, sans-serif;
     font-style: normal;
     font-weight: 300;
@@ -31,13 +31,13 @@ export const GlobalStyle = createGlobalStyle`
 `
 
 export const lightTheme = {
-	bodyBackgroundColor: cssVar.colorNeutral10,
-	textColor: cssVar.colorNeutral1,
-	headerBackgroundColor: cssVar.colorWhite,
+  bodyBackgroundColor: cssVar.colorNeutral10,
+  textColor: cssVar.colorNeutral2,
+  headerBackgroundColor: cssVar.colorWhite,
 }
 
 export const darkTheme = {
-	body: '#363537',
-	text: '#FAFAFA',
-	headerBackgroundColor: '#999',
+  bodyBackgroundColor: cssVar.colorNeutral2,
+  textColor: cssVar.colorNeutral10,
+  headerBackgroundColor: cssVar.colorNeutral4,
 }

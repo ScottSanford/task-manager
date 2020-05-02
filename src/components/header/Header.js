@@ -6,9 +6,9 @@ import styled from 'styled-components'
 import cssVar from '../../app/theme/constants'
 
 const NavWrapper = styled.nav`
-	background: ${cssVar.colorWhite};
+	background: ${({ theme }) => theme.headerBackgroundColor};
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-	color: ${cssVar.colorNeutral6};
+	color: ${({ theme }) => theme.textColor};
 	height: 6rem;
 	display: grid;
 	grid-template-columns: 1fr 3fr 4fr 3fr 7rem;
@@ -156,7 +156,14 @@ const StyledNavMenuLink = styled(NavLink)`
 	}
 `
 
-const Header = () => {
+const Header = ({ theme, changeTheme }) => {
+
+	const toggleTheme = () => {
+		let newTheme
+		newTheme = theme === 'light' ? 'dark' : 'light'
+		window.localStorage.setItem('theme', newTheme)
+		changeTheme(newTheme)
+	}
 
 	return (
 		<NavWrapper>
@@ -172,7 +179,7 @@ const Header = () => {
 			<User>
 				<img alt="profile" src={profileImg} />
 				<UserName>Hello, Scott!</UserName>
-				<span className="fa fa-bell"></span>
+				<span className="fa fa-bell" onClick={toggleTheme}></span>
 			</User>
 			<StyledNavMenuLink exact to="/dashboard" theme={{ color: cssVar.colorNeutral8 }}>
 				<span className="fa fa-bars"></span>

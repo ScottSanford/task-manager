@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { theme } from '../../app/theme/Theme'
 import cssVar from '../../app/theme/constants'
 
 const ModalStyled = styled.div`

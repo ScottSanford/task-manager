@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import cssVar from '../../theme/constants'
 
 const Header = styled.div`
-	color: ${cssVar.colorNeutral1};
+	color: ${({ theme }) => theme.textColor};
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
