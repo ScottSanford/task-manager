@@ -18,7 +18,7 @@ const ListContainer = styled.div`
 	justify-content: center;
 
 	@media only screen and (max-width: 700px) {
-		grid-template-colums: 100%;
+		grid-template-columns: 100%;
 	}
 `
 
@@ -76,9 +76,7 @@ const Workspace = ({
 			<StyledWorkspace>
 				<WorkspaceHeader />
 				<DragDropContext onDragEnd={handleOnDragEnd}>
-
 					<ListContainer>{ticketList}</ListContainer>
-
 				</DragDropContext>
 			</StyledWorkspace>
 			<Modal
