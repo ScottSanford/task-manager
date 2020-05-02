@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import TextInput from './TextInput'
 import styled from 'styled-components'
-import { theme } from '../../Theme'
+import { theme } from '../../theme/Theme'
 
 const FormStyled = styled.form`
 	margin-top: 15rem;

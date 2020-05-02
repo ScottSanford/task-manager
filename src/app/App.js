@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css'
 import { Route, Switch } from 'react-router-dom'
 import '../../node_modules/@fortawesome/fontawesome-free/css/all.min.css'
-import { GlobalStyle, theme } from './Theme'
+import { GlobalStyle, theme } from './theme/Theme'
 import { ThemeProvider } from 'styled-components'
 
 // Components

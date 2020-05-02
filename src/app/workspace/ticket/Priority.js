@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { theme } from '../../Theme'
+import { theme } from '../../theme/Theme'
 
 
 const overrideStyles = (level) => {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { theme } from '../../app/Theme'
+import { theme } from '../../app/theme/Theme'
 
 const ModalStyled = styled.div`
 	background: ${({ theme }) => theme.colorWhite};

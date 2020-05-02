@@ -40,7 +40,7 @@ export const theme = {
 	colorPrimary7: 'hsl(205, 75%, 65%)',
 	colorPrimary8: 'hsl(205, 84%, 74%)',
 	colorPrimary9: 'hsl(205, 97%, 85%)',
-	colorPrimary10: ' hsl(205, 79%, 96%)',
+	colorPrimary10: 'hsl(205, 79%, 96%)',
 
 	/* Neutral Colors */
 	colorNeutral1: 'hsl(209, 61%, 16%)',
@@ -64,7 +64,7 @@ export const theme = {
 	colorRed7: 'hsl(360, 71%, 66%)',
 	colorRed8: 'hsl(360, 77%, 78%)',
 	colorRed9: 'hsl(360, 82%, 89%)',
-	colorRed10: ' hsl(360, 100%, 97%)',
+	colorRed10: 'hsl(360, 100%, 97%)',
 
 	colorYellow1: 'hsl(15, 86%, 30%)',
 	colorYellow2: 'hsl(22, 82%, 39%)',
@@ -92,4 +92,16 @@ export const theme = {
 	colorBlack: '#000',
 
 	bRadiusSm: '3px',
+}
+
+export const lightTheme = {
+	bodyBackgroundColor: theme.colorNeutral10,
+	textColor: theme.colorNeutral1,
+	headerBackgroundColor: theme.colorWhite,
+}
+
+export const darkTheme = {
+	body: '#363537',
+	text: '#FAFAFA',
+	headerBackgroundColor: '#999',
 }

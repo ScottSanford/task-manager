@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import logo from '../../assets/logo.png'
 import profileImg from '../../assets/profile.png'
 import styled from 'styled-components'
-import { theme } from '../../app/Theme'
+import { theme } from '../../app/theme/Theme'
 
 const NavWrapper = styled.nav`
 	background: ${({ theme }) => theme.colorWhite};
