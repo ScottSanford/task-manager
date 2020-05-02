@@ -22,6 +22,10 @@ const TicketWrapper = styled.div`
 	@media only screen and (max-width: 700px) {
 		grid-template: auto 1fr / 1fr 3fr; 
 	}
+
+	@media only screen and (max-width: 500px) {
+		grid-template: auto / 3fr 5rem; 
+	}
 `
 
 const TicketTitle = styled.div`
@@ -32,6 +36,12 @@ const TicketTitle = styled.div`
 	color: ${({ theme }) => theme.colorNeutral1};
 	font-size: 16px;
 	margin-top: 1rem;
+
+	@media only screen and (max-width: 500px) {
+		grid-column: 1 / 1;
+		grid-row: 1;
+		margin-top: 0;
+	}
 `
 
 const TicketDueDate = styled.div`
@@ -53,6 +63,10 @@ const TicketDueDate = styled.div`
 		grid-column: 3 / -1;
 		justify-self: center;
 		margin-top: 0;
+	}
+
+	@media only screen and (max-width: 500px) {
+		display: none;
 	}
 `
 
