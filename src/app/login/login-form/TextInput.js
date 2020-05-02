@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import cssVar from '../../theme/constants'
 
 const TextInputStyled = styled.div`
-	border: 1px solid ${({ theme }) => theme.colorNeutral9};
-	border-radius: ${({ theme }) => theme.bRadiusSm};
-	color: ${({ theme }) => theme.colorNeutral9};
+	border: 1px solid ${cssVar.colorNeutral9};
+	border-radius: ${cssVar.bRadiusSm};
+	color: ${cssVar.colorNeutral9};
 	display: grid;
 	font-size: 2rem;
 	grid-template-columns: 5rem 2fr;
@@ -12,7 +13,7 @@ const TextInputStyled = styled.div`
 	padding-right: 10px;
 
 	&:focus-within {
-		border: 1px solid ${({ theme }) => theme.colorNeutral5};
+		border: 1px solid ${cssVar.colorNeutral5};
 	}
 
 	& input {

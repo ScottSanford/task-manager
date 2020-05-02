@@ -1,12 +1,13 @@
 import React from 'react'
 import logo from '../../assets/logo.png'
 import styled from 'styled-components'
+import cssVar from '../theme/constants'
 
 import LoginForm from './login-form/LoginForm'
 import LoginVideo from './LoginVideo'
 
 const LoginPageStyled = styled.div`
-	background: ${({ theme }) => theme.colorWhite};
+	background: ${cssVar.colorWhite};
 	display: grid;
 	grid-template-columns: 1fr 2fr;
 	grid-template-rows: repeat(3, 1fr);
@@ -63,7 +64,7 @@ const RightWrap = styled.div`
 
 const Right = styled.div`
 	align-items: center;
-	background: ${({ theme }) => theme.colorGreen3};
+	background: ${cssVar.colorGreen3};
 	clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
 	display: flex;
 	position: relative;

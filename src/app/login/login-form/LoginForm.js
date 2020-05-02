@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import TextInput from './TextInput'
 import styled from 'styled-components'
 import { theme } from '../../theme/Theme'
+import cssVar from '../../theme/constants'
 
 const FormStyled = styled.form`
 	margin-top: 15rem;
@@ -19,9 +20,9 @@ const Submit = styled.div`
 `
 
 const SubmitButton = styled.button`
-	background: ${({ theme }) => theme.colorPrimary5};
+	background: ${cssVar.colorPrimary5};
 	border: none;
-	border-radius: ${({ theme }) => theme.bRadiusSm};
+	border-radius: ${cssVar.bRadiusSm};
 	box-shadow: 0 4px 6px hsla(0, 0%, 0%, 0.2);
 	display: flex;
 	justify-content: center;
@@ -30,7 +31,7 @@ const SubmitButton = styled.button`
 	text-transform: uppercase;
 	padding: 1rem 2.5rem;
 	font-weight: 700;
-	color: ${({ theme }) => theme.colorNeutral10};
+	color: ${cssVar.colorNeutral10};
 
 	&:focus {
 		outline: none;

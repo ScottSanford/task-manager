@@ -4,23 +4,24 @@ import CardComposer from '../card-composer/CardComposer'
 import { Droppable } from 'react-beautiful-dnd'
 import styled from 'styled-components'
 import TicketListHeader from './TicketListHeader'
+import cssVar from '../../theme/constants'
 
 const TicketListStyled = styled.div`
-	border-radius: ${({ theme }) => theme.bRadiusSm};
+	border-radius: ${cssVar.bRadiusSm};
 	height: fit-content;
 `
 
 const ListContainer = styled.div`
-	background: ${({ isDraggingOver, theme }) => isDraggingOver ? theme.colorNeutral7 : theme.colorWhite};
-	border-radius: ${({ theme }) => theme.bRadiusSm};
+	background: ${({ isDraggingOver }) => isDraggingOver ? cssVar.colorNeutral7 : cssVar.colorWhite};
+	border-radius: ${cssVar.bRadiusSm};
 	min-height: 5rem;
 	padding: 1rem;
 `
 
 const AddButton = styled.div`
 	align-items: center;
-	border-radius: ${({ theme }) => theme.bRadiusSm};
-	color: ${({ theme }) => theme.colorNeutral6};
+	border-radius: ${cssVar.bRadiusSm};
+	color: ${cssVar.colorNeutral6};
 	display: flex;
 	height: 4rem;
 	justify-content: center;
@@ -30,8 +31,8 @@ const AddButton = styled.div`
 	transition: background 0.25s, color 0.25s;
 
 	&:hover {
-		background: ${({ theme }) => theme.colorNeutral10};
-		color: ${({ theme }) => theme.colorNeutral2};
+		background: ${cssVar.colorNeutral10};
+		color: ${cssVar.colorNeutral2};
 	}
 `
 
