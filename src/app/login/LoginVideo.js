@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import cssVar from '../theme/constants'
 import video from '../../assets/mountains2.mp4'
 
 const BackgroundVideo = styled.video`
@@ -29,9 +30,9 @@ const BackgroundVideoContent = styled.div`
 
 const PlayButton = styled.div`
 	align-items: center;
-	background: ${({ theme }) => theme.colorYellow5};
+	background: ${cssVar.colorYellow5};
 	border-radius: 50%;
-	color: ${({ theme }) => theme.colorWhite};
+	color: ${cssVar.colorWhite};
 	display: flex;
 	height: 5rem;
 	justify-content: center;
@@ -52,7 +53,7 @@ const PlayButton = styled.div`
 const Title = styled.div`
 	font-size: 5rem;
 	font-weight: 700;
-	color: ${({ theme }) => theme.colorNeutral10};
+	color: ${cssVar.colorNeutral10};
 	margin-top: 2rem;
 
 	@media only screen and (max-width: 1100px) {
@@ -66,9 +67,9 @@ const Title = styled.div`
 `
 
 const Subtext = styled.span`
-	background: ${({ theme }) => theme.colorGreen8};
-	border-radius: ${({ theme }) => theme.bRadiusSm};
-	color: ${({ theme }) => theme.colorNeutral1};
+	background: ${cssVar.colorGreen8};
+	border-radius: ${cssVar.bRadiusSm};
+	color: ${cssVar.colorNeutral1};
 	font-size: 1.6rem;
 	padding: 0.25rem 1rem 0.25rem 0.5rem;
 	position: relative;

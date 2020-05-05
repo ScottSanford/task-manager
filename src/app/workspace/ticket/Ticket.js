@@ -2,9 +2,20 @@ import React from 'react'
 import Priority from './Priority'
 import { Draggable } from 'react-beautiful-dnd'
 import styled from 'styled-components'
+import cssVar from '../../theme/constants'
 
 const TicketWrapper = styled.div`
-	background: ${({ isDragging, theme }) => (isDragging ? theme.colorNeutral9 : theme.colorWhite)};
+	background: ${({ isDragging, localTheme }) => (
+		(isDragging && localTheme === 'light')
+			? cssVar.colorNeutral9
+			: (!isDragging && localTheme === 'light')
+				? cssVar.colorWhite
+				: (isDragging && localTheme === 'dark')
+					? cssVar.colorNeutral3
+					: (!isDragging && localTheme === 'dark')
+						? cssVar.colorNeutral5
+						: cssVar.colorWhite
+	)};
 	border-radius: 4px;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 	color: hsl(212, 18%, 35%);
@@ -33,7 +44,7 @@ const TicketTitle = styled.div`
 	grid-row: 2;
 	font-weight: 700;
 	line-height: 1.2;
-	color: ${({ theme }) => theme.colorNeutral1};
+	color: ${({ theme }) => theme.textColor2};
 	font-size: 16px;
 	margin-top: 1rem;
 
@@ -49,7 +60,7 @@ const TicketDueDate = styled.div`
     grid-column: 1 / -1;
     display: flex;
     align-items: baseline;
-    color: ${({ theme }) => theme.colorNeutral1};
+    color: ${({ theme }) => theme.textColor2};
     font-weight: 600;
     margin-top: 2rem;
 	
@@ -83,7 +94,8 @@ const Ticket = ({ item, index, openModal }) => {
 						{...provided.dragHandleProps}
 						{...provided.draggableProps}
 						isDragging={snapshot.isDragging}
-						onClick={() => openModal(item)}>
+						onClick={() => openModal(item)}
+						localTheme={window.localStorage.getItem('theme')}>
 						<Priority level={item.priority} />
 						<TicketTitle>{item.title}</TicketTitle>
 						<TicketDueDate>

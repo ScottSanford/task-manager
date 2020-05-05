@@ -3,16 +3,19 @@ import { connect } from 'react-redux'
 import { addTicketAction, reorderListAction } from './redux/lists'
 import { updateTicketAction } from './redux/tickets'
 import Workspace from './workspace/Workspace'
+import { changeThemeAction } from './redux/theme'
 
 
 const WorkspacePage = ({
 	addTicketToList,
-	tickets,
+	changeTheme,
 	lists,
 	listOrder,
-	users,
 	reorderList,
-	updateTicket
+	theme,
+	tickets,
+	updateTicket,
+	users,
 }) => {
 
 	return (
@@ -25,6 +28,8 @@ const WorkspacePage = ({
 				reorderList={reorderList}
 				addTicketToList={addTicketToList}
 				updateTicket={updateTicket}
+				changeTheme={changeTheme}
+				theme={theme}
 			/>
 		</div>
 	)
@@ -32,6 +37,7 @@ const WorkspacePage = ({
 
 function mapStateToProps(state) {
 	return {
+		theme: state.theme,
 		tickets: state.tickets,
 		lists: state.lists,
 		listOrder: state.listOrder,
@@ -41,6 +47,7 @@ function mapStateToProps(state) {
 
 const actionCreators = {
 	addTicketToList: addTicketAction,
+	changeTheme: changeThemeAction,
 	reorderList: reorderListAction,
 	updateTicket: updateTicketAction
 }

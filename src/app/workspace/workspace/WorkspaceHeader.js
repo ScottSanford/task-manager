@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import cssVar from '../../theme/constants'
 
 const StyledWorkspaceHeader = styled.div`
 	align-items: center;
@@ -16,10 +17,9 @@ const ProjectInfo = styled.div`
 
 const ProjectType = styled.div`
 	align-items: center;
-	background: ${({ theme }) => theme.colorPrimary5};
-	box-shadow: 0 3px 6px ${({ theme }) => theme.colorPrimary8};
-	border-radius: ${({ theme }) => theme.bRadiusSm};
-	color: ${({ theme }) => theme.colorNeutral10};
+	background: ${cssVar.colorPrimary5};
+	border-radius: ${cssVar.bRadiusSm};
+	color: ${cssVar.colorNeutral10};
 	display: flex;
 	height: 4rem;
 	justify-content: center;
@@ -38,7 +38,7 @@ const ProjectInfoMeta = styled.div`
 
 	& span:last-of-type {
 		font-size: 1.2rem;
-		color: ${({ theme }) => theme.colorPrimary1};
+		color: ${({ theme }) => theme.textColor};
 		font-style: italic;
 	}
 `

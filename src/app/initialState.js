@@ -1,4 +1,5 @@
 export default {
+	theme: 'light',
 	projects: [
 		{ title: 'Personal', icon: 'user', id: 'bafpvij' },
 		{ title: 'Career', icon: 'briefcase', id: 'dogbvij' },

@@ -2,17 +2,22 @@ import React from 'react'
 import './App.css'
 import { Route, Switch } from 'react-router-dom'
 import '../../node_modules/@fortawesome/fontawesome-free/css/all.min.css'
-import { GlobalStyle, theme } from './Theme'
+import { GlobalStyle, lightTheme, darkTheme } from './theme/Theme'
 import { ThemeProvider } from 'styled-components'
+import { connect } from 'react-redux'
+
 
 // Components
 import Dashboard from './dashboard/Dashboard'
 import WorkspacePage from './workspace/WorkspaceContainer'
 import LoginPage from './login/LoginPage'
 
-function App() {
+function App({ theme }) {
+  console.log('theme', theme)
+  const localTheme = window.localStorage.getItem('theme')
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={localTheme && localTheme === 'light' ? lightTheme : darkTheme}>
       <div className="App">
         <GlobalStyle />
         <Switch>
@@ -25,4 +30,12 @@ function App() {
   )
 }
 
-export default App
+function mapStateToProps(state) {
+  return {
+    theme: state.theme,
+  }
+}
+
+const actionCreators = {}
+
+export default connect(mapStateToProps, actionCreators)(App)

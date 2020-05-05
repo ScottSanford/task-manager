@@ -1,35 +1,8 @@
-import { createGlobalStyle } from 'styled-components'
-
-export const GlobalStyle = createGlobalStyle`
-  * {
-    margin: 0;
-    padding: 0;
-  }
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
-  }
-
-  html {
-    box-sizing: border-box;
-    font-size: 62.5%; /* 1rem = 10px, 10px/16px (browser default) */
-  }
-
-  body {
-    color: ${({ theme }) => theme.colorNeutral1};
-    background: ${({ theme }) => theme.colorNeutral10};
-    font-family: soleil, sans-serif;
-    font-style: normal;
-    font-weight: 300;
-    height: 100vh;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-`
-
-export const theme = {
+/**
+ * CSS Constant variables to maintain color pallete
+ * and consistency with application.
+ */
+const cssVar = {
 	/* Primary App colors */
 	colorPrimary1: 'hsl(205, 100%, 21%)',
 	colorPrimary2: 'hsl(205, 87%, 29%)',
@@ -40,7 +13,7 @@ export const theme = {
 	colorPrimary7: 'hsl(205, 75%, 65%)',
 	colorPrimary8: 'hsl(205, 84%, 74%)',
 	colorPrimary9: 'hsl(205, 97%, 85%)',
-	colorPrimary10: ' hsl(205, 79%, 96%)',
+	colorPrimary10: 'hsl(205, 79%, 96%)',
 
 	/* Neutral Colors */
 	colorNeutral1: 'hsl(209, 61%, 16%)',
@@ -64,7 +37,7 @@ export const theme = {
 	colorRed7: 'hsl(360, 71%, 66%)',
 	colorRed8: 'hsl(360, 77%, 78%)',
 	colorRed9: 'hsl(360, 82%, 89%)',
-	colorRed10: ' hsl(360, 100%, 97%)',
+	colorRed10: 'hsl(360, 100%, 97%)',
 
 	colorYellow1: 'hsl(15, 86%, 30%)',
 	colorYellow2: 'hsl(22, 82%, 39%)',
@@ -93,3 +66,5 @@ export const theme = {
 
 	bRadiusSm: '3px',
 }
+
+export default cssVar

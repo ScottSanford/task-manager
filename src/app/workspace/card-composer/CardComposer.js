@@ -1,9 +1,10 @@
 import React from 'react'
 import uniqueId from '../../../services/unique-id'
 import styled from 'styled-components'
+import cssVar from '../../theme/constants'
 
 const CardComposerStyled = styled.div`
-	background: ${({ theme }) => theme.colorWhite};
+	background: ${cssVar.colorWhite};
 	border-radius: 4px;
 	height: 40px;
 	display: flex;

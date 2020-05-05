@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { theme } from '../../app/Theme'
+import cssVar from '../../app/theme/constants'
 
 const ModalStyled = styled.div`
-	background: ${({ theme }) => theme.colorWhite};
-	border-radius: ${({ theme }) => theme.bRadiusSm};
+	background: ${cssVar.colorWhite};
+	border-radius: ${cssVar.bRadiusSm};
 	box-shadow: 0 1.5rem 3.5rem hsla(0, 0%, 0%, 0.2);
 	left: 50%;
 	position: absolute;
@@ -15,7 +15,7 @@ const ModalStyled = styled.div`
 `
 
 const Backdrop = styled.div`
-	background: ${({ theme }) => theme.colorNeutral1};
+	background: ${cssVar.colorNeutral1};
 	position: absolute;
 	height: 100%;
 	left: 0;
@@ -28,10 +28,10 @@ const ModalHeader = styled.div`
 	display: flex;
 	justify-content: space-between;
 	padding: 2rem;
-	background: ${({ theme }) => theme.colorNeutral9};
-	border-top-left-radius: ${({ theme }) => theme.bRadiusSm};
-	border-top-right-radius: ${({ theme }) => theme.bRadiusSm};
-	color: ${({ theme }) => theme.colorPrimary1};
+	background: ${cssVar.colorNeutral9};
+	border-top-left-radius: ${cssVar.bRadiusSm};
+	border-top-right-radius: ${cssVar.bRadiusSm};
+	color: ${cssVar.colorPrimary1};
 
 	& div {
 		font-size: 1.8rem;
@@ -52,34 +52,34 @@ const ModalFooter = styled.div`
 	justify-content: flex-end;
 	margin-top: 3rem;
 	padding: 2rem;
-	border-top: 1px solid ${({ theme }) => theme.colorNeutral9};
-	border-bottom-left-radius: ${({ theme }) => theme.bRadiusSm};
-	border-bottom-right-radius: ${({ theme }) => theme.bRadiusSm};
+	border-top: 1px solid ${cssVar.colorNeutral9};
+	border-bottom-left-radius: ${cssVar.bRadiusSm};
+	border-bottom-right-radius: ${cssVar.bRadiusSm};
 `
 
 const TicketTitle = styled.div`
 	font-size: 1.4rem;
 	font-weight: 600;
 	margin-bottom: 1rem;
-	color: ${({ theme }) => theme.colorNeutral3};
+	color: ${cssVar.colorNeutral3};
 `
 
 const CancelButton = styled.button`
 	align-items: center;
-	border: 1px solid ${({ theme }) => theme.colorNeutral6};
+	border: 1px solid ${cssVar.colorNeutral6};
 	border-radius: 5px;
 	display: flex;
 	justify-content: center;
 	padding: 1rem 1.5rem;
 	text-transform: uppercase;
 	font-weight: 700;
-	color: ${({ theme }) => theme.colorNeutral5};
+	color: ${cssVar.colorNeutral5};
 	margin-right: 1rem;
 	transition: all 0.25s;
 
 	&:hover {
-		background: ${({ theme }) => theme.colorNeutral6};
-		color: ${({ theme }) => theme.colorNeutral10};
+		background: ${cssVar.colorNeutral6};
+		color: ${cssVar.colorNeutral10};
 	}
 
 	&:focus {
@@ -89,7 +89,7 @@ const CancelButton = styled.button`
 
 const SaveButton = styled.button`
 	align-items: center;
-	background: ${({ theme }) => theme.colorGreen6};
+	background: ${cssVar.colorGreen6};
 	border-radius: 5px;
 	border: none;
 	display: flex;
@@ -97,10 +97,10 @@ const SaveButton = styled.button`
 	padding: 1rem 1.5rem;
 	text-transform: uppercase;
 	font-weight: 700;
-	color: ${({ theme }) => theme.colorNeutral10};
+	color: ${cssVar.colorNeutral10};
 
 	&:hover {
-		background: ${({ theme }) => theme.colorGreen5};
+		background: ${cssVar.colorGreen5};
 	}
 
 	&:focus {
@@ -110,9 +110,9 @@ const SaveButton = styled.button`
 
 const PriorityType = styled.div`
 	align-items: center;
-	background: ${({ theme, type, priority }) => (type === priority ? typeColor(type, 9) : theme.colorNeutral10)};
+	background: ${({ type, priority }) => (type === priority ? typeColor(type, 9) : cssVar.colorNeutral10)};
 	border: ${({ type, priority }) => (type === priority ? `2px solid ${typeColor(type, 5)}` : '')};
-	border-radius: ${({ theme }) => theme.bRadiusSm};
+	border-radius: ${cssVar.bRadiusSm};
 	color: ${({ type, priority }) => (type === priority ? typeColor(type, 1) : 'currentColor')};
 	cursor: pointer;
 	display: flex;
@@ -132,11 +132,11 @@ const PriorityType = styled.div`
 const typeColor = (type, number) => {
 	switch (type) {
 		case 'low':
-			return theme[`colorGreen${number}`]
+			return cssVar[`colorGreen${number}`]
 		case 'medium':
-			return theme[`colorYellow${number}`]
+			return cssVar[`colorYellow${number}`]
 		default:
-			return theme[`colorRed${number}`]
+			return cssVar[`colorRed${number}`]
 	}
 }
 

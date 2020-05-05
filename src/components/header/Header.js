@@ -1,14 +1,15 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo-light.png'
 import profileImg from '../../assets/profile.png'
 import styled from 'styled-components'
-import { theme } from '../../app/Theme'
+import cssVar from '../../app/theme/constants'
+import ToggleTheme from '../../components/toggle-theme/ToggleTheme'
 
 const NavWrapper = styled.nav`
-	background: ${({ theme }) => theme.colorWhite};
+	background: ${({ theme }) => theme.headerBackgroundColor};
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-	color: ${({ theme }) => theme.colorNeutral6};
+	color: ${({ theme }) => theme.textColor};
 	height: 6rem;
 	display: grid;
 	grid-template-columns: 1fr 3fr 4fr 3fr 7rem;
@@ -24,8 +25,8 @@ const NavWrapper = styled.nav`
 
 	@media only screen and (max-width: 600px) {
 		display: grid;
-        grid-template-columns: 1fr 3fr 1fr;
-        grid-template-rows: 1fr;
+		grid-template-columns: 1fr 3fr 1fr;
+		grid-template-rows: 1fr;
 	}
 `
 
@@ -39,7 +40,7 @@ const StyledNavBoardLink = styled(NavLink)`
 	text-decoration: none;
 
 	&.active {
-		color: ${({ theme }) => theme.color};
+		color: ${cssVar.color};
 		text-decoration: none;
 	}
 	
@@ -66,23 +67,24 @@ const HeaderSearch = styled.div`
 		border-radius: 10px;
 		border: none;
 		font-size: 1.6rem;
+		background: transparent;
 
 		&:focus {
 			outline: none;
 		}
 
 		&:active {
-			color: ${({ theme }) => theme.colorNeutral8};
+			color: ${(cssVar.colorNeutral8)};
 		}
 
 		&::placeholder {
-			color: ${({ theme }) => theme.colorNeutral7};
+			color: ${cssVar.colorNeutral7};
 			font-style: italic;
 			font-size: 1.4rem;
 		}
 
 		&:focus::-webkit-input-placeholder {
-			color: ${({ theme }) => theme.colorNeutral5};
+			color: ${cssVar.colorNeutral5};
 		}
 	}
 
@@ -147,7 +149,7 @@ const StyledNavMenuLink = styled(NavLink)`
 	font-size: 1.4rem;
 
 	&.active {
-		color: ${({ theme }) => theme.color};
+		color: ${cssVar.color};
 	}
 
 	@media only screen and (max-width: 600px) {
@@ -156,11 +158,18 @@ const StyledNavMenuLink = styled(NavLink)`
 	}
 `
 
-const Header = () => {
+const Header = ({ theme, changeTheme }) => {
+
+	const toggleTheme = () => {
+		let newTheme
+		newTheme = theme === 'light' ? 'dark' : 'light'
+		window.localStorage.setItem('theme', newTheme)
+		changeTheme(newTheme)
+	}
 
 	return (
 		<NavWrapper>
-			<StyledNavBoardLink exact to="/workspace/test" theme={{ color: theme.colorNeutral8 }}>
+			<StyledNavBoardLink exact to="/workspace/test" theme={{ color: cssVar.colorNeutral8 }}>
 				<span className="fa fa-clone"></span>
 				<span className="boards">Boards</span>
 			</StyledNavBoardLink>
@@ -172,9 +181,10 @@ const Header = () => {
 			<User>
 				<img alt="profile" src={profileImg} />
 				<UserName>Hello, Scott!</UserName>
-				<span className="fa fa-bell"></span>
+				{/* <span className="fa fa-sun" onClick={toggleTheme}></span> */}
+				<ToggleTheme toggleTheme={toggleTheme} />
 			</User>
-			<StyledNavMenuLink exact to="/dashboard" theme={{ color: theme.colorNeutral8 }}>
+			<StyledNavMenuLink exact to="/dashboard" theme={{ color: cssVar.colorNeutral8 }}>
 				<span className="fa fa-bars"></span>
 			</StyledNavMenuLink>
 		</NavWrapper>

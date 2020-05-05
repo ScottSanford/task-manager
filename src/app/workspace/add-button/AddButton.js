@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import cssVar from '../../theme/constants'
 
 const AddButtonStyled = styled.div`
 	align-items: baseline;
 	align-self: baseline;
-	background: ${({ theme }) => theme.colorYellow5};
+	background: ${cssVar.colorYellow5};
 	border-radius: 10px;
 	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
-	color: ${({ theme }) => theme.colorWhite};
+	color: ${cssVar.colorWhite};
 	display: flex;
 	font-size: 1.4rem;
 	font-weight: 600;
