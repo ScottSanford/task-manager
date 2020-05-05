@@ -32,12 +32,16 @@ export const GlobalStyle = createGlobalStyle`
 
 export const lightTheme = {
   bodyBackgroundColor: cssVar.colorNeutral10,
+  listBackgroundColor: cssVar.colorNeutral7,
   textColor: cssVar.colorNeutral2,
+  textColor2: cssVar.colorNeutral4,
   headerBackgroundColor: cssVar.colorWhite,
 }
 
 export const darkTheme = {
   bodyBackgroundColor: cssVar.colorNeutral2,
+  listBackgroundColor: cssVar.colorNeutral7,
   textColor: cssVar.colorNeutral10,
+  textColor2: cssVar.colorNeutral9,
   headerBackgroundColor: cssVar.colorNeutral4,
 }

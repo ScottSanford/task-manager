@@ -12,7 +12,7 @@ const TicketListStyled = styled.div`
 `
 
 const ListContainer = styled.div`
-	background: ${({ isDraggingOver }) => isDraggingOver ? cssVar.colorNeutral7 : cssVar.colorWhite};
+	background: ${({ theme }) => theme.listBackgroundColor};
 	border-radius: ${cssVar.bRadiusSm};
 	min-height: 5rem;
 	padding: 1rem;
@@ -21,7 +21,7 @@ const ListContainer = styled.div`
 const AddButton = styled.div`
 	align-items: center;
 	border-radius: ${cssVar.bRadiusSm};
-	color: ${cssVar.colorNeutral6};
+	color: ${({ theme }) => theme.textColor};
 	display: flex;
 	height: 4rem;
 	justify-content: center;
@@ -59,7 +59,7 @@ const TicketList = ({
 			{(provided, snapshot) => (
 				<TicketListStyled ref={provided.innerRef} {...provided.droppableProps}>
 					<TicketListHeader title={column.title} handleDeleteClick={handleDeleteClick} />
-					<ListContainer isDraggingOver={snapshot.isDraggingOver}>
+					<ListContainer isDraggingOver={snapshot.isDraggingOver} localTheme={window.localStorage.getItem('theme')}>
 						{tickets.map((item, index) => {
 							return <Ticket
 								key={item.id}

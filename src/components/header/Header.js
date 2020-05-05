@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo-light.png'
 import profileImg from '../../assets/profile.png'
 import styled from 'styled-components'
 import cssVar from '../../app/theme/constants'
@@ -24,8 +24,8 @@ const NavWrapper = styled.nav`
 
 	@media only screen and (max-width: 600px) {
 		display: grid;
-        grid-template-columns: 1fr 3fr 1fr;
-        grid-template-rows: 1fr;
+		grid-template-columns: 1fr 3fr 1fr;
+		grid-template-rows: 1fr;
 	}
 `
 
@@ -66,13 +66,14 @@ const HeaderSearch = styled.div`
 		border-radius: 10px;
 		border: none;
 		font-size: 1.6rem;
+		background: transparent;
 
 		&:focus {
 			outline: none;
 		}
 
 		&:active {
-			color: ${cssVar.colorNeutral8};
+			color: ${(cssVar.colorNeutral8)};
 		}
 
 		&::placeholder {
@@ -179,7 +180,7 @@ const Header = ({ theme, changeTheme }) => {
 			<User>
 				<img alt="profile" src={profileImg} />
 				<UserName>Hello, Scott!</UserName>
-				<span className="fa fa-bell" onClick={toggleTheme}></span>
+				<span className="fa fa-sun" onClick={toggleTheme}></span>
 			</User>
 			<StyledNavMenuLink exact to="/dashboard" theme={{ color: cssVar.colorNeutral8 }}>
 				<span className="fa fa-bars"></span>

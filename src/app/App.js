@@ -15,7 +15,6 @@ import LoginPage from './login/LoginPage'
 function App({ theme }) {
   console.log('theme', theme)
   const localTheme = window.localStorage.getItem('theme')
-  const isLightTheme = (localTheme && localTheme === 'light') || theme === 'light'
 
   return (
     <ThemeProvider theme={localTheme && localTheme === 'light' ? lightTheme : darkTheme}>
