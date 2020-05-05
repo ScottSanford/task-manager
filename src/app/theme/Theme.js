@@ -27,6 +27,7 @@ export const GlobalStyle = createGlobalStyle`
     height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: all 0.25s linear;
   }
 `
 

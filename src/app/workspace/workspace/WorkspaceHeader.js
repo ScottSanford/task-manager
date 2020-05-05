@@ -18,7 +18,6 @@ const ProjectInfo = styled.div`
 const ProjectType = styled.div`
 	align-items: center;
 	background: ${cssVar.colorPrimary5};
-	box-shadow: 0 3px 6px ${cssVar.colorPrimary8};
 	border-radius: ${cssVar.bRadiusSm};
 	color: ${cssVar.colorNeutral10};
 	display: flex;

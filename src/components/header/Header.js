@@ -4,6 +4,7 @@ import logo from '../../assets/logo-light.png'
 import profileImg from '../../assets/profile.png'
 import styled from 'styled-components'
 import cssVar from '../../app/theme/constants'
+import ToggleTheme from '../../components/toggle-theme/ToggleTheme'
 
 const NavWrapper = styled.nav`
 	background: ${({ theme }) => theme.headerBackgroundColor};
@@ -180,7 +181,8 @@ const Header = ({ theme, changeTheme }) => {
 			<User>
 				<img alt="profile" src={profileImg} />
 				<UserName>Hello, Scott!</UserName>
-				<span className="fa fa-sun" onClick={toggleTheme}></span>
+				{/* <span className="fa fa-sun" onClick={toggleTheme}></span> */}
+				<ToggleTheme toggleTheme={toggleTheme} />
 			</User>
 			<StyledNavMenuLink exact to="/dashboard" theme={{ color: cssVar.colorNeutral8 }}>
 				<span className="fa fa-bars"></span>
