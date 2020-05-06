@@ -165,7 +165,8 @@ const Header = () => {
 
 	const appTheme = useSelector((state) => state.appTheme)
 	const dispatch = useDispatch()
-	const toggleTheme = () => {
+	const toggleTheme = (event) => {
+		console.log(event.target.value)
 		return appTheme === 'light'
 			? dispatch(changeThemeAction('dark'))
 			: dispatch(changeThemeAction('light'))
@@ -185,8 +186,7 @@ const Header = () => {
 			<User>
 				<img alt="profile" src={profileImg} />
 				<UserName>Hello, Scott!</UserName>
-				{/* <span className="fa fa-sun" onClick={toggleTheme}></span> */}
-				<ToggleTheme toggleTheme={toggleTheme} />
+				<ToggleTheme toggleTheme={toggleTheme} appTheme={appTheme} />
 			</User>
 			<StyledNavMenuLink exact to="/dashboard" theme={{ color: cssVar.colorNeutral8 }}>
 				<span className="fa fa-bars"></span>
