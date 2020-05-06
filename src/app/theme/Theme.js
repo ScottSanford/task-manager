@@ -2,15 +2,20 @@ import { createGlobalStyle } from 'styled-components'
 import cssVar from './constants'
 import theme from 'styled-theming'
 
+export const themeModes = {
+  lightMode: 'light',
+  darkMode: 'dark',
+}
+
 // Theme Colors
 const background = theme('mode', {
-  'light': cssVar.colorNeutral10,
-  'dark': cssVar.colorNeutral2,
+  [themeModes.lightMode]: cssVar.colorNeutral10,
+  [themeModes.darkMode]: cssVar.colorNeutral2,
 })
 
 const color = theme('mode', {
-  'light': cssVar.colorNeutral2,
-  'dark': cssVar.colorNeutral10,
+  [themeModes.lightMode]: cssVar.colorNeutral2,
+  [themeModes.darkMode]: cssVar.colorNeutral10,
 })
 
 export const GlobalStyle = createGlobalStyle`
@@ -42,19 +47,3 @@ export const GlobalStyle = createGlobalStyle`
     transition: all 0.25s linear;
   }
 `
-
-export const lightTheme = {
-  bodyBackgroundColor: cssVar.colorNeutral10,
-  listBackgroundColor: cssVar.colorNeutral7,
-  textColor: cssVar.colorNeutral2,
-  textColor2: cssVar.colorNeutral4,
-  headerBackgroundColor: cssVar.colorWhite,
-}
-
-export const darkTheme = {
-  bodyBackgroundColor: cssVar.colorNeutral2,
-  listBackgroundColor: cssVar.colorNeutral7,
-  textColor: cssVar.colorNeutral10,
-  textColor2: cssVar.colorNeutral9,
-  headerBackgroundColor: cssVar.colorNeutral4,
-}

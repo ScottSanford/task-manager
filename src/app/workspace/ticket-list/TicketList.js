@@ -6,11 +6,13 @@ import styled from 'styled-components'
 import TicketListHeader from './TicketListHeader'
 import cssVar from '../../theme/constants'
 import theme from 'styled-theming'
+import { themeModes } from '../../theme/Theme'
 
 const color = theme('mode', {
-	'light': cssVar.colorNeutral2,
-	'dark': cssVar.colorNeutral10,
+	[themeModes.lightMode]: cssVar.colorNeutral2,
+	[themeModes.darkMode]: cssVar.colorNeutral10,
 })
+
 
 const TicketListStyled = styled.div`
 	border-radius: ${cssVar.bRadiusSm};
