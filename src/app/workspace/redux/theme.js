@@ -1,18 +1,18 @@
 import initialState from '../../initialState'
 
 // ACTIONS
-export const CHANGE_THEME = '[theme] Change Theme'
+export const TOGGLE_DARKTHEME = '[theme] Change Theme'
 
 // ACTION CREATORS
 export function changeThemeAction(payload) {
-	return { type: CHANGE_THEME, payload }
+	return { type: TOGGLE_DARKTHEME, payload }
 }
 
 // REDUCER
-export function themeReducer(state = initialState.theme, action) {
+export function themeReducer(state = initialState.appTheme, action) {
 	console.log(action)
 	switch (action.type) {
-		case CHANGE_THEME:
+		case TOGGLE_DARKTHEME:
 			return action.payload
 		default:
 			return state

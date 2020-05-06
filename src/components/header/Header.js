@@ -5,11 +5,25 @@ import profileImg from '../../assets/profile.png'
 import styled from 'styled-components'
 import cssVar from '../../app/theme/constants'
 import ToggleTheme from '../../components/toggle-theme/ToggleTheme'
+import { useSelector, useDispatch } from 'react-redux'
+import { changeThemeAction } from '../../app/workspace/redux/theme'
+import theme from 'styled-theming'
+
+const background = theme('mode', {
+	'light': cssVar.colorNeutral10,
+	'dark': cssVar.colorNeutral3,
+})
+
+const color = theme('mode', {
+	'light': cssVar.colorNeutral2,
+	'dark': cssVar.colorNeutral10,
+})
+
 
 const NavWrapper = styled.nav`
-	background: ${({ theme }) => theme.headerBackgroundColor};
+	background: ${background};
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-	color: ${({ theme }) => theme.textColor};
+	color: ${color};
 	height: 6rem;
 	display: grid;
 	grid-template-columns: 1fr 3fr 4fr 3fr 7rem;
@@ -158,13 +172,15 @@ const StyledNavMenuLink = styled(NavLink)`
 	}
 `
 
-const Header = ({ theme, changeTheme }) => {
+const Header = () => {
 
-	const toggleTheme = () => {
-		let newTheme
-		newTheme = theme === 'light' ? 'dark' : 'light'
-		window.localStorage.setItem('theme', newTheme)
-		changeTheme(newTheme)
+	const appTheme = useSelector((state) => state.appTheme)
+	const dispatch = useDispatch()
+	const toggleTheme = (event) => {
+		console.log(event.target.value)
+		return appTheme === 'light'
+			? dispatch(changeThemeAction('dark'))
+			: dispatch(changeThemeAction('light'))
 	}
 
 	return (
@@ -181,8 +197,7 @@ const Header = ({ theme, changeTheme }) => {
 			<User>
 				<img alt="profile" src={profileImg} />
 				<UserName>Hello, Scott!</UserName>
-				{/* <span className="fa fa-sun" onClick={toggleTheme}></span> */}
-				<ToggleTheme toggleTheme={toggleTheme} />
+				<ToggleTheme toggleTheme={toggleTheme} appTheme={appTheme} />
 			</User>
 			<StyledNavMenuLink exact to="/dashboard" theme={{ color: cssVar.colorNeutral8 }}>
 				<span className="fa fa-bars"></span>

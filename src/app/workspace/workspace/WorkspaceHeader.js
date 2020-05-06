@@ -1,6 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import cssVar from '../../theme/constants'
+import theme from 'styled-theming'
+
+const color = theme('mode', {
+	'light': cssVar.colorNeutral4,
+	'dark': cssVar.colorNeutral9,
+})
 
 const StyledWorkspaceHeader = styled.div`
 	align-items: center;
@@ -38,7 +44,7 @@ const ProjectInfoMeta = styled.div`
 
 	& span:last-of-type {
 		font-size: 1.2rem;
-		color: ${({ theme }) => theme.textColor};
+		color: ${color};
 		font-style: italic;
 	}
 `

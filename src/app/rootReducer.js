@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
 	listOrder: listOrderReducer,
 	users: usersReducer,
 	tickets: ticketsReducer,
-	theme: themeReducer
+	appTheme: themeReducer
 })
 
 export default rootReducer

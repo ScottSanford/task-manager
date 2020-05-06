@@ -5,6 +5,12 @@ import { Droppable } from 'react-beautiful-dnd'
 import styled from 'styled-components'
 import TicketListHeader from './TicketListHeader'
 import cssVar from '../../theme/constants'
+import theme from 'styled-theming'
+
+const color = theme('mode', {
+	'light': cssVar.colorNeutral2,
+	'dark': cssVar.colorNeutral10,
+})
 
 const TicketListStyled = styled.div`
 	border-radius: ${cssVar.bRadiusSm};
@@ -12,7 +18,7 @@ const TicketListStyled = styled.div`
 `
 
 const ListContainer = styled.div`
-	background: ${({ theme }) => theme.listBackgroundColor};
+	background: ${cssVar.colorNeutral7};
 	border-radius: ${cssVar.bRadiusSm};
 	min-height: 5rem;
 	padding: 1rem;
@@ -21,7 +27,7 @@ const ListContainer = styled.div`
 const AddButton = styled.div`
 	align-items: center;
 	border-radius: ${cssVar.bRadiusSm};
-	color: ${({ theme }) => theme.textColor};
+	color: ${color};
 	display: flex;
 	height: 4rem;
 	justify-content: center;

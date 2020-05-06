@@ -7,7 +7,14 @@ import configureStore from './app/store'
 import { Provider as ReduxProvider } from 'react-redux'
 
 const store = configureStore()
-console.log('STORE::', store.getState())
+
+store.subscribe(() => {
+  const appTheme = store.getState().appTheme
+  if (!appTheme) return
+
+  localStorage.setItem('appTheme', appTheme)
+})
+console.log('STORE::', store)
 
 ReactDOM.render(
   <ReduxProvider store={store}>

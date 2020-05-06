@@ -5,7 +5,6 @@ import { updateTicketAction } from './redux/tickets'
 import Workspace from './workspace/Workspace'
 import { changeThemeAction } from './redux/theme'
 
-
 const WorkspacePage = ({
 	addTicketToList,
 	changeTheme,
