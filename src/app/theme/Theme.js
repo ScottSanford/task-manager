@@ -1,5 +1,17 @@
 import { createGlobalStyle } from 'styled-components'
 import cssVar from './constants'
+import theme from 'styled-theming'
+
+// Theme Colors
+const background = theme('mode', {
+  'light': cssVar.colorNeutral10,
+  'dark': cssVar.colorNeutral2,
+})
+
+const color = theme('mode', {
+  'light': cssVar.colorNeutral2,
+  'dark': cssVar.colorNeutral10,
+})
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -19,8 +31,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    color: ${({ theme }) => theme.textColor};
-    background: ${({ theme }) => theme.bodyBackgroundColor};
+    color: ${color};
+    background: ${background};
     font-family: soleil, sans-serif;
     font-style: normal;
     font-weight: 300;

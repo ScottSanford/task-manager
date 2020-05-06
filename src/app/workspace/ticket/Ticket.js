@@ -3,6 +3,7 @@ import Priority from './Priority'
 import { Draggable } from 'react-beautiful-dnd'
 import styled from 'styled-components'
 import cssVar from '../../theme/constants'
+import theme from 'styled-theming'
 
 const TicketWrapper = styled.div`
 	background: ${({ isDragging, localTheme }) => (
@@ -39,12 +40,17 @@ const TicketWrapper = styled.div`
 	}
 `
 
+const color = theme('mode', {
+	'light': cssVar.colorNeutral4,
+	'dark': cssVar.colorNeutral9,
+})
+
 const TicketTitle = styled.div`
 	grid-column: 1 / 3;
 	grid-row: 2;
 	font-weight: 700;
 	line-height: 1.2;
-	color: ${({ theme }) => theme.textColor2};
+	color: ${color};
 	font-size: 16px;
 	margin-top: 1rem;
 
@@ -60,7 +66,7 @@ const TicketDueDate = styled.div`
     grid-column: 1 / -1;
     display: flex;
     align-items: baseline;
-    color: ${({ theme }) => theme.textColor2};
+    color: ${color};
     font-weight: 600;
     margin-top: 2rem;
 	
