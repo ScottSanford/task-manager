@@ -14,7 +14,7 @@ import LoginPage from './login/LoginPage'
 function App() {
 
   const appTheme = useSelector((state) => state.appTheme)
-  console.log('app', appTheme)
+
   return (
     <ThemeProvider theme={{ mode: appTheme }}>
       <div className="App">

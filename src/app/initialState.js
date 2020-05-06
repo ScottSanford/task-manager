@@ -1,5 +1,8 @@
+const localStorageKey = 'appTheme'
+const persistedTheme = localStorage.getItem(localStorageKey)
+
 export default {
-	appTheme: 'light',
+	appTheme: persistedTheme ? persistedTheme : 'light',
 	projects: [
 		{ title: 'Personal', icon: 'user', id: 'bafpvij' },
 		{ title: 'Career', icon: 'briefcase', id: 'dogbvij' },
