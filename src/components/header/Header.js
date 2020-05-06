@@ -7,12 +7,23 @@ import cssVar from '../../app/theme/constants'
 import ToggleTheme from '../../components/toggle-theme/ToggleTheme'
 import { useSelector, useDispatch } from 'react-redux'
 import { changeThemeAction } from '../../app/workspace/redux/theme'
+import theme from 'styled-theming'
+
+const background = theme('mode', {
+	'light': cssVar.colorNeutral10,
+	'dark': cssVar.colorNeutral2,
+})
+
+const color = theme('mode', {
+	'light': cssVar.colorNeutral2,
+	'dark': cssVar.colorNeutral10,
+})
 
 
 const NavWrapper = styled.nav`
-	background: ${({ theme }) => theme.headerBackgroundColor};
+	background: ${background};
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-	color: ${({ theme }) => theme.textColor};
+	color: ${color};
 	height: 6rem;
 	display: grid;
 	grid-template-columns: 1fr 3fr 4fr 3fr 7rem;

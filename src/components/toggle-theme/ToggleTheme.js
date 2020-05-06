@@ -4,8 +4,9 @@ import styled from 'styled-components'
 const ToggleThemeStyled = styled.div`
 	.theme-switch-wrapper {
 		display: flex;
-			align-items: center;
-		}
+		align-items: center;
+	}
+
 	.theme-switch {
 		display: inline-block;
 		height: 30px;

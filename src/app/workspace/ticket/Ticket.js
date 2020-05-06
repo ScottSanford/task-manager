@@ -5,6 +5,16 @@ import styled from 'styled-components'
 import cssVar from '../../theme/constants'
 import theme from 'styled-theming'
 
+const dueDateColor = theme('mode', {
+	'light': cssVar.colorNeutral4,
+	'dark': cssVar.colorNeutral9,
+})
+
+const titleColor = theme('mode', {
+	'light': cssVar.colorPrimary4,
+	'dark': cssVar.colorPrimary7,
+})
+
 const TicketWrapper = styled.div`
 	background: ${({ isDragging, localTheme }) => (
 		(isDragging && localTheme === 'light')
@@ -12,9 +22,9 @@ const TicketWrapper = styled.div`
 			: (!isDragging && localTheme === 'light')
 				? cssVar.colorWhite
 				: (isDragging && localTheme === 'dark')
-					? cssVar.colorNeutral3
+					? cssVar.colorNeutral2
 					: (!isDragging && localTheme === 'dark')
-						? cssVar.colorNeutral5
+						? cssVar.colorNeutral4
 						: cssVar.colorWhite
 	)};
 	border-radius: 4px;
@@ -40,17 +50,12 @@ const TicketWrapper = styled.div`
 	}
 `
 
-const color = theme('mode', {
-	'light': cssVar.colorNeutral4,
-	'dark': cssVar.colorNeutral9,
-})
-
 const TicketTitle = styled.div`
 	grid-column: 1 / 3;
 	grid-row: 2;
 	font-weight: 700;
 	line-height: 1.2;
-	color: ${color};
+	color: ${titleColor};
 	font-size: 16px;
 	margin-top: 1rem;
 
@@ -66,7 +71,7 @@ const TicketDueDate = styled.div`
     grid-column: 1 / -1;
     display: flex;
     align-items: baseline;
-    color: ${color};
+    color: ${dueDateColor};
     font-weight: 600;
     margin-top: 2rem;
 	
@@ -101,7 +106,7 @@ const Ticket = ({ item, index, openModal }) => {
 						{...provided.draggableProps}
 						isDragging={snapshot.isDragging}
 						onClick={() => openModal(item)}
-						localTheme={window.localStorage.getItem('theme')}>
+						localTheme={window.localStorage.getItem('appTheme')}>
 						<Priority level={item.priority} />
 						<TicketTitle>{item.title}</TicketTitle>
 						<TicketDueDate>

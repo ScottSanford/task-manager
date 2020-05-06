@@ -7,6 +7,7 @@ import configureStore from './app/store'
 import { Provider as ReduxProvider } from 'react-redux'
 
 const store = configureStore()
+
 store.subscribe(() => {
   const appTheme = store.getState().appTheme
   if (!appTheme) return

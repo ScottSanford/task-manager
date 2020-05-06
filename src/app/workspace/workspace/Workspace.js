@@ -29,8 +29,6 @@ const Workspace = ({
 	listOrder,
 	updateTicket,
 	reorderList,
-	changeTheme,
-	theme,
 }) => {
 
 	const [showModal, setShowModal] = useState(false)
@@ -74,7 +72,7 @@ const Workspace = ({
 
 	return (
 		<div className="workspace-page">
-			<Header theme={theme} changeTheme={changeTheme} />
+			<Header />
 			<StyledWorkspace>
 				<WorkspaceHeader />
 				<DragDropContext onDragEnd={handleOnDragEnd}>
