@@ -5,6 +5,9 @@ import profileImg from '../../assets/profile.png'
 import styled from 'styled-components'
 import cssVar from '../../app/theme/constants'
 import ToggleTheme from '../../components/toggle-theme/ToggleTheme'
+import { useSelector, useDispatch } from 'react-redux'
+import { changeThemeAction } from '../../app/workspace/redux/theme'
+
 
 const NavWrapper = styled.nav`
 	background: ${({ theme }) => theme.headerBackgroundColor};
@@ -158,13 +161,14 @@ const StyledNavMenuLink = styled(NavLink)`
 	}
 `
 
-const Header = ({ theme, changeTheme }) => {
+const Header = () => {
 
+	const appTheme = useSelector((state) => state.appTheme)
+	const dispatch = useDispatch()
 	const toggleTheme = () => {
-		let newTheme
-		newTheme = theme === 'light' ? 'dark' : 'light'
-		window.localStorage.setItem('theme', newTheme)
-		changeTheme(newTheme)
+		return appTheme === 'light'
+			? dispatch(changeThemeAction('dark'))
+			: dispatch(changeThemeAction('light'))
 	}
 
 	return (

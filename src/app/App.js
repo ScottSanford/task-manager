@@ -4,18 +4,19 @@ import { Route, Switch } from 'react-router-dom'
 import '../../node_modules/@fortawesome/fontawesome-free/css/all.min.css'
 import { GlobalStyle } from './theme/Theme'
 import { ThemeProvider } from 'styled-components'
-import { connect } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 // Components
 import Dashboard from './dashboard/Dashboard'
 import WorkspacePage from './workspace/WorkspaceContainer'
 import LoginPage from './login/LoginPage'
 
-function App({ theme }) {
-  console.log('theme', theme)
+function App() {
 
+  const appTheme = useSelector((state) => state.appTheme)
+  console.log('app', appTheme)
   return (
-    <ThemeProvider theme={{ mode: theme }}>
+    <ThemeProvider theme={{ mode: appTheme }}>
       <div className="App">
         <GlobalStyle />
         <Switch>
@@ -28,12 +29,4 @@ function App({ theme }) {
   )
 }
 
-function mapStateToProps(state) {
-  return {
-    theme: state.theme,
-  }
-}
-
-const actionCreators = {}
-
-export default connect(mapStateToProps, actionCreators)(App)
+export default App
