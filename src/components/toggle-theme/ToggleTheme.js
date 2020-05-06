@@ -55,6 +55,10 @@ const ToggleThemeStyled = styled.div`
 	.slider.round:before {
 		border-radius: 50%;
 	}
+
+	@media only screen and (max-width: 600px) {
+		display: none;
+	}
 `
 
 const ToggleTheme = ({ toggleTheme, appTheme }) => {

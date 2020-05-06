@@ -11,7 +11,7 @@ import theme from 'styled-theming'
 
 const background = theme('mode', {
 	'light': cssVar.colorNeutral10,
-	'dark': cssVar.colorNeutral2,
+	'dark': cssVar.colorNeutral3,
 })
 
 const color = theme('mode', {

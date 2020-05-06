@@ -5,14 +5,9 @@ import styled from 'styled-components'
 import cssVar from '../../theme/constants'
 import theme from 'styled-theming'
 
-const dueDateColor = theme('mode', {
+const color = theme('mode', {
 	'light': cssVar.colorNeutral4,
 	'dark': cssVar.colorNeutral9,
-})
-
-const titleColor = theme('mode', {
-	'light': cssVar.colorPrimary4,
-	'dark': cssVar.colorPrimary7,
 })
 
 const TicketWrapper = styled.div`
@@ -55,7 +50,7 @@ const TicketTitle = styled.div`
 	grid-row: 2;
 	font-weight: 700;
 	line-height: 1.2;
-	color: ${titleColor};
+	color: ${color};
 	font-size: 16px;
 	margin-top: 1rem;
 
@@ -71,7 +66,7 @@ const TicketDueDate = styled.div`
     grid-column: 1 / -1;
     display: flex;
     align-items: baseline;
-    color: ${dueDateColor};
+    color: ${color};
     font-weight: 600;
     margin-top: 2rem;
 	
