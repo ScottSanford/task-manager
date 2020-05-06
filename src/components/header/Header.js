@@ -8,17 +8,17 @@ import ToggleTheme from '../../components/toggle-theme/ToggleTheme'
 import { useSelector, useDispatch } from 'react-redux'
 import { changeThemeAction } from '../../app/workspace/redux/theme'
 import theme from 'styled-theming'
+import { themeModes } from '../../app/theme/Theme'
 
 const background = theme('mode', {
-	'light': cssVar.colorNeutral10,
-	'dark': cssVar.colorNeutral3,
+	[themeModes.lightMode]: cssVar.colorNeutral10,
+	[themeModes.darkMode]: cssVar.colorNeutral3,
 })
 
 const color = theme('mode', {
-	'light': cssVar.colorNeutral2,
-	'dark': cssVar.colorNeutral10,
+	[themeModes.lightMode]: cssVar.colorNeutral2,
+	[themeModes.darkMode]: cssVar.colorNeutral10,
 })
-
 
 const NavWrapper = styled.nav`
 	background: ${background};

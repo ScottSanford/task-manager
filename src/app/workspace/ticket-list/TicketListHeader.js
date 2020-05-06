@@ -2,10 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import theme from 'styled-theming'
 import cssVar from '../../theme/constants'
+import { themeModes } from '../../theme/Theme'
 
 const color = theme('mode', {
-	'light': cssVar.colorNeutral2,
-	'dark': cssVar.colorNeutral10,
+	[themeModes.lightMode]: cssVar.colorNeutral2,
+	[themeModes.darkMode]: cssVar.colorNeutral10,
 })
 
 const Header = styled.div`

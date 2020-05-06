@@ -2,10 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import cssVar from '../../theme/constants'
 import theme from 'styled-theming'
+import { themeModes } from '../../theme/Theme'
 
 const color = theme('mode', {
-	'light': cssVar.colorNeutral4,
-	'dark': cssVar.colorNeutral9,
+	[themeModes.lightMode]: cssVar.colorNeutral2,
+	[themeModes.darkMode]: cssVar.colorNeutral10,
 })
 
 const StyledWorkspaceHeader = styled.div`
