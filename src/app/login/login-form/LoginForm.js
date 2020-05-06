@@ -143,8 +143,8 @@ const LoginForm = () => {
 }
 
 const ErrorValidation = styled.div`
-	background: ${({ theme }) => theme.colorRed9};
-	color: ${({ theme }) => theme.colorRed3};
+	background: ${cssVar.colorRed9};
+	color: ${cssVar.colorRed3};
 	padding: 1rem 2rem;
 	width: 100%;
 	border-radius: 3px;

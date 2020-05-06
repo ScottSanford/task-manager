@@ -2,10 +2,9 @@ import React from 'react'
 import './App.css'
 import { Route, Switch } from 'react-router-dom'
 import '../../node_modules/@fortawesome/fontawesome-free/css/all.min.css'
-import { GlobalStyle, lightTheme, darkTheme } from './theme/Theme'
+import { GlobalStyle } from './theme/Theme'
 import { ThemeProvider } from 'styled-components'
 import { connect } from 'react-redux'
-
 
 // Components
 import Dashboard from './dashboard/Dashboard'
@@ -14,10 +13,9 @@ import LoginPage from './login/LoginPage'
 
 function App({ theme }) {
   console.log('theme', theme)
-  const localTheme = window.localStorage.getItem('theme')
 
   return (
-    <ThemeProvider theme={localTheme && localTheme === 'light' ? lightTheme : darkTheme}>
+    <ThemeProvider theme={{ mode: theme }}>
       <div className="App">
         <GlobalStyle />
         <Switch>
