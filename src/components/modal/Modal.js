@@ -113,7 +113,7 @@ const PriorityType = styled.div`
 	background: ${({ type, priority }) => (type === priority ? typeColor(type, 9) : cssVar.colorNeutral10)};
 	border: ${({ type, priority }) => (type === priority ? `2px solid ${typeColor(type, 5)}` : '')};
 	border-radius: ${cssVar.bRadiusSm};
-	color: ${({ type, priority }) => (type === priority ? typeColor(type, 1) : 'currentColor')};
+	color: ${({ type, priority }) => (type === priority ? typeColor(type, 1) : cssVar.colorNeutral3)};
 	cursor: pointer;
 	display: flex;
 	font-size: 1.3rem;
