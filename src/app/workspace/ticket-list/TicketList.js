@@ -67,7 +67,7 @@ const TicketList = ({
 			{(provided, snapshot) => (
 				<TicketListStyled ref={provided.innerRef} {...provided.droppableProps}>
 					<TicketListHeader title={column.title} handleDeleteClick={handleDeleteClick} />
-					<ListContainer isDraggingOver={snapshot.isDraggingOver} localTheme={window.localStorage.getItem('theme')}>
+					<ListContainer isDraggingOver={snapshot.isDraggingOver} localTheme={window.localStorage.getItem('theme')} data-testid="ticketListContainer">
 						{tickets.map((item, index) => {
 							return <Ticket
 								key={item.id}
@@ -77,7 +77,7 @@ const TicketList = ({
 						})}
 						{provided.placeholder}
 						{isComposing ? <CardComposer onCardEnter={handleOnTicketEnter} /> : ''}
-						<AddButton onClick={handleAddActionClick}>Add Card</AddButton>
+						<AddButton onClick={handleAddActionClick} data-testid="addTicketButton">Add Card</AddButton>
 					</ListContainer>
 				</TicketListStyled>
 			)}
