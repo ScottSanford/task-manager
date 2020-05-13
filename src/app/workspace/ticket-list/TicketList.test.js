@@ -3,7 +3,6 @@ import '@testing-library/jest-dom'
 import TicketList from './TicketList'
 import { render, fireEvent, wait } from '@testing-library/react'
 import { DragDropContext } from 'react-beautiful-dnd'
-import { verticalDrag } from 'react-beautiful-dnd-tester'
 
 function renderComponent(args) {
 	const defaultProps = {
