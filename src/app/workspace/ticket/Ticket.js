@@ -101,7 +101,8 @@ const Ticket = ({ item, index, openModal }) => {
 						{...provided.draggableProps}
 						isDragging={snapshot.isDragging}
 						onClick={() => openModal(item)}
-						localTheme={window.localStorage.getItem('appTheme')}>
+						localTheme={window.localStorage.getItem('appTheme')}
+						data-testid="ticket">
 						<Priority level={item.priority} />
 						<TicketTitle>{item.title}</TicketTitle>
 						<TicketDueDate>
